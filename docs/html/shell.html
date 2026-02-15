@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shell module &mdash; ctlbase 1.0a1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="config module" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ctlbase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">shell module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.shell.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control.__init__"><code class="docutils literal notranslate"><span class="pre">Control.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.threadExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.threadExecutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.processExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.processExecutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigPath"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigPath</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigDict"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigDict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.msgBuffer"><code class="docutils literal notranslate"><span class="pre">ControlShell.msgBuffer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.lng"><code class="docutils literal notranslate"><span class="pre">ControlShell.lng</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.requestCleanup"><code class="docutils literal notranslate"><span class="pre">ControlShell.requestCleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.setControl"><code class="docutils literal notranslate"><span class="pre">ControlShell.setControl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.printOnExit"><code class="docutils literal notranslate"><span class="pre">ControlShell.printOnExit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.notifyReady"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.notifyReady()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.taskMonitor"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.taskMonitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctlbase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
+      <li class="breadcrumb-item active">shell module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ctlbase.shell">
+<span id="shell-module"></span><h1>shell module<a class="headerlink" href="#module-ctlbase.shell" title="Link to this heading"></a></h1>
+<p>Base classes for implementing CLI utilities and service daemons.</p>
+<p>The following concepts are “core” to this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>control</strong>: A control encapsulates the logic for “controlling” some other
+hardware or software resource. It is implemented by subclassing
+<a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>. Examples of such resources include:</p>
+<ul>
+<li><p>Actuators in a home automation context, optionally coupled to one or more
+sensors.</p></li>
+<li><p>Remote file systems to mount and unmount using various credentials from
+desktop keyrings, TPM2 hardware modules and more.</p></li>
+<li><p>A mediacenter software running on the same Linux machine, e.g. Kodi.</p></li>
+<li><p>Any REST-compliant service accessible on the network.</p></li>
+</ul>
+</li>
+<li><p><strong>action</strong>: A control defines one or more actions it can perform. 
+Supported actions must be listed in an <cite>Enum</cite> class.</p></li>
+<li><p><strong>mode</strong>: A control can optionally support different modes. Each mode can
+make the control behave differently for a given action. For instance,
+if controlling a curtain in a home automation context, a mode 
+<code class="docutils literal notranslate"><span class="pre">prevent-down</span></code> could be set. If action <code class="docutils literal notranslate"><span class="pre">roll-down</span></code> is requested with
+the mode active, the curtain actuator would not be triggered.</p></li>
+</ul>
+<p>For defining actions, a <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a> subclass must implement an
+<cite>Enum</cite> class as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Action</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">ACTION_A</span> <span class="o">=</span> <span class="s1">&#39;actiona&#39;</span>
+    <span class="n">ACTION_B</span> <span class="o">=</span> <span class="s1">&#39;actionb&#39;</span>
+</pre></div>
+</div>
+<p>… where <code class="docutils literal notranslate"><span class="pre">ACTION_A</span></code> and <code class="docutils literal notranslate"><span class="pre">ACTION_B</span></code> are constant names to be used in the
+Python code and <code class="docutils literal notranslate"><span class="pre">actiona</span></code> and <code class="docutils literal notranslate"><span class="pre">actionb</span></code> are the corresponding action 
+names to be used on the command line if implementing a CLI utility.</p>
+<p>Similarily, for defining modes, a <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a> subclass must implement
+an <cite>Enum</cite> class as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mode</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">MODE_X</span> <span class="o">=</span> <span class="s1">&#39;modex&#39;</span>
+    <span class="n">MODE_Y</span> <span class="o">=</span> <span class="s1">&#39;modey&#39;</span>
+</pre></div>
+</div>
+<p>… where <code class="docutils literal notranslate"><span class="pre">MODE_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MODE_Y</span></code> are constant names to be used in the
+Python code and <code class="docutils literal notranslate"><span class="pre">modex</span></code> and <code class="docutils literal notranslate"><span class="pre">modey</span></code> are the corresponding mode
+names to be used on the command line if implementing a CLI utility.</p>
+</div></blockquote>
+<p>The classes <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a> and <a class="reference internal" href="#ctlbase.shell.ServiceControlShell" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a> serve as
+Python context managers for common resources such as message buffers and process
+executors. By using them, a control can delegate the lifecycle management of 
+those resources. Furthermore, the <strong>shell</strong> classes handle output to <em>stdout</em>
+and/or log files.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.Control">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control" title="Link to this definition"></a></dt>
+<dd><p>Base class for a control.</p>
+<p>It provides a uniform interface for various kinds of controls. Eventually, 
+composite controls for several of these resources can be created, preserving
+the uniform interface. Furthermore, a set of CLI utilities can be created as
+a shell for these controls, all sharing common command line arguments, as
+well as plain text and JSON output. See the <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a> class 
+for details.</p>
+<p>Subclasses must call the super constructor <a class="reference internal" href="#ctlbase.shell.Control.__init__" title="ctlbase.shell.Control.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.shell.Control.params.processExecutor"></span><strong>processExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.processExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.process.ProcessExecutor</span></code> | None) – A process executor for executing (shell) 
+commands in a subprocess. 
+<code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not need this facility.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.envConfig"></span><strong>envConfig</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.envConfig">¶</a> (<em>tuple</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>] </em><em>| </em><em>str</em><em> | </em><em>bool</em><em> | </em><em>None</em>) – <p>An environment configuration in one of several 
+possible forms:</p>
+<ul>
+<li><p>A tuple of an absolute file path and the corresponding parsed 
+<cite>dict</cite>, if the configuration file has been parsed already.</p></li>
+<li><p>The path or file name of the Bash-style configuration file to be
+parsed. 
+See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery" title="ctlbase.config.FileDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDiscovery</span></code></a> for the discovery algorithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> for discovering a configuration file based on the name
+of the caller.
+See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery" title="ctlbase.config.FileDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDiscovery</span></code></a> for the discovery algorithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not need an environment configuration.</p></li>
+</ul>
+<p>See <a class="reference internal" href="config.html#ctlbase.config.BashConfig" title="ctlbase.config.BashConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BashConfig</span></code></a> for the supported configuration syntax.</p>
+</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.actionType"></span><strong>actionType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.actionType">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code>) – The <cite>Enum</cite> class representing the supported actions
+of this control.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.modeType"></span><strong>modeType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.modeType">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code> | None) – The <cite>Enum</cite> class representing the supported modes
+of this control.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not support different modes.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.msgBuffer">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code> | True | None) – The message buffer to which all the messages of the
+control shall be written. 
+<code class="docutils literal notranslate"><span class="pre">True</span></code> if one should be auto-created. 
+<code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not need this facility.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.ns">¶</a> (<em>str</em><em> | </em><em>True</em><em> | </em><em>None</em>) – The message namespace to use when writing messages to the
+message buffer. 
+<code class="docutils literal notranslate"><span class="pre">True</span></code> if the namespace shall be derived from the caller name. 
+See <a class="reference internal" href="config.html#ctlbase.config.CallerDiscovery" title="ctlbase.config.CallerDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a> for the discovery algorithm.
+If <a class="reference internal" href="#ctlbase.shell.Control.params.msgBuffer" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msgBuffer</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the namespace
+given in <a class="reference internal" href="#ctlbase.shell.Control.params.ns" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">ns</span></code></a> will be set as the default
+namespace of the auto-created message buffer.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.jsonIndent"></span><strong>jsonIndent</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.jsonIndent">¶</a> (<em>int</em>) – A number of spaces to use as an indentation when 
+creating JSON output.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell" title="Link to this definition"></a></dt>
+<dd><p>A context manager for creating CLI utilities. Creates and 
+lifecyle-manages various resources as described in 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<p>When the context manager exits, the following steps are taken:</p>
+<ul class="simple">
+<li><p>If the context manager exits due to an exception of type 
+<code class="xref py py-class docutils literal notranslate"><span class="pre">MessageError</span></code> or <cite>ValueError</cite>, the corresponding error message
+is added to the message buffer.</p></li>
+<li><p>Any other exception bubbles up, i.e. is not handled gracefully.</p></li>
+<li><p>An auto-created thread pool executor is auto-closed. This holds if 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.params.threadExecutor" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">threadExecutor</span></code></a> was set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
+constructor.</p></li>
+<li><p>An auto-created process executor is auto-closed. This holds if 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.params.processExecutor" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">processExecutor</span></code></a> was set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
+constructor.</p></li>
+<li><p>The <cite>close</cite> coroutine of the control set via 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.setControl" title="ctlbase.shell.ControlShell.setControl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setControl()</span></code></a> is called. This step is skipped if no
+control has been set or if the control does not have a <cite>close</cite> coroutine.</p></li>
+<li><p>The <cite>close</cite> coroutine of this context manager is called if it exists.
+Useful for extensions of <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a> that control resources
+of their own.</p></li>
+<li><p>Messages in the message buffer are written to <em>stdout</em> as follows:</p>
+<ul>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> command line flag is given, all messages in
+the message buffer are written to <em>stdout</em> in JSON format. All 
+remaining flags for output handling are ignored at this point.
+If the <code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> command line flag is not given, plain text
+messages are written to <em>stdout</em>.</p></li>
+<li><p>The language of plain text messages are determined by the
+<a class="reference internal" href="#ctlbase.shell.ControlShell.params.lng" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">lng</span></code></a> value set in the constructor.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">-v</span></code> | <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> command line flag is given, messages with
+severity <code class="xref py py-attr docutils literal notranslate"><span class="pre">VERBOSE</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">DEBUG</span></code>
+are included in the plain text output.</p></li>
+<li><p>Plain text messages are colored according to message severities. 
+To suppress the coloring, set the 
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code> flag of the message buffer
+to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>Any plain text string set in <a class="reference internal" href="#ctlbase.shell.ControlShell.printOnExit" title="ctlbase.shell.ControlShell.printOnExit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">printOnExit()</span></code></a> is 
+written to <em>stdout</em>.</p></li>
+</ul>
+</li>
+<li><p>The message buffer is closed.</p></li>
+<li><p>The context manager’s asyncio event loop is closed.</p></li>
+</ul>
+<p>The process exit code is determined as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> if the message buffer contains at least one message of severity
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> if the message buffer contains does not contain any message of
+severity <code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code> but at last one with severity
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> if none of the aforementioned conditions are true.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.addStandardArgs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.addStandardArgs" title="Link to this definition"></a></dt>
+<dd><p>For uniform arguments of executable scripts, amends an argument 
+parser with standard arguments.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> flag: Write JSON output to <em>stdout</em>. Handled by 
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> | <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> flag: Write more verbose messages to <em>stdout</em>.
+Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> | <code class="docutils literal notranslate"><span class="pre">--oknodo</span></code> flag: Suppress an error if the requested
+action’s target state is already reached. Will be passed as 
+<code class="xref py py-paramref docutils literal notranslate"><span class="pre">isOkNodo</span></code> to <code class="xref py py-meth docutils literal notranslate"><span class="pre">operate()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code> flag: Force the action even if the target state is already
+reached. Will be passed as 
+<code class="xref py py-paramref docutils literal notranslate"><span class="pre">isForced</span></code> to <code class="xref py py-meth docutils literal notranslate"><span class="pre">operate()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--noprompt</span></code> flag: Do not prompt the user for any input, e.g. 
+confirmations or passwords. Its inversion will be passed as
+<code class="xref py py-paramref docutils literal notranslate"><span class="pre">mayPrompt</span></code> to <code class="xref py py-meth docutils literal notranslate"><span class="pre">operate()</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">ArgumentParser</a>) – The argument parser to amend.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a new control shell with the resources specified in the 
+parameters.</p>
+<p>Always creates a new asyncio event loop for the current thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">argparse.ArgumentParser</a> | <a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace">argparse.Namespace</a>) – The parser or already parsed namespace with the command
+line arguments to evaluate.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.threadExecutor"></span><strong>threadExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.threadExecutor">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor">concurrent.futures.ThreadPoolExecutor</a> | True | None) – A thread pool executor or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should
+be auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no thread pool
+executor is needed.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.processExecutor"></span><strong>processExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.processExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.process.ProcessExecutor</span></code> | True | None) – A process executor or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should
+be auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no process
+executor is needed.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.envConfigPath"></span><strong>envConfigPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.envConfigPath">¶</a> (<em>str</em><em> | </em><em>bool</em><em> | </em><em>None</em>) – Absolute path or file name (to be auto-discovered)
+of an evironment configuration file to be parsed and provided as
+<cite>dict</cite>. <code class="docutils literal notranslate"><span class="pre">True</span></code> for auto-discovery based on the name of the using
+Python module. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no environment configuration is needed.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.msgBuffer">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.message.MessageBuffer</span></code> | True | None) – A message buffer or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should be 
+auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no message buffer is
+needed. Note that in this case, this context manager cannot 
+automatically write output to <em>stdout</em>.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.lng">¶</a> (<em>str</em><em> | </em><em>True</em>) – A two-letter language code for the messages to be written
+to <em>stdout</em>. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code> if the requested language is not
+available. <code class="docutils literal notranslate"><span class="pre">True</span></code> if the default locale from the environment 
+shall be taken.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.threadExecutor">
+<span class="sig-name descname"><span class="pre">threadExecutor</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.threadExecutor" title="Link to this definition"></a></dt>
+<dd><p>The thread pool executor lifecycle-managed by this context manager.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.processExecutor">
+<span class="sig-name descname"><span class="pre">processExecutor</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.processExecutor" title="Link to this definition"></a></dt>
+<dd><p>The process executor lifecycle-managed by this context manager.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.envConfigPath">
+<span class="sig-name descname"><span class="pre">envConfigPath</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.envConfigPath" title="Link to this definition"></a></dt>
+<dd><p>The absolute path of the environment configuration file parsed into
+<a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigDict" title="ctlbase.shell.ControlShell.envConfigDict"><code class="xref py py-attr docutils literal notranslate"><span class="pre">envConfigDict</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.envConfigDict">
+<span class="sig-name descname"><span class="pre">envConfigDict</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.envConfigDict" title="Link to this definition"></a></dt>
+<dd><p>The <cite>dict</cite> holding the parsed environment configuration.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.msgBuffer">
+<span class="sig-name descname"><span class="pre">msgBuffer</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.msgBuffer" title="Link to this definition"></a></dt>
+<dd><p>The message buffer used by this context manager to write output to <em>stdout</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.lng">
+<span class="sig-name descname"><span class="pre">lng</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.lng" title="Link to this definition"></a></dt>
+<dd><p>The two-letter language code used by this context manager to write output to <em>stdout</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.requestCleanup">
+<span class="sig-name descname"><span class="pre">requestCleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signalNumber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackFrame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.requestCleanup" title="Link to this definition"></a></dt>
+<dd><p>A Python signal handler injecting a <code class="xref py py-class docutils literal notranslate"><span class="pre">CleaningUp</span></code> exception
+into all running code in the current Python process.</p>
+<p>The signature is defined in
+<a class="reference external" href="https://docs.python.org/3/library/signal.html#signal.signal">signal.signal</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.setControl">
+<span class="sig-name descname"><span class="pre">setControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><span class="pre">Control</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.setControl" title="Link to this definition"></a></dt>
+<dd><p>Associates the given control with this context manager.</p>
+<p>The effects are as follows:</p>
+<ul class="simple">
+<li><p>The context manager’s message buffer is propagated to the control.
+If the context manager does not have a message buffer, the opposite
+takes place: The control’s message buffer is propagated to the context
+manager.</p></li>
+<li><p>If the context manager’s message buffer does not yet have a  default
+namespace, the namespace of the control is set as its default 
+namespace.</p></li>
+<li><p>When the context manager exits, the <cite>close</cite> coroutine of the control
+is called. This step is skipped if the control does not have a <cite>close</cite>
+coroutine.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.printOnExit">
+<span class="sig-name descname"><span class="pre">printOnExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.printOnExit" title="Link to this definition"></a></dt>
+<dd><p>In addition to this context manager’s message buffer, set a text
+that shall be printed to <em>stdout</em> when this context manager exits.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ServiceControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell" title="Link to this definition"></a></dt>
+<dd><p>A context manager for creating services, i.e. background daemons.</p>
+<p>Based on <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a>, additionally managing a task monitor.</p>
+<p>Also adds support for command line arguments common to services.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.__init__" title="Link to this definition"></a></dt>
+<dd><p>Lifecycle-manages a task monitor for scheduling service tasks in the 
+background, i.e. as tasks in an asyncio loop.</p>
+<p>Arguments with the same name have the same meaning as with 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ServiceControlShell.params.taskMonitor"></span><strong>taskMonitor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ServiceControlShell.params.taskMonitor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.process.TaskMonitor</span></code> | True | None) – A task monitor or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should be
+auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no task monitor
+is needed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.addStandardArgs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.addStandardArgs" title="Link to this definition"></a></dt>
+<dd><p>For uniform arguments of executable scripts, amends an argument
+parser with standard arguments.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--delay</span></code>: Delay in milliseconds after which the systemd shall be
+notified <em>ready</em>. Handled by <a class="reference internal" href="#ctlbase.shell.ServiceControlShell.notifyReady" title="ctlbase.shell.ServiceControlShell.notifyReady"><code class="xref py py-meth docutils literal notranslate"><span class="pre">notifyReady()</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-e</span></code> | <code class="docutils literal notranslate"><span class="pre">--errors</span></code>: Maximum number of errors after which the 
+service shall exit (with exit code <code class="docutils literal notranslate"><span class="pre">4</span></code>). To be handled by classes
+extending <a class="reference internal" href="#ctlbase.shell.ServiceControlShell" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> | <code class="docutils literal notranslate"><span class="pre">--log</span></code>: Path to the service’s log file. Handled by
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--tswidth</span></code>: Number of characters the timestamps in the log file 
+should be padded to. Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--print</span></code> flag: Print messages to <em>stdout</em> in addition to the log
+file. Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ServiceControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ServiceControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">ArgumentParser</a>) – The argument parser to amend.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.notifyReady">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">notifyReady</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.notifyReady" title="Link to this definition"></a></dt>
+<dd><p>Sends a systemd <em>ready</em> notification.</p>
+<p>Useful if the service is wrapped into a systemd service unit.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.taskMonitor">
+<span class="sig-name descname"><span class="pre">taskMonitor</span></span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.taskMonitor" title="Link to this definition"></a></dt>
+<dd><p>The task manager lifecycle-managed by this context manager.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="config module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

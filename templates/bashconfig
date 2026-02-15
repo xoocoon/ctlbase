@@ -1,0 +1,21 @@
+
+# cast to int:
+declare -i MY_INT=0
+
+# cast to str:
+MY_STR_1=1
+MY_STR_2=foo
+MY_STR_3="foo bar"
+MY_STR_4='foo bar'
+
+# cast to list:
+MY_LIST_1=( 1 2 3 )
+declare -a MY_LIST_2=( 4 5 6 )
+
+# cast to dict:
+MY_DICT_1=( [key1]=foo ['key2']="foo bar" )
+declare -A MY_DICT_2=( ['key1']=foo [key2]='foo bar' )
+
+# interpolation:
+MY_VAR_1="${HOME}/.venv"
+MY_VAR_2="Starting at index $MY_INT..."

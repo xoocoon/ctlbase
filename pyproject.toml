@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.distutils.egg_info]
+egg_base = "." 
+
+[project]
+name = "ctlbase"
+description = "An asyncio-based package for creating CLI utilities and service daemons."
+version = "1.0a1"
+dependencies = ["aiofiles>=0.6"]
+authors = [
+  {name = "xoocoon", email = "54350963+xoocoon@users.noreply.github.com"}
+]
+readme = "README.md"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+keywords = ["asyncio", "cli", "shell", "systemd", "service", "daemon"]
+requires-python = ">=3.9"
+classifiers = [
+  "Operating System :: POSIX :: Linux",
+  "Framework :: AsyncIO",
+  "Programming Language :: Python :: 3.9",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System :: Shells",
+  "Topic :: Utilities"
+]
+
+[project.optional-dependencies]
+keyring = ["keyring>=22.0"]
+
+[project.urls]
+Documentation = "https://xoocoon.github.io/ctlbase/html/"
+Repository = "https://github.com/xoocoon/ctlbase.git"
