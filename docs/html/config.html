@@ -229,14 +229,16 @@ well-known directories.</p>
 <a class="reference internal" href="#ctlbase.config.FileDiscovery.find.params.fileType" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileType</span></code></a> parameter.</p>
 <p>Relative path specifications in those sets are applied up the directory
 tree until the file is found or the root of the file system is reached. 
-For instance, if the search for a configuration file named <code class="docutils literal notranslate"><span class="pre">app.conf</span></code> 
+For instance, if the search for a configuration file named <code class="docutils literal notranslate"><span class="pre">file_1.conf</span></code> 
 starts at the directory <code class="docutils literal notranslate"><span class="pre">/home/myuser/myapp/</span></code>, the existence of 
-<code class="docutils literal notranslate"><span class="pre">/home/myuser/myapp/etc/default/app.conf</span></code> is checked first, then
-<code class="docutils literal notranslate"><span class="pre">/home/myuser/etc/default/app.conf</span></code>, then <code class="docutils literal notranslate"><span class="pre">/home/etc/default/app.conf</span></code> 
-and so on.</p>
+<code class="docutils literal notranslate"><span class="pre">/home/myuser/myapp/etc/default/file_1.conf</span></code> is checked first, then
+<code class="docutils literal notranslate"><span class="pre">/home/myuser/etc/default/file_1.conf</span></code>, then 
+<code class="docutils literal notranslate"><span class="pre">/home/etc/default/file_1.conf</span></code> and so on.</p>
 <p>An eligible target file must be accessible to the current user. That is, 
 it must be readable, or, in the case of an executable file, be 
 executable for the current user.</p>
+<p>If you want to avoid the runtime overhead of auto-discovery, provide an
+absolute path in <code class="xref py py-paramref docutils literal notranslate"><span class="pre">filePath</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
