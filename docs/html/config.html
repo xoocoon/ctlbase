@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="shell module" href="shell.html" />
+    <link rel="next" title="message module" href="message.html" />
     <link rel="prev" title="ctlbase" href="modules.html" /> 
 </head>
 
@@ -47,29 +47,16 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">config module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ctlbase.config.CallerDiscovery"><code class="docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.CallerDiscovery.__init__"><code class="docutils literal notranslate"><span class="pre">CallerDiscovery.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.CallerDiscovery.findName"><code class="docutils literal notranslate"><span class="pre">CallerDiscovery.findName()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.CallerDiscovery.findPath"><code class="docutils literal notranslate"><span class="pre">CallerDiscovery.findPath()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#ctlbase.config.FileDiscovery"><code class="docutils literal notranslate"><span class="pre">FileDiscovery</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.BIN_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.BIN_LOCATIONS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.CONFIG_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.CONFIG_LOCATIONS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.TRANSLATION_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.TRANSLATION_LOCATIONS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.Type"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.Type</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.find"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.find()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.findBinary"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.findBinary()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.findConfig"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.findConfig()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery.findTranslation"><code class="docutils literal notranslate"><span class="pre">FileDiscovery.findTranslation()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#ctlbase.config.BashConfig"><code class="docutils literal notranslate"><span class="pre">BashConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.BashConfig.parse"><code class="docutils literal notranslate"><span class="pre">BashConfig.parse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.CallerDiscovery"><code class="docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileDiscovery"><code class="docutils literal notranslate"><span class="pre">FileDiscovery</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.BashConfig"><code class="docutils literal notranslate"><span class="pre">BashConfig</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
 </ul>
 </li>
@@ -102,14 +89,21 @@
   <section id="module-ctlbase.config">
 <span id="config-module"></span><h1>config module<a class="headerlink" href="#module-ctlbase.config" title="Link to this heading"></a></h1>
 <p>Classes for discovering and parsing configuration and other files.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctlbase.config.CallerDiscovery">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">CallerDiscovery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffixPatternStr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'(?:ctl|)(?:\\.py|\\.pyc|\\.pyo|)$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excludeBasenamePatternStr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerDiscovery" title="Link to this definition"></a></dt>
-<dd><p>Discovers the Python module using this class, referred to as “caller”.</p>
-<p>As an example, if a Python module is made up of file <code class="docutils literal notranslate"><span class="pre">curtainctl.py</span></code> 
+<dd><p>Discovers the Python module using this class, referred to as <strong>caller</strong>.</p>
+<p>As an example, if a Python module is made up of file <code class="docutils literal notranslate"><span class="pre">screenctl.py</span></code> 
 and calls <a class="reference internal" href="#ctlbase.config.CallerDiscovery.findName" title="ctlbase.config.CallerDiscovery.findName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findName()</span></code></a>, the method will return
-<code class="docutils literal notranslate"><span class="pre">curtain</span></code> as the caller’s normalized module name. It can be used as a
-component in other file names like <code class="docutils literal notranslate"><span class="pre">etc/curtain</span></code> to enable auto-discovery
+<code class="docutils literal notranslate"><span class="pre">screen</span></code> as the caller’s normalized module name. It can be used as a
+component in other file names like <code class="docutils literal notranslate"><span class="pre">etc/screen</span></code> to enable auto-discovery
 of related files.</p>
 <p>The following rules are applied by default:</p>
 <ul class="simple">
@@ -134,11 +128,11 @@ configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.config.CallerDiscovery.params.suffixPatternStr"></span><strong>suffixPatternStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.CallerDiscovery.params.suffixPatternStr">¶</a> (<em>str</em>) – A regex pattern applied to the end of a
+<li><p><span class="target" id="ctlbase.config.CallerDiscovery.params.suffixPatternStr"></span><strong>suffixPatternStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.CallerDiscovery.params.suffixPatternStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A regex pattern applied to the end of a
 Python module’s file name (without the path). If it matches, it is 
 removed from the file name to form the caller’s normalized module
 name.</p></li>
-<li><p><span class="target" id="ctlbase.config.CallerDiscovery.params.excludeBasenamePatternStr"></span><strong>excludeBasenamePatternStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.CallerDiscovery.params.excludeBasenamePatternStr">¶</a> (<em>str</em>) – A regex pattern applied to a Python
+<li><p><span class="target" id="ctlbase.config.CallerDiscovery.params.excludeBasenamePatternStr"></span><strong>excludeBasenamePatternStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.CallerDiscovery.params.excludeBasenamePatternStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A regex pattern applied to a Python
 module’s file name (without the path). If the pattern matches, the
 corresponding module is skipped in the call hierarchy, i.e. not
 considered as a caller.
@@ -155,7 +149,7 @@ package. That is, any module within <cite>ctlbase</cite> calling a method of
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerDiscovery.findName" title="Link to this definition"></a></dt>
 <dd><p>Discovers the caller of this method and returns its normalized 
 module name.</p>
-<p>Discovery and normalization depends on the configuration set for the 
+<p>Discovery and normalization depends on the configuration of the 
 <a class="reference internal" href="#ctlbase.config.CallerDiscovery" title="ctlbase.config.CallerDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a> singleton.</p>
 </dd></dl>
 
@@ -163,7 +157,7 @@ module name.</p>
 <dt class="sig sig-object py" id="ctlbase.config.CallerDiscovery.findPath">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerDiscovery.findPath" title="Link to this definition"></a></dt>
 <dd><p>Discovers the caller of this method and returns its source file path.</p>
-<p>Discovery depends on the configuration set for the 
+<p>Discovery depends on the configuration of the 
 <a class="reference internal" href="#ctlbase.config.CallerDiscovery" title="ctlbase.config.CallerDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a> singleton.</p>
 </dd></dl>
 
@@ -220,7 +214,7 @@ relative and absolute paths.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.config.FileDiscovery.find">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.find" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.find" title="Link to this definition"></a></dt>
 <dd><p>Tries to discover a file with the given parameters in a set of 
 well-known directories.</p>
 <p>The available sets of directories are defined by 
@@ -235,27 +229,28 @@ starts at the directory <code class="docutils literal notranslate"><span class="
 <code class="docutils literal notranslate"><span class="pre">/home/myuser/etc/default/file_1.conf</span></code>, then 
 <code class="docutils literal notranslate"><span class="pre">/home/etc/default/file_1.conf</span></code> and so on.</p>
 <p>An eligible target file must be accessible to the current user. That is, 
-it must be readable, or, in the case of an executable file, be 
-executable for the current user.</p>
+it must be readable, or, in the case of an executable file, be executable
+for the current user.</p>
 <p>If you want to avoid the runtime overhead of auto-discovery, provide an
-absolute path in <code class="xref py py-paramref docutils literal notranslate"><span class="pre">filePath</span></code>.</p>
+absolute path in <a class="reference internal" href="#ctlbase.config.FileDiscovery.find.params.fileName" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileName</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.filePath"></span><strong>filePath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.filePath">¶</a> (<em>str</em><em> | </em><em>True</em>) – The file name of the searched file. It may include a 
-relative or absolute path specification. In the latter case, the
-given path is resolved to its real path in the file system and
-returned if and only if it is accessible to the current user.
-It may be <code class="docutils literal notranslate"><span class="pre">True</span></code> for discovering a file based on the caller’s
-normalized module name. See <a class="reference internal" href="#ctlbase.config.CallerDiscovery" title="ctlbase.config.CallerDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a> for details.</p></li>
+<li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.fileName"></span><strong>fileName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.fileName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em>) – The file name of the searched file. It may include a 
+relative or absolute path specification. <cite>True</cite> for auto-discovering
+a file.</p></li>
 <li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.fileType"></span><strong>fileType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.fileType">¶</a> (<a class="reference internal" href="#ctlbase.config.FileDiscovery.Type" title="ctlbase.config.FileDiscovery.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>) – The type of the file to search for. It determines the
 set of well-known directories to use.</p></li>
-<li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.isStartFromCallerPath"></span><strong>isStartFromCallerPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.isStartFromCallerPath">¶</a> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, relative path specifications
-are treated relative to the caller’s source file path as returned
-by <a class="reference internal" href="#ctlbase.config.CallerDiscovery.findPath" title="ctlbase.config.CallerDiscovery.findPath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findPath()</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.isStartFromScriptPath"></span><strong>isStartFromScriptPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.isStartFromScriptPath">¶</a> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, relative path specifications
-are treated relative to the current script’s path as returned by
-<code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code>, if applicable.
+<li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.isStartFromCallerPath"></span><strong>isStartFromCallerPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.isStartFromCallerPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, when auto-discovering a file,
+the caller’s normalized module name is assumed as a file name
+as returned by <a class="reference internal" href="#ctlbase.config.CallerDiscovery.findPath" title="ctlbase.config.CallerDiscovery.findPath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findPath()</span></code></a>.
+Relative path specifications are treated relative to the caller’s
+source file path as returned by <a class="reference internal" href="#ctlbase.config.CallerDiscovery.findPath" title="ctlbase.config.CallerDiscovery.findPath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findPath()</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.config.FileDiscovery.find.params.isStartFromScriptPath"></span><strong>isStartFromScriptPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.find.params.isStartFromScriptPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, when auto-discovering a file,
+the current script’s normalized name is assumed as a file name
+based on <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code>.
+Relative path specifications are treated relative to the current
+script’s path, based on <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code>.
 <a class="reference internal" href="#ctlbase.config.FileDiscovery.find.params.isStartFromCallerPath" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isStartFromCallerPath</span></code></a> takes 
 precedence.</p></li>
 </ul>
@@ -264,10 +259,10 @@ precedence.</p></li>
 <dd class="field-even"><p>The absolute real path of the file if found.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>FileNotFoundError</strong> – If the file could not be found or is 
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the file could not be found or is 
 inaccessible to the current user.</p>
 </dd>
 </dl>
@@ -275,7 +270,7 @@ inaccessible to the current user.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.config.FileDiscovery.findBinary">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.findBinary" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.findBinary" title="Link to this definition"></a></dt>
 <dd><p>Convenience method for finding configuration files.</p>
 <p>Corresponds to the <a class="reference internal" href="#ctlbase.config.FileDiscovery.Type.BIN" title="ctlbase.config.FileDiscovery.Type.BIN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">BIN</span></code></a> type.</p>
 <p>The parameters have the same meanings as with <a class="reference internal" href="#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a>.</p>
@@ -283,7 +278,7 @@ inaccessible to the current user.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.config.FileDiscovery.findConfig">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.findConfig" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.findConfig" title="Link to this definition"></a></dt>
 <dd><p>Convenience method for finding configuration files.</p>
 <p>Corresponds to the <a class="reference internal" href="#ctlbase.config.FileDiscovery.Type.CONFIG" title="ctlbase.config.FileDiscovery.Type.CONFIG"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CONFIG</span></code></a> type.</p>
 <p>The parameters have the same meanings as with <a class="reference internal" href="#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a>.</p>
@@ -291,14 +286,14 @@ inaccessible to the current user.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.config.FileDiscovery.findTranslation">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findTranslation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.findTranslation" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findTranslation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileDiscovery.findTranslation" title="Link to this definition"></a></dt>
 <dd><p>Convenience method for finding configuration files.</p>
 <p>Corresponds to the <a class="reference internal" href="#ctlbase.config.FileDiscovery.Type.TRANSLATION" title="ctlbase.config.FileDiscovery.Type.TRANSLATION"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TRANSLATION</span></code></a> type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.config.FileDiscovery.findTranslation.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.findTranslation.params.lng">¶</a> (<em>str</em>) – A two-letter language code for the translation file to find,
+<dd class="field-odd"><p><span class="target" id="ctlbase.config.FileDiscovery.findTranslation.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileDiscovery.findTranslation.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A two-letter language code for the translation file to find,
 e.g. <code class="docutils literal notranslate"><span class="pre">de</span></code>. If given, 
-If <a class="reference internal" href="#ctlbase.config.FileDiscovery.findTranslation.params.filePath" title="ctlbase.config.FileDiscovery.findTranslation"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">filePath</span></code></a> must only
+If <a class="reference internal" href="#ctlbase.config.FileDiscovery.findTranslation.params.fileName" title="ctlbase.config.FileDiscovery.findTranslation"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileName</span></code></a> must only
 be a file name without a path.</p>
 </dd>
 </dl>
@@ -336,22 +331,22 @@ equivalent to <code class="docutils literal notranslate"><span class="pre">${FIL
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.config.BashConfig.parse">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolationDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.BashConfig.parse" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolationDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.BashConfig.parse" title="Link to this definition"></a></dt>
 <dd><p>Discovers a Bash-like configuration file and parses it into a <cite>dict</cite>
 if found.</p>
-<p>Relative path specifications are treated relative to the caller’s source
-file path as returned by <a class="reference internal" href="#ctlbase.config.CallerDiscovery.findPath" title="ctlbase.config.CallerDiscovery.findPath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findPath()</span></code></a> and relative
-to the current script’s path as returned by <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code>, if
-applicable. The former takes precedence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.config.BashConfig.parse.params.configPath"></span><strong>configPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.BashConfig.parse.params.configPath">¶</a> (<em>str</em><em> | </em><em>True</em>) – The file name of the configuration file. It may
-include a relative or absolute path specification.
-It may be <code class="docutils literal notranslate"><span class="pre">True</span></code> for discovering a configuration file based on the
-caller’s normalized module name. See <a class="reference internal" href="#ctlbase.config.CallerDiscovery" title="ctlbase.config.CallerDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a> for
-details.</p></li>
-<li><p><span class="target" id="ctlbase.config.BashConfig.parse.params.interpolationDict"></span><strong>interpolationDict</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.BashConfig.parse.params.interpolationDict">¶</a> (<em>dict</em><em> | </em><em>None</em>) – An additionl <cite>dict</cite> used for variable
+<li><p><span class="target" id="ctlbase.config.BashConfig.parse.params.configName"></span><strong>configName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.BashConfig.parse.params.configName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em>) – <div class="line-block">
+<div class="line">The configuration file name. It may include a 
+relative or absolute path specification. </div>
+<div class="line"><cite>True</cite> for auto-discovering a configuration file based on the 
+caller’s normalized module name as returned by
+<a class="reference internal" href="#ctlbase.config.CallerDiscovery.findName" title="ctlbase.config.CallerDiscovery.findName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findName()</span></code></a>.</div>
+<div class="line">See <a class="reference internal" href="#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery algorithm.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.config.BashConfig.parse.params.interpolationDict"></span><strong>interpolationDict</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.BashConfig.parse.params.interpolationDict">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><em>None</em>) – An additionl <cite>dict</cite> used for variable
 interpolation. As an example, if the <cite>dict</cite> contains a key 
 <code class="docutils literal notranslate"><span class="pre">MY_INDEX</span></code>, its value will substitute all occurrences of 
 <code class="docutils literal notranslate"><span class="pre">$MY_INDEX</span></code> and <code class="docutils literal notranslate"><span class="pre">${MY_INDEX}</span></code> in the configuration file.</p></li>
@@ -362,7 +357,7 @@ interpolation. As an example, if the <cite>dict</cite> contains a key
 their parsed values as values.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -370,13 +365,14 @@ their parsed values as values.</p>
 </dd></dl>
 
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="ctlbase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="shell.html" class="btn btn-neutral float-right" title="shell module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="message.html" class="btn btn-neutral float-right" title="message module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

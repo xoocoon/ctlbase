@@ -15,7 +15,9 @@ For apidocs, see [https://xoocoon.github.io/ctlbase](https://xoocoon.github.io/c
 
 To understand the core concepts of the package, it is advisable to read the introduction of the [shell](https://xoocoon.github.io/ctlbase/html/shell.html) apidoc.
 
-An example for a Bash-style configuration file is included in the repo under `templates/bashconfig`.
+An example for a Bash-style configuration file is included in the repo under `templates/etc/bashconfig`. It can be used to initialize a [BashConfig](https://xoocoon.github.io/ctlbase/html/config.html#ctlbase.config.BashConfig) instance or a [ControlShell](https://xoocoon.github.io/ctlbase/html/shell.html#ctlbase.shell.ControlShell) instance directly.
+
+An example for a i18next-style translation file is included in the repo under `templates/locales/de/translation.json`. It can be used with the `addTranslation()` method of a [MessageBuffer](https://xoocoon.github.io/ctlbase/html/message.html#ctlbase.message.MessageBuffer) instance.
 
 # Installation
 

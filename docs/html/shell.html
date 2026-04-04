@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="config module" href="config.html" /> 
+    <link rel="prev" title="mode module" href="mode.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,34 +46,31 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">shell module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ctlbase.shell.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control.__init__"><code class="docutils literal notranslate"><span class="pre">Control.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control.getStatusTuplesEn"><code class="docutils literal notranslate"><span class="pre">Control.getStatusTuplesEn()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control.getStatusJson"><code class="docutils literal notranslate"><span class="pre">Control.getStatusJson()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control.getStatusTextEn"><code class="docutils literal notranslate"><span class="pre">Control.getStatusTextEn()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control.close"><code class="docutils literal notranslate"><span class="pre">Control.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#core-concepts">Core concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#control">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action">action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mode">mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property">property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feedback">feedback</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ControlShell.addStandardArgs()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.threadExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.threadExecutor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.processExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.processExecutor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigPath"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigPath</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigDict"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigDict</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.msgBuffer"><code class="docutils literal notranslate"><span class="pre">ControlShell.msgBuffer</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.lng"><code class="docutils literal notranslate"><span class="pre">ControlShell.lng</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.requestCleanup"><code class="docutils literal notranslate"><span class="pre">ControlShell.requestCleanup()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.setControl"><code class="docutils literal notranslate"><span class="pre">ControlShell.setControl()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell.printOnExit"><code class="docutils literal notranslate"><span class="pre">ControlShell.printOnExit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ControlEnum"><code class="docutils literal notranslate"><span class="pre">ControlEnum</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.addStandardArgs()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.taskMonitor"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.taskMonitor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.ServiceControlShell.notifyReady"><code class="docutils literal notranslate"><span class="pre">ServiceControlShell.notifyReady()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.StandardAction"><code class="docutils literal notranslate"><span class="pre">StandardAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.StandardMode"><code class="docutils literal notranslate"><span class="pre">StandardMode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.StandardProperty"><code class="docutils literal notranslate"><span class="pre">StandardProperty</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.MODE_DIR_NAME_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.MODE_GROUP_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.shell.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -109,195 +106,670 @@
   <section id="module-ctlbase.shell">
 <span id="shell-module"></span><h1>shell module<a class="headerlink" href="#module-ctlbase.shell" title="Link to this heading"></a></h1>
 <p>Base classes for implementing CLI utilities and service daemons.</p>
-<p>The following concepts are “core” to this module:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><strong>control</strong>: A control encapsulates the logic for “controlling” some other
-hardware or software resource. It is implemented by subclassing
-<a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>. Examples of such resources include:</p>
+<p><a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a> and <a class="reference internal" href="#ctlbase.shell.ServiceControlShell" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a> serve as Python
+context managers for common resources such as message buffers and process
+executors. They also handle command line arguments and output to <em>stdout</em>,
+<em>stderr</em> and/or log files.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#core-concepts" id="id1">Core concepts</a></p>
 <ul>
+<li><p><a class="reference internal" href="#control" id="id2">control</a></p></li>
+<li><p><a class="reference internal" href="#action" id="id3">action</a></p></li>
+<li><p><a class="reference internal" href="#mode" id="id4">mode</a></p></li>
+<li><p><a class="reference internal" href="#property" id="id5">property</a></p></li>
+<li><p><a class="reference internal" href="#feedback" id="id6">feedback</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#classes" id="id7">Classes</a></p></li>
+<li><p><a class="reference internal" href="#constants-and-defaults" id="id8">Constants and defaults</a></p></li>
+</ul>
+</nav>
+<section id="core-concepts">
+<span id="shell-concepts"></span><h2><a class="toc-backref" href="#id1" role="doc-backlink">Core concepts</a><a class="headerlink" href="#core-concepts" title="Link to this heading"></a></h2>
+<section id="control">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">control</a><a class="headerlink" href="#control" title="Link to this heading"></a></h3>
+<p>A control encapsulates the logic for “controlling” some other hardware or
+software resource. It is implemented by subclassing <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>. Examples
+of resources include:</p>
+<ul class="simple">
 <li><p>Actuators in a home automation context, optionally coupled to one or more
 sensors.</p></li>
 <li><p>Remote file systems to mount and unmount using various credentials from
 desktop keyrings, TPM2 hardware modules and more.</p></li>
-<li><p>A mediacenter software running on the same Linux machine, e.g. Kodi.</p></li>
-<li><p>Any REST-compliant service accessible on the network.</p></li>
+<li><p>A mediacenter software exposing an API, e.g. Kodi.</p></li>
 </ul>
-</li>
-<li><p><strong>action</strong>: A control defines one or more actions it can perform. 
-Supported actions must be listed in an <cite>Enum</cite> class.</p></li>
-<li><p><strong>mode</strong>: A control can optionally support different modes. Each mode can
-make the control behave differently for a given action. For instance,
-if controlling a curtain in a home automation context, a mode 
-<code class="docutils literal notranslate"><span class="pre">prevent-down</span></code> could be set. If action <code class="docutils literal notranslate"><span class="pre">roll-down</span></code> is requested with
-the mode active, the curtain actuator would not be triggered.</p></li>
-</ul>
-<p>For defining actions, a <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a> subclass must implement an
-<cite>Enum</cite> class as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Action</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="n">ACTION_A</span> <span class="o">=</span> <span class="s1">&#39;actiona&#39;</span>
-    <span class="n">ACTION_B</span> <span class="o">=</span> <span class="s1">&#39;actionb&#39;</span>
+</section>
+<section id="action">
+<span id="shell-action"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">action</a><a class="headerlink" href="#action" title="Link to this heading"></a></h3>
+<p>A control defines one or more actions it can perform. Supported actions must be
+listed in a custom <cite>Enum</cite> class, called <strong>action Enum</strong>.</p>
+<p>As an example, for controlling a movie screen in a home theater, an action
+<cite>Enum</cite> can be implemented as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ScreenAction</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">ROLL_UP</span> <span class="o">=</span> <span class="s1">&#39;up&#39;</span>
+    <span class="n">ROLL_DOWN</span> <span class="o">=</span> <span class="s1">&#39;down&#39;</span>
 </pre></div>
 </div>
-<p>… where <code class="docutils literal notranslate"><span class="pre">ACTION_A</span></code> and <code class="docutils literal notranslate"><span class="pre">ACTION_B</span></code> are constant names to be used in the
-Python code and <code class="docutils literal notranslate"><span class="pre">actiona</span></code> and <code class="docutils literal notranslate"><span class="pre">actionb</span></code> are the corresponding action 
-names to be used on the command line if implementing a CLI utility.</p>
-<p>Similarily, for defining modes, a <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a> subclass must implement
-an <cite>Enum</cite> class as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mode</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="n">MODE_X</span> <span class="o">=</span> <span class="s1">&#39;modex&#39;</span>
-    <span class="n">MODE_Y</span> <span class="o">=</span> <span class="s1">&#39;modey&#39;</span>
+<div class="line-block">
+<div class="line">… where <code class="docutils literal notranslate"><span class="pre">ROLL_UP</span></code> and <code class="docutils literal notranslate"><span class="pre">ROLL_DOWN</span></code> are exemplary member names to be used
+in the Python code.</div>
+<div class="line">… and <code class="docutils literal notranslate"><span class="pre">up</span></code> and <code class="docutils literal notranslate"><span class="pre">down</span></code> are the corresponding names to be used on the
+command line if implementing a CLI utility.</div>
+</div>
+<p>Each action <cite>Enum</cite> member must have a single <cite>str</cite> as its value.</p>
+<p>To actually perform an action, <a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> must be called.</p>
+</section>
+<section id="mode">
+<span id="shell-mode"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink">mode</a><a class="headerlink" href="#mode" title="Link to this heading"></a></h3>
+<p>A control can optionally support different modes. Each mode can make the control
+behave differently for a given action. Supported modes must be listed in a
+custom <cite>Enum</cite> class, called <strong>mode Enum</strong>.</p>
+<p>As an example, a mode <cite>Enum</cite> can be implemented as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ScreenMode</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">PREVENT_UP</span> <span class="o">=</span> <span class="s1">&#39;prevent-up&#39;</span>
+    <span class="n">PREVENT_DOWN</span> <span class="o">=</span> <span class="s1">&#39;prevent-down&#39;</span>
 </pre></div>
 </div>
-<p>… where <code class="docutils literal notranslate"><span class="pre">MODE_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MODE_Y</span></code> are constant names to be used in the
-Python code and <code class="docutils literal notranslate"><span class="pre">modex</span></code> and <code class="docutils literal notranslate"><span class="pre">modey</span></code> are the corresponding mode
-names to be used on the command line if implementing a CLI utility.</p>
-</div></blockquote>
-<p>The classes <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a> and <a class="reference internal" href="#ctlbase.shell.ServiceControlShell" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a> serve as
-Python context managers for common resources such as message buffers and process
-executors. By using them, a control can delegate the lifecycle management of 
-those resources. Furthermore, the <strong>shell</strong> classes handle output to <em>stdout</em>
-and/or log files.</p>
+<div class="line-block">
+<div class="line">… where <code class="docutils literal notranslate"><span class="pre">PREVENT_UP</span></code> and <code class="docutils literal notranslate"><span class="pre">PREVENT_DOWN</span></code> are examplary member names to be
+used in the Python code.</div>
+<div class="line">… and <code class="docutils literal notranslate"><span class="pre">prevent-up</span></code> and <code class="docutils literal notranslate"><span class="pre">prevent-down</span></code> are the corresponding names to be
+used on the command line if implementing a CLI utility.</div>
+</div>
+<p>Each mode <cite>Enum</cite> member must have a single <cite>str</cite> as its value.</p>
+<p>In the normal flow, a mode is first set as the <strong>pending mode</strong>. This can be
+done by calling <a class="reference internal" href="#ctlbase.shell.Control.setPendingMode" title="ctlbase.shell.Control.setPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setPendingMode()</span></code></a>. It will be unset automatically
+if it is not activated within a certain time span. If it is activated in time by
+calling <a class="reference internal" href="#ctlbase.shell.Control.activatePendingMode" title="ctlbase.shell.Control.activatePendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">activatePendingMode()</span></code></a>, it becomes the <strong>active mode</strong>.
+It will persist until unset with <a class="reference internal" href="#ctlbase.shell.Control.unsetActiveMode" title="ctlbase.shell.Control.unsetActiveMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetActiveMode()</span></code></a>. Apart from
+that, the active mode can be set directly by calling <a class="reference internal" href="#ctlbase.shell.Control.setActiveMode" title="ctlbase.shell.Control.setActiveMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setActiveMode()</span></code></a>.</p>
+<p>It is possible to set one mode as active and another mode as pending at the same
+time.</p>
+<p>Modes can be retrieved with <a class="reference internal" href="#ctlbase.shell.Control.getPendingMode" title="ctlbase.shell.Control.getPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getPendingMode()</span></code></a> and
+<a class="reference internal" href="#ctlbase.shell.Control.getActiveMode" title="ctlbase.shell.Control.getActiveMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getActiveMode()</span></code></a>.</p>
+</section>
+<section id="property">
+<span id="shell-property"></span><h3><a class="toc-backref" href="#id5" role="doc-backlink">property</a><a class="headerlink" href="#property" title="Link to this heading"></a></h3>
+<p>By default, a property is read-only. It can be anything worth reporting, e.g.
+the state of a sensor, the mount state of a remote file system or a pending mode
+or the active mode of the control. Supported properties must be listed in a
+custom <cite>Enum</cite> class, called <strong>property Enum</strong>.</p>
+<p>As an example, a property <cite>Enum</cite> can be implemented as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ScreenProperty</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">POSITION</span> <span class="o">=</span> <span class="s1">&#39;position&#39;</span>
+    <span class="n">IS_RON</span> <span class="o">=</span> <span class="s1">&#39;relay-on&#39;</span>
+    <span class="n">WIDTH</span> <span class="o">=</span> <span class="s1">&#39;width&#39;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">… where <code class="docutils literal notranslate"><span class="pre">POSITION</span></code>, <code class="docutils literal notranslate"><span class="pre">IS_RON</span></code> and <code class="docutils literal notranslate"><span class="pre">WIDTH</span></code> are exemplary member
+names to be used in the Python code.</div>
+<div class="line">… and <code class="docutils literal notranslate"><span class="pre">position</span></code>, <code class="docutils literal notranslate"><span class="pre">relay-on</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> are the corresponding names to
+be used on the command line if implementing a CLI utility.</div>
+</div>
+<p>Each property <cite>Enum</cite> member must have a single <cite>str</cite> as its value.</p>
+<p>The current value of a property can be retrieved with <a class="reference internal" href="#ctlbase.shell.Control.getProperty" title="ctlbase.shell.Control.getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getProperty()</span></code></a>.</p>
+</section>
+<section id="feedback">
+<span id="shell-feedback"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">feedback</a><a class="headerlink" href="#feedback" title="Link to this heading"></a></h3>
+<p>A control must report feedback from a performed or attempted action, formulated
+as a meaningful identifier. While an identifier can be any <cite>str</cite>, common values
+are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">already</span></code>, if the action has not been performed because the action’s target
+state was already reached.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prevented</span></code>, if the action has not been performed due to an active mode or
+any other circumstance preventing the action.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">failed</span></code> if an error occurred while performing the action.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">succeeded</span></code>, if the action has been performed successfully, which is the
+default if <cite>None</cite> is given.</p></li>
+</ul>
+</section>
+</section>
+<section id="classes">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctlbase.shell.Control">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isSkipPendingMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control" title="Link to this definition"></a></dt>
 <dd><p>Base class for a control.</p>
-<p>It provides a uniform interface for various kinds of controls. Eventually, 
-composite controls for several of these resources can be created, preserving
-the uniform interface. Furthermore, a set of CLI utilities can be created as
-a shell for these controls, all sharing common command line arguments, as
-well as plain text and JSON output. See the <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a> class 
-for details.</p>
-<p>Subclasses must call the super constructor <a class="reference internal" href="#ctlbase.shell.Control.__init__" title="ctlbase.shell.Control.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<p>It provides a uniform Python interface for various kinds of controls. Among 
+the benefits, it is easy to build CLI, REST, Web and other user interfaces 
+on top. What is more, composite controls for multiple resources can be 
+created, preserving the uniform interface.</p>
+<p>Subclasses must comply with the following rules:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The super constructor <a class="reference internal" href="#ctlbase.shell.Control.__init__" title="ctlbase.shell.Control.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> must be called.</p></li>
+<li><p><a class="reference internal" href="#ctlbase.shell.Control._performAction" title="ctlbase.shell.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a> must be implemented if there is at
+least one custom action the control can perform.</p></li>
+<li><p><a class="reference internal" href="#ctlbase.shell.Control._getProperty" title="ctlbase.shell.Control._getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getProperty()</span></code></a> and <a class="reference internal" href="#ctlbase.shell.Control._getPropertiesListsEn" title="ctlbase.shell.Control._getPropertiesListsEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code></a> 
+must be implemented if there is at least one custom property the 
+control can provide.</p></li>
+</ul>
+</div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.shell.Control.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Enum</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isSkipPendingMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.shell.Control.params.processExecutor"></span><strong>processExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.processExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.process.ProcessExecutor</span></code> | None) – A process executor for executing (shell) 
+<li><p><span class="target" id="ctlbase.shell.Control.params.processExecutor"></span><strong>processExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.processExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessExecutor</span></code> | None) – A process executor for executing (shell) 
 commands in a subprocess. 
-<code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not need this facility.</p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.params.envConfig"></span><strong>envConfig</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.envConfig">¶</a> (<em>tuple</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>] </em><em>| </em><em>str</em><em> | </em><em>bool</em><em> | </em><em>None</em>) – <p>An environment configuration in one of several 
-possible forms:</p>
+<cite>None</cite> if the control does not noeed to execute commands.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.envConfig"></span><strong>envConfig</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.envConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – <p>An environment configuration in one of the following 
+forms:</p>
 <ul>
-<li><p>A tuple of an absolute file path and the corresponding parsed 
-<cite>dict</cite>, if the configuration file has been parsed already.</p></li>
-<li><p>The path or file name of the Bash-style configuration file to be
-parsed. 
-See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery" title="ctlbase.config.FileDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDiscovery</span></code></a> for the discovery algorithm.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> for discovering a configuration file based on the name
-of the caller.
-See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery" title="ctlbase.config.FileDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileDiscovery</span></code></a> for the discovery algorithm.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not need an environment configuration.</p></li>
+<li><p>A tuple of an absolute file path and a <cite>dict</cite> representation of
+the already parsed configuration.</p></li>
+<li><p>The file name of the Bash-style configuration file to be parsed.
+It may include a relative or absolute path specification.
+See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery algorithm.</p></li>
+<li><p><cite>True</cite> for auto-discovering a configuration file based on the 
+caller’s normalized module name as returned by 
+<a class="reference internal" href="config.html#ctlbase.config.CallerDiscovery.findName" title="ctlbase.config.CallerDiscovery.findName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findName()</span></code></a>.
+See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery algorithm.</p></li>
+<li><p><cite>None</cite> if the control does not need an environment configuration.</p></li>
 </ul>
-<p>See <a class="reference internal" href="config.html#ctlbase.config.BashConfig" title="ctlbase.config.BashConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BashConfig</span></code></a> for the supported configuration syntax.</p>
+<div class="line-block">
+<div class="line">See <a class="reference internal" href="config.html#ctlbase.config.BashConfig" title="ctlbase.config.BashConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BashConfig</span></code></a> for the supported configuration syntax.</div>
+<div class="line">A possibly existing <a class="reference internal" href="#ctlbase.shell.MODE_DIR_NAME_ENVKEY" title="ctlbase.shell.MODE_DIR_NAME_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a> environment 
+value is used for discovering the mode directory.
+Only relevant if <a class="reference internal" href="#ctlbase.shell.Control.params.modeType" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">modeType</span></code></a> is not <cite>None</cite>.</div>
+</div>
 </p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.params.actionType"></span><strong>actionType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.actionType">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code>) – The <cite>Enum</cite> class representing the supported actions
-of this control.</p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.params.modeType"></span><strong>modeType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.modeType">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code> | None) – The <cite>Enum</cite> class representing the supported modes
-of this control.
-<code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not support different modes.</p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.msgBuffer">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code> | True | None) – The message buffer to which all the messages of the
-control shall be written. 
-<code class="docutils literal notranslate"><span class="pre">True</span></code> if one should be auto-created. 
-<code class="docutils literal notranslate"><span class="pre">None</span></code> if the control does not need this facility.</p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.ns">¶</a> (<em>str</em><em> | </em><em>True</em><em> | </em><em>None</em>) – The message namespace to use when writing messages to the
+<li><p><span class="target" id="ctlbase.shell.Control.params.actionType"></span><strong>actionType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.actionType">¶</a> (<em>Enum</em>) – The action <cite>Enum</cite> class.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.modeType"></span><strong>modeType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.modeType">¶</a> (<em>Enum</em><em> | </em><em>None</em>) – The mode <cite>Enum</cite> class. <cite>None</cite> if the control does not
+support different modes.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.isSkipPendingMode"></span><strong>isSkipPendingMode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.isSkipPendingMode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the <a class="reference internal" href="#ctlbase.shell.StandardAction.MODE_SET" title="ctlbase.shell.StandardAction.MODE_SET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_SET</span></code></a> 
+and  <a class="reference internal" href="#ctlbase.shell.StandardAction.MODE_UNSET" title="ctlbase.shell.StandardAction.MODE_UNSET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_UNSET</span></code></a> actions always operate on
+the active mode. The pending mode is skipped.
+Only relevant if <a class="reference internal" href="#ctlbase.shell.Control.params.modeType" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">modeType</span></code></a> is not <cite>None</cite>.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.propertyType"></span><strong>propertyType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.propertyType">¶</a> (<em>Enum</em><em> | </em><em>None</em>) – The property <cite>Enum</cite> class. <cite>None</cite> if the control 
+does not support any property.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.msgBuffer">¶</a> (<a class="reference internal" href="message.html#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a> | True | None) – A message buffer for appending all occurring messages. 
+<cite>True</cite> if one should be auto-created. 
+<cite>None</cite> if the control does not create messages.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em><em> | </em><em>None</em>) – The message namespace to use when writing messages to the
 message buffer. 
-<code class="docutils literal notranslate"><span class="pre">True</span></code> if the namespace shall be derived from the caller name. 
+<cite>True</cite> if the namespace shall be derived from the caller name. 
 See <a class="reference internal" href="config.html#ctlbase.config.CallerDiscovery" title="ctlbase.config.CallerDiscovery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerDiscovery</span></code></a> for the discovery algorithm.
-If <a class="reference internal" href="#ctlbase.shell.Control.params.msgBuffer" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msgBuffer</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the namespace
+If <a class="reference internal" href="#ctlbase.shell.Control.params.msgBuffer" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msgBuffer</span></code></a> is set to <cite>True</cite>, the namespace
 given in <a class="reference internal" href="#ctlbase.shell.Control.params.ns" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">ns</span></code></a> will be set as the default
 namespace of the auto-created message buffer.</p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.params.jsonIndent"></span><strong>jsonIndent</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.jsonIndent">¶</a> (<em>int</em>) – A number of spaces to use as an indentation when 
-creating JSON output.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.params.jsonIndent"></span><strong>jsonIndent</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.params.jsonIndent">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of spaces used to indent one hierarchy
+level in JSON output.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.shell.Control.getStatusTuplesEn">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getStatusTuplesEn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#ctlbase.shell.Control.getStatusTuplesEn" title="Link to this definition"></a></dt>
-<dd><p>Returns an <cite>Iterable</cite> of one or more “status tuples”.</p>
-<p>One status tuple represents one status property of the control. A
-property can be anything worth reporting, e.g. the state of a sensor or
-the mount state of a remote file system.</p>
-<p>Consider the following example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;POSITION&#39;</span><span class="p">,</span> <span class="n">Position</span><span class="o">.</span><span class="n">UP</span><span class="p">,</span> <span class="s1">&#39;Position of the roll curtain:&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>A status tuple contains the following <cite>str</cite> elements, in that sequence:</p>
-<ol class="arabic simple">
-<li><p>The identifer of the status property, unique to the control. It 
-must contain only ASCII characters, without any spaces.
-<code class="docutils literal notranslate"><span class="pre">POSITION</span></code> in the example above.</p></li>
-<li><p>The “raw” value of the status property. “Raw” means “without any
-conversion for readability”. Hence, the value can be of any Python
-type, be it a scalar type like <cite>int</cite> or <cite>str</cite>, be it a <cite>list</cite> or 
-<cite>dict</cite> or a custom object.
-<code class="docutils literal notranslate"><span class="pre">Position.UP</span></code> in the example above, suggesting that <code class="docutils literal notranslate"><span class="pre">Position</span></code> 
-is an <cite>Enum</cite> class defined elsewhere.</p></li>
-<li><p>The human-readable description of the status property.
-<code class="docutils literal notranslate"><span class="pre">Position</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">roll</span> <span class="pre">curtain:</span></code> in the example above.</p></li>
-<li><p>The human-readable value of the status property.
-<code class="docutils literal notranslate"><span class="pre">up</span></code> in the example above.</p></li>
-</ol>
+<dt class="sig sig-object py" id="ctlbase.shell.Control.getPendingMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPendingMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getPendingMode" title="Link to this definition"></a></dt>
+<dd><p>Returns the pending mode if set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An <cite>Iterable</cite> of status tuples for this control.</p>
+<dd class="field-odd"><p>The pending mode <cite>Enum</cite> member if set, otherwise the <cite>NONE</cite> 
+mode <cite>Enum</cite> member.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable">Iterable</a></p>
+<dd class="field-even"><p>Enum</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.shell.Control.getStatusJson">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getStatusJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statusTuplesEn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getStatusJson" title="Link to this definition"></a></dt>
-<dd><p>Returns the control status in JSON format.</p>
+<dt class="sig sig-object py" id="ctlbase.shell.Control.getActiveMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getActiveMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getActiveMode" title="Link to this definition"></a></dt>
+<dd><p>Returns the active mode if set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The active mode <cite>Enum</cite> member if set, otherwise the <cite>NONE</cite> 
+mode <cite>Enum</cite> member.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Enum</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.unsetPendingMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unsetPendingMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.unsetPendingMode" title="Link to this definition"></a></dt>
+<dd><p>Unsets the pending mode if set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unset mode <cite>Enum</cite> member or <cite>None</cite> if no mode was unset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Enum | None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.setPendingMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setPendingMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.setPendingMode" title="Link to this definition"></a></dt>
+<dd><p>Sets the pending mode.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.shell.Control.getStatusJson.params.statusTuplesEn"></span><strong>statusTuplesEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getStatusJson.params.statusTuplesEn">¶</a> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – The status tuples to be rendered in JSON format,
-as returned by <a class="reference internal" href="#ctlbase.shell.Control.getStatusTuplesEn" title="ctlbase.shell.Control.getStatusTuplesEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getStatusTuplesEn()</span></code></a>.
-Only the first two elements of each status tuple are evaluated.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.shell.Control.setPendingMode.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.setPendingMode.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – <div class="line-block">
+<div class="line">The mode to set. Either a mode <cite>Enum</cite> value (<cite>str</cite>) or the
+mode <cite>Enum</cite> member itself.</div>
+<div class="line">Passing the <cite>NONE</cite> mode <cite>Enum</cite> member is equivalent to calling
+<a class="reference internal" href="#ctlbase.shell.Control.unsetPendingMode" title="ctlbase.shell.Control.unsetPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetPendingMode()</span></code></a>.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.setPendingMode.params.timeout_s"></span><strong>timeout_s</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.setPendingMode.params.timeout_s">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – <div class="line-block">
+<div class="line">The pending mode timeout in seconds. If
+<a class="reference internal" href="#ctlbase.shell.Control.activatePendingMode" title="ctlbase.shell.Control.activatePendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">activatePendingMode()</span></code></a> is not called within that
+time span, the pending mode will be unset automatically.</div>
+<div class="line">If <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the <a class="reference internal" href="#ctlbase.shell.MODE_TIMEOUT_DEFAULT_ENVKEY" title="ctlbase.shell.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a> environment 
+value is used if it exists. If not, the value of 
+<a class="reference internal" href="mode.html#ctlbase.mode.TIMEOUT_DEFAULT_S" title="ctlbase.mode.TIMEOUT_DEFAULT_S"><code class="xref py py-data docutils literal notranslate"><span class="pre">TIMEOUT_DEFAULT_S</span></code></a> is assumed.</div>
+<div class="line">Passing <code class="docutils literal notranslate"><span class="pre">0</span></code> is equivalent to calling 
+<a class="reference internal" href="#ctlbase.shell.Control.unsetPendingMode" title="ctlbase.shell.Control.unsetPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetPendingMode()</span></code></a>.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.setPendingMode.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.setPendingMode.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – <div class="line-block">
+<div class="line">The group ownership to be set on the mode directory. 
+Accepts a group name or numeric group ID (gid).</div>
+<div class="line">If <cite>None</cite>, the <a class="reference internal" href="#ctlbase.shell.MODE_GROUP_ENVKEY" title="ctlbase.shell.MODE_GROUP_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a> environment value is
+used if it exists. If not, the group ownership is left unmodified.</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the mode <cite>Enum</cite> does not have a member
+corresponding to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">mode</span></code>.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>A tuple with the following elements:</p>
+<ul class="simple">
+<li><p><strong>actualAction</strong> (<cite>Enum</cite>) – The actual action performed, as an 
+action <cite>Enum</cite> member, i.e. <cite>MODE_SET</cite> or <cite>MODE_UNSET</cite>.</p></li>
+<li><p><strong>mode</strong> (<cite>Enum</cite>) – The mode <cite>Enum</cite> member that was set or unset, 
+respectively.</p></li>
+<li><p><strong>timeout_s</strong> (<cite>int</cite>) – The timeout in seconds after which the mode 
+will be unset automatically. <code class="docutils literal notranslate"><span class="pre">0</span></code> in the case of the <cite>MODE_UNSET</cite>
+action.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.activatePendingMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activatePendingMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.activatePendingMode" title="Link to this definition"></a></dt>
+<dd><p>Activates the pending mode if set.</p>
+<p>As a result, the pending mode will be the active mode. No pending
+mode will be set any more.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p></li>
+<li><p><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><strong>ErrorMessage</strong></a> – <cite>MODE_NOT_PENDING</cite> – If no pending mode is set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The activated mode.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Enum</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.unsetActiveMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unsetActiveMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.unsetActiveMode" title="Link to this definition"></a></dt>
+<dd><p>Unsets the active mode if set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unset mode or <cite>None</cite> if no mode was unset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Enum | None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.setActiveMode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setActiveMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.setActiveMode" title="Link to this definition"></a></dt>
+<dd><p>Sets the active mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.shell.Control.setActiveMode.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.setActiveMode.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – <div class="line-block">
+<div class="line">The mode to set. Either a mode <cite>Enum</cite> value (<cite>str</cite>) or the
+mode <cite>Enum</cite> member itself.</div>
+<div class="line">Passing the <cite>NONE</cite> mode <cite>Enum</cite> member is equivalent to calling
+<a class="reference internal" href="#ctlbase.shell.Control.unsetActiveMode" title="ctlbase.shell.Control.unsetActiveMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetActiveMode()</span></code></a>.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.setActiveMode.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.setActiveMode.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – <div class="line-block">
+<div class="line">The group ownership to be set on the mode directory. 
+Accepts a group name or numeric group ID (gid).</div>
+<div class="line">If <cite>None</cite>, the <a class="reference internal" href="#ctlbase.shell.MODE_GROUP_ENVKEY" title="ctlbase.shell.MODE_GROUP_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a> environment value is
+used if it exists. If not, the group ownership is left unmodified.</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the mode <cite>Enum</cite> does not have a member
+corresponding to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">mode</span></code>.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+modes.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>A tuple with the following elements:</p>
+<ul class="simple">
+<li><p>The actual action performed, as an action <cite>Enum</cite> member, i.e.
+<cite>MODE_SET</cite> or <cite>MODE_UNSET</cite>.</p></li>
+<li><p>The mode <cite>Enum</cite> member that was set or unset, respectively.</p></li>
+<li><p><cite>None</cite> in the case of the <cite>MODE_SET</cite> action, <code class="docutils literal notranslate"><span class="pre">0</span></code> in the case
+of the <cite>MODE_UNSET</cite> action.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.performAction">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">performAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isForced</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mayPrompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.performAction" title="Link to this definition"></a></dt>
+<dd><p>Performs an action.</p>
+<p>Custom actions are delegated to <a class="reference internal" href="#ctlbase.shell.Control._performAction" title="ctlbase.shell.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.shell.Control.performAction.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.performAction.params.action">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The action to perform. Either an action <cite>Enum</cite>
+value (<cite>str</cite>) or an action <cite>Enum</cite> member itself. 
+If the implementation of <a class="reference internal" href="#ctlbase.shell.Control._performAction" title="ctlbase.shell.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a> deems
+another action more appropriate, it may perform that action but
+needs to return it as <strong>actual action</strong>.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.performAction.params.argument"></span><strong>argument</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.performAction.params.argument">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><em>Sequence</em>) – The argument(s) required to perform the action. It may
+be a single object or an ordered sequence of several objects. It is
+up to the custom implementation of <a class="reference internal" href="#ctlbase.shell.Control._performAction" title="ctlbase.shell.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a>
+tp  the arguments properly – unless a default implementation is
+used (see below).</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.performAction.params.isOkNodo"></span><strong>isOkNodo</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.performAction.params.isOkNodo">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, an error is suppressed if the action’s
+target state is already reached.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.performAction.params.isForced"></span><strong>isForced</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.performAction.params.isForced">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the action is forced even if the target
+state is already reached.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.performAction.params.mayPrompt"></span><strong>mayPrompt</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.performAction.params.mayPrompt">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the user may be prompted for any input,
+e.g. confirmations or passwords. <cite>False</cite> for 
+non-interactive sessions.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.performAction.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.performAction.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – An ID for grouping messages in the message buffer.
+For instance, if four calls to <a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> have the
+correlation ID <code class="docutils literal notranslate"><span class="pre">request29476</span></code>, and eight calls have the ID 
+<code class="docutils literal notranslate"><span class="pre">request39549</span></code>, the message buffer can specifically retrieve the
+corresponding messages instead of “all” messages.</p></li>
+</ul>
+</dd>
+</dl>
+<p>For the actions listed in <a class="reference internal" href="#ctlbase.shell.StandardAction" title="ctlbase.shell.StandardAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardAction</span></code></a>, the default 
+implementation works as follows:</p>
+<ul>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="#ctlbase.shell.StandardAction.MODE_SET" title="ctlbase.shell.StandardAction.MODE_SET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_SET</span></code></a>: Sets the pending mode by calling
+<a class="reference internal" href="#ctlbase.shell.Control.setPendingMode" title="ctlbase.shell.Control.setPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setPendingMode()</span></code></a> unless
+<a class="reference internal" href="#ctlbase.shell.Control.params.isSkipPendingMode" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSkipPendingMode</span></code></a> is <cite>True</cite>. In that case
+the active mode is set.</div>
+<div class="line">As <a class="reference internal" href="#ctlbase.shell.Control.performAction.params.argument" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>, a sequence of 
+<code class="xref py py-paramref docutils literal notranslate"><span class="pre">mode</span></code> and 
+<code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout_s</span></code> is expected. The latter 
+defaults to <code class="docutils literal notranslate"><span class="pre">-1</span></code> if omitted.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="#ctlbase.shell.StandardAction.MODE_UNSET" title="ctlbase.shell.StandardAction.MODE_UNSET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_UNSET</span></code></a>: Unsets the pending mode by
+calling <a class="reference internal" href="#ctlbase.shell.Control.unsetPendingMode" title="ctlbase.shell.Control.unsetPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetPendingMode()</span></code></a> unless
+<a class="reference internal" href="#ctlbase.shell.Control.params.isSkipPendingMode" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSkipPendingMode</span></code></a> is <cite>True</cite>. In that case
+the active mode is unset.</div>
+<div class="line">As <a class="reference internal" href="#ctlbase.shell.Control.performAction.params.argument" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>, <cite>None</cite> is expected.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><a class="reference internal" href="#ctlbase.shell.StandardAction.MODE_ACTIVATE" title="ctlbase.shell.StandardAction.MODE_ACTIVATE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_ACTIVATE</span></code></a>: Activates the pending mode by
+calling <a class="reference internal" href="#ctlbase.shell.Control.activatePendingMode" title="ctlbase.shell.Control.activatePendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">activatePendingMode()</span></code></a>.</div>
+<div class="line">As <a class="reference internal" href="#ctlbase.shell.Control.performAction.params.argument" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>, <cite>None</cite> is expected.</div>
+</div>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the action is not listed in the action
+<cite>Enum</cite>.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If one of the parameters <cite>isForced</cite>, <cite>mayPrompt</cite> or
+<cite>correlationId</cite> is given, but <a class="reference internal" href="#ctlbase.shell.Control._performAction" title="ctlbase.shell.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a> does
+not declare it explicitly in its signature.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control._performAction">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_performAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requestedAction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#ctlbase.shell.Control._performAction" title="Link to this definition"></a></dt>
+<dd><p>Implements the logic for performing a custom action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.Control._performAction.params.kwargs"></span><strong>kwargs</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control._performAction.params.kwargs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <p>Any number of the following keyword arguments, depending
+on which the implementation wants to support:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ctlbase.shell.Control.performAction.params.isForced" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isForced</span></code></a></p></li>
+<li><p><a class="reference internal" href="#ctlbase.shell.Control.performAction.params.mayPrompt" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">mayPrompt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#ctlbase.shell.Control.performAction.params.correlationId" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationId</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>A tuple of three elements:</p>
+<ul class="simple">
+<li><p><strong>actualAction</strong> (<cite>Enum</cite>) – The actually performed action as an 
+action <cite>Enum</cite> member.</p></li>
+<li><p><strong>actualArgument</strong> (<cite>object</cite> | <cite>list</cite> | <cite>tuple</cite>) – The actually
+used argument(s) as a single object or a sequence of several 
+objects.</p></li>
+<li><p><strong>feedback</strong> (<cite>str</cite>) – A feedback identifier as described under
+<a class="reference internal" href="#shell-feedback"><span class="std std-ref">feedback</span></a>.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.invalidateCache">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invalidateCache</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.invalidateCache" title="Link to this definition"></a></dt>
+<dd><p>Invalidates any cached property values.</p>
+<p>It is up to the custom implementation whether to cache property values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.getProperty">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getProperty" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the current value of a property.</p>
+<p>Custom properties are delegated to <a class="reference internal" href="#ctlbase.shell.Control._getProperty" title="ctlbase.shell.Control._getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getProperty()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.Control.getProperty.params.property"></span><strong>property</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getProperty.params.property">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The property whose value is to be retrieved. Either a
+property <cite>Enum</cite> value (<cite>str</cite>) or the property <cite>Enum</cite> member itself.</p>
+</dd>
+</dl>
+<p>For the properties listed in <a class="reference internal" href="#ctlbase.shell.StandardProperty" title="ctlbase.shell.StandardProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardProperty</span></code></a>, the default
+implementation works as follows:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ctlbase.shell.StandardProperty.MODE_PENDING" title="ctlbase.shell.StandardProperty.MODE_PENDING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_PENDING</span></code></a>: Calls 
+<a class="reference internal" href="#ctlbase.shell.Control.getPendingMode" title="ctlbase.shell.Control.getPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getPendingMode()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="#ctlbase.shell.StandardProperty.MODE_ACTIVE" title="ctlbase.shell.StandardProperty.MODE_ACTIVE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_ACTIVE</span></code></a>: Calls 
+<a class="reference internal" href="#ctlbase.shell.Control.getActiveMode" title="ctlbase.shell.Control.getActiveMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getActiveMode()</span></code></a>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the property <cite>Enum</cite> does not have a member
+corresponding to <a class="reference internal" href="#ctlbase.shell.Control.getProperty.params.property" title="ctlbase.shell.Control.getProperty"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">property</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current property value. It can be of any Python type, be it
+a scalar type like <cite>int</cite> or <cite>str</cite>, be it a <cite>list</cite> or <cite>dict</cite> or a
+custom object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control._getProperty">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_getProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">property</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control._getProperty" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the value of a custom property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.Control._getProperty.params.property"></span><strong>property</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control._getProperty.params.property">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The property whose value is to be retrieved. Either a
+property <cite>Enum</cite> value (<cite>str</cite>) or the property <cite>Enum</cite> member itself.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current property value. It may be a cached value if the
+custom implementation uses caching. To ensure fresh values, call
+<a class="reference internal" href="#ctlbase.shell.Control.invalidateCache" title="ctlbase.shell.Control.invalidateCache"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Control.invalidateCache()</span></code></a> first.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)">object</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.getPropertiesJson">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPropertiesJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propertiesListsEn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getPropertiesJson" title="Link to this definition"></a></dt>
+<dd><p>Creates a JSON-formatted listing of all current property values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.Control.getPropertiesJson.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getPropertiesJson.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – The property lists to be rendered in JSON format,
+as returned by <a class="reference internal" href="#ctlbase.shell.Control._getPropertiesListsEn" title="ctlbase.shell.Control._getPropertiesListsEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code></a>.
+Only the first two elements of each property list are used.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The control status in JSON format.</p>
 </dd>
-<dt class="field-odd">Rytpe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.shell.Control.getStatusTextEn">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getStatusTextEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statusTuplesEn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstColumnWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">24</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getStatusTextEn" title="Link to this definition"></a></dt>
-<dd><p>Returns the control status as a human-readable text, without any 
-control characters, in the language <code class="docutils literal notranslate"><span class="pre">en</span></code>.</p>
-<p>The output contains two text columns:</p>
+<dt class="sig sig-object py" id="ctlbase.shell.Control.getPropertiesTextEn">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPropertiesTextEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propertiesListsEn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstColumnWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">28</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.getPropertiesTextEn" title="Link to this definition"></a></dt>
+<dd><p>Creates a human-readable listing of all current property values in
+English (<cite>en</cite>).</p>
+<p>The output contains two text columns for each property:</p>
 <ol class="arabic simple">
-<li><p>The human-readable description of an individual status
-property.</p></li>
-<li><p>Second column: The corresponding human-readable value.</p></li>
+<li><p>The capitalized human-readable name of the property. If the property
+value matches <a class="reference internal" href="#ctlbase.shell.Control.BOOL_VALUE_PATTERN" title="ctlbase.shell.Control.BOOL_VALUE_PATTERN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">BOOL_VALUE_PATTERN</span></code></a>, a question mark
+is appended.  For instance, <code class="docutils literal notranslate"><span class="pre">is-powered-on</span></code> becomes 
+<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">powered</span> <span class="pre">on?</span></code>. If the property value has any other type, a colon
+is appended.</p></li>
+<li><p>The corresponding human-readable value.</p></li>
 </ol>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.shell.Control.getStatusTextEn.params.statusTuplesEn"></span><strong>statusTuplesEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getStatusTextEn.params.statusTuplesEn">¶</a> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – The status tuples to be rendered as plain text,
-as returned by <a class="reference internal" href="#ctlbase.shell.Control.getStatusTuplesEn" title="ctlbase.shell.Control.getStatusTuplesEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getStatusTuplesEn()</span></code></a>.
-Only the last two elements of each status tuple are evaluated.</p></li>
-<li><p><span class="target" id="ctlbase.shell.Control.getStatusTextEn.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getStatusTextEn.params.firstColumnWidth">¶</a> (<em>int</em>) – The number of characters to which the first
+<li><p><span class="target" id="ctlbase.shell.Control.getPropertiesTextEn.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getPropertiesTextEn.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – The property lists to be rendered as plain text,
+as returned by <a class="reference internal" href="#ctlbase.shell.Control._getPropertiesListsEn" title="ctlbase.shell.Control._getPropertiesListsEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code></a>.
+Only the last two elements of each property list are used.</p></li>
+<li><p><span class="target" id="ctlbase.shell.Control.getPropertiesTextEn.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.Control.getPropertiesTextEn.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of characters to which the first
 column should be padded.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The control status as a human-readable text.</p>
+<dd class="field-even"><p>The human-readable property listing.</p>
 </dd>
-<dt class="field-odd">Rytpe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.Control._getPropertiesListsEn">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_getPropertiesListsEn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control._getPropertiesListsEn" title="Link to this definition"></a></dt>
+<dd><p>Creates <strong>property lists</strong> for all properties and their current 
+values in English (<cite>en</cite>).</p>
+<p>The following is an example of a property list:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;POSITION&#39;</span><span class="p">,</span> <span class="n">Position</span><span class="o">.</span><span class="n">UP</span><span class="p">,</span> <span class="s1">&#39;screen position&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">… where <code class="docutils literal notranslate"><span class="pre">POSITION</span></code> is the member name (<cite>str</cite>) of the property as 
+listed in the property <cite>Enum</cite>.</div>
+<div class="line">… <code class="docutils literal notranslate"><span class="pre">Position.UP</span></code> is the current value of the property as returned
+by <a class="reference internal" href="#ctlbase.shell.Control.getProperty" title="ctlbase.shell.Control.getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getProperty()</span></code></a>.</div>
+<div class="line">… <code class="docutils literal notranslate"><span class="pre">screen</span> <span class="pre">position</span></code> is the human-readable name (<cite>str</cite>) of the
+property.</div>
+<div class="line">… and <code class="docutils literal notranslate"><span class="pre">up</span></code> is the current human-readable value of the property 
+(<cite>str</cite>).</div>
+</div>
+<p>Each property list must contain these four elements in the order shown
+above.</p>
+<p>The default implementation works as follows:</p>
+<ul class="simple">
+<li><p>The human-readable name is created from the property <cite>Enum</cite> member’s
+value. Hyphens are replaced by spaces. As an example, <code class="docutils literal notranslate"><span class="pre">mode-active</span></code> 
+becomes <code class="docutils literal notranslate"><span class="pre">mode</span> <span class="pre">active</span></code>.</p></li>
+<li><p>As for the human-readable value, if the property value is an <cite>Enum</cite> 
+member, its value is used. If the property value is a <cite>bool</cite>, <code class="docutils literal notranslate"><span class="pre">yes</span></code> 
+or  <code class="docutils literal notranslate"><span class="pre">no</span></code> are produced. If it is <cite>None</cite>, <code class="docutils literal notranslate"><span class="pre">n/a</span></code> is produced.
+Otherwise, the unmodified property value is used.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An <cite>Iterable</cite> with one property list for each property.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Iterable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -305,145 +777,149 @@ column should be padded.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.shell.Control.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.Control.close" title="Link to this definition"></a></dt>
-<dd><p>Closes an auto-created message buffer. This holds if 
-<a class="reference internal" href="#ctlbase.shell.Control.params.msgBuffer" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msgBuffer</span></code></a> was set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the constructor.</p>
+<dd><p>Closes auto-created resources.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.Control.BOOL_VALUE_PATTERN">
+<span class="sig-name descname"><span class="pre">BOOL_VALUE_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:yes|no|true|false)$',</span> <span class="pre">re.IGNORECASE)</span></em><a class="headerlink" href="#ctlbase.shell.Control.BOOL_VALUE_PATTERN" title="Link to this definition"></a></dt>
+<dd><p>Regular expression for <cite>str</cite> values that will be treated as bool values.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ctlbase.shell.ControlShell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell" title="Link to this definition"></a></dt>
 <dd><p>A context manager for creating CLI utilities. Creates and 
-lifecyle-manages various resources as described in 
-<a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
-<p>When the context manager exits, the following steps are taken:</p>
+lifecyle-manages the resources typically needed by a control.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.__exit__">
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errorType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.__exit__" title="Link to this definition"></a></dt>
+<dd><p>When the context manager exits, the following steps are taken:</p>
 <ul class="simple">
 <li><p>If the context manager exits due to an exception of type 
-<code class="xref py py-class docutils literal notranslate"><span class="pre">MessageError</span></code> or <cite>ValueError</cite>, the corresponding error message
-is added to the message buffer.</p></li>
+<a class="reference internal" href="message.html#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a> or <cite>ValueError</cite>, the corresponding error 
+message is added to the message buffer.</p></li>
 <li><p>Any other exception bubbles up, i.e. is not handled gracefully.</p></li>
-<li><p>An auto-created thread pool executor is auto-closed. This holds if 
-<a class="reference internal" href="#ctlbase.shell.ControlShell.params.threadExecutor" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">threadExecutor</span></code></a> was set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
-constructor.</p></li>
-<li><p>An auto-created process executor is auto-closed. This holds if 
-<a class="reference internal" href="#ctlbase.shell.ControlShell.params.processExecutor" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">processExecutor</span></code></a> was set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
-constructor.</p></li>
+<li><p>An auto-created thread pool executor is auto-closed.</p></li>
+<li><p>An auto-created process executor is auto-closed.</p></li>
 <li><p>The <cite>close</cite> function or coroutine function of the control set via 
 <a class="reference internal" href="#ctlbase.shell.ControlShell.setControl" title="ctlbase.shell.ControlShell.setControl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setControl()</span></code></a> is called if one exists.</p></li>
 <li><p>The <cite>close</cite> function or coroutine function of this context manager is
 called if one exists. Useful for extensions of <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a>
 that control resources of their own.</p></li>
-<li><p>Messages in the message buffer are written to <em>stdout</em> as follows:</p>
+<li><p>Messages in the message buffer are written to <em>stdout</em> and <em>stderr</em> as
+follows:</p>
 <ul>
-<li><p>If the <code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> command line flag is given, all messages in
-the message buffer are written to <em>stdout</em> in JSON format. All 
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> command line flag is given, all messages
+in the message buffer are written to <em>stdout</em> in JSON format. All 
 remaining flags for output handling are ignored at this point.
-If the <code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> command line flag is not given, plain text
-messages are written to <em>stdout</em>.</p></li>
+If the <code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> command line flag is not given, plain 
+text messages are written to <em>stdout</em> unless the severity is
+<a class="reference internal" href="message.html#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a> or <a class="reference internal" href="message.html#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a>. Then they
+are written to <em>stderr</em>.</p></li>
 <li><p>The language of plain text messages are determined by the
-<a class="reference internal" href="#ctlbase.shell.ControlShell.params.lng" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">lng</span></code></a> value set in the constructor.</p></li>
-<li><p>If the <code class="docutils literal notranslate"><span class="pre">-v</span></code> | <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> command line flag is given, messages with
-severity <code class="xref py py-attr docutils literal notranslate"><span class="pre">VERBOSE</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">DEBUG</span></code>
-are included in the plain text output.</p></li>
-<li><p>Plain text messages are colored according to message severities. 
-To suppress the coloring, set the 
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code> flag of the message buffer
-to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<a class="reference internal" href="#ctlbase.shell.ControlShell.params.lng" title="ctlbase.shell.ControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">lng</span></code></a> value set in <a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">-v</span></code> | <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> command line flag is given, messages 
+with severity <a class="reference internal" href="message.html#ctlbase.message.Severity.VERBOSE" title="ctlbase.message.Severity.VERBOSE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VERBOSE</span></code></a> and <a class="reference internal" href="message.html#ctlbase.message.Severity.DEBUG" title="ctlbase.message.Severity.DEBUG"><code class="xref py py-attr docutils literal notranslate"><span class="pre">DEBUG</span></code></a>
+are included in plain text output.</p></li>
+<li><p>Plain text messages are colored according to their severities. To
+suppress the coloring, set <a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.params.isColoringDefault" title="ctlbase.message.MessageBuffer"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a>
+to <cite>False</cite>. Alternatively, set the <code class="docutils literal notranslate"><span class="pre">COLOR_PRINT</span></code> environment 
+variable to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
 <li><p>Any plain text string set in <a class="reference internal" href="#ctlbase.shell.ControlShell.printOnExit" title="ctlbase.shell.ControlShell.printOnExit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">printOnExit()</span></code></a> is 
 written to <em>stdout</em>.</p></li>
 </ul>
 </li>
-<li><p>The message buffer is closed.</p></li>
+<li><p>An auto-created message buffer is auto-closed.</p></li>
 <li><p>The context manager’s asyncio event loop is closed.</p></li>
 </ul>
-<p>The process exit code is determined as follows:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> if the message buffer contains at least one message of severity
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> if the message buffer contains does not contain any message of
-severity <code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code> but at last one with severity
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> if none of the aforementioned conditions are true.</p></li>
-</ul>
-<dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.addStandardArgs">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.addStandardArgs" title="Link to this definition"></a></dt>
-<dd><p>For uniform arguments of executable scripts, amends an argument 
-parser with standard arguments.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> flag: Write JSON output to <em>stdout</em>. Handled by 
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> | <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> flag: Write more verbose messages to <em>stdout</em>.
-Handled by <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> | <code class="docutils literal notranslate"><span class="pre">--oknodo</span></code> flag: Suppress an error if the requested
-action’s target state is already reached. Will be passed as 
-<code class="xref py py-paramref docutils literal notranslate"><span class="pre">isOkNodo</span></code> to <code class="xref py py-meth docutils literal notranslate"><span class="pre">operate()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code> flag: Force the action even if the target state is already
-reached. Will be passed as 
-<code class="xref py py-paramref docutils literal notranslate"><span class="pre">isForced</span></code> to <code class="xref py py-meth docutils literal notranslate"><span class="pre">operate()</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--noprompt</span></code> flag: Do not prompt the user for any input, e.g. 
-confirmations or passwords. Its inversion will be passed as
-<code class="xref py py-paramref docutils literal notranslate"><span class="pre">mayPrompt</span></code> to <code class="xref py py-meth docutils literal notranslate"><span class="pre">operate()</span></code>.</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">ArgumentParser</a>) – The argument parser to amend.</p>
-</dd>
-</dl>
+<p>The exit code is determined via <a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getExitCode" title="ctlbase.message.MessageBuffer.getExitCode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getExitCode()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.shell.ControlShell.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threadExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.__init__" title="Link to this definition"></a></dt>
 <dd><p>Creates a new control shell with the resources specified in the 
-parameters.</p>
-<p>Always creates a new asyncio event loop for the current thread.</p>
+parameters. Independently of the parameters, always creates a new
+asyncio event loop for the current thread.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.shell.ControlShell.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">argparse.ArgumentParser</a> | <a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace">argparse.Namespace</a>) – The parser or already parsed namespace with the command
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.ArgumentParser</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.Namespace</span></code></a>) – The parser or already parsed namespace with the command
 line arguments to evaluate.</p></li>
-<li><p><span class="target" id="ctlbase.shell.ControlShell.params.threadExecutor"></span><strong>threadExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.threadExecutor">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor">concurrent.futures.ThreadPoolExecutor</a> | True | None) – A thread pool executor or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should
-be auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no thread pool
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.threadExecutor"></span><strong>threadExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.threadExecutor">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">concurrent.futures.ThreadPoolExecutor</span></code></a> | True | None) – A thread pool executor or <cite>True</cite> if one should
+be auto-created and lifecycle-managed. <cite>None</cite> if no thread pool
 executor is needed.</p></li>
-<li><p><span class="target" id="ctlbase.shell.ControlShell.params.processExecutor"></span><strong>processExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.processExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.process.ProcessExecutor</span></code> | True | None) – A process executor or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should
-be auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no process
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.processExecutor"></span><strong>processExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.processExecutor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessExecutor</span></code> | True | None) – A process executor or <cite>True</cite> if one should
+be auto-created and lifecycle-managed. <cite>None</cite> if no process
 executor is needed.</p></li>
-<li><p><span class="target" id="ctlbase.shell.ControlShell.params.envConfigPath"></span><strong>envConfigPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.envConfigPath">¶</a> (<em>str</em><em> | </em><em>bool</em><em> | </em><em>None</em>) – Absolute path or file name (to be auto-discovered)
-of an evironment configuration file to be parsed and provided as
-<cite>dict</cite>. <code class="docutils literal notranslate"><span class="pre">True</span></code> for auto-discovery based on the name of the using
-Python module. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no environment configuration is needed.</p></li>
-<li><p><span class="target" id="ctlbase.shell.ControlShell.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.msgBuffer">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.message.MessageBuffer</span></code> | True | None) – A message buffer or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should be 
-auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no message buffer is
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.envConfigName"></span><strong>envConfigName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.envConfigName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – <p>An environment configuration in one of the
+following forms:</p>
+<ul>
+<li><p>As a configuration file name. It may may include a relative or
+absolute path. See <a class="reference internal" href="config.html#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery
+algorithm.</p></li>
+<li><p>As <cite>True</cite> to auto-discover a configuration file based on the 
+caller’s normalized module name as returned by 
+<a class="reference internal" href="config.html#ctlbase.config.CallerDiscovery.findName" title="ctlbase.config.CallerDiscovery.findName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findName()</span></code></a>. See 
+<a class="reference internal" href="config.html#ctlbase.config.FileDiscovery.find" title="ctlbase.config.FileDiscovery.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery algorithm.</p></li>
+<li><p>As <cite>None</cite> if the control shell does not need an environment 
+configuration.</p></li>
+</ul>
+</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.msgBuffer">¶</a> (<a class="reference internal" href="message.html#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a> | True | None) – A message buffer or <cite>True</cite> if one should be 
+auto-created and lifecycle-managed. <cite>None</cite> if no message buffer is
 needed. Note that in this case, this context manager cannot 
-automatically write output to <em>stdout</em>.</p></li>
-<li><p><span class="target" id="ctlbase.shell.ControlShell.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.lng">¶</a> (<em>str</em><em> | </em><em>True</em>) – A two-letter language code for the messages to be written
-to <em>stdout</em>. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code> if the requested language is not
-available. <code class="docutils literal notranslate"><span class="pre">True</span></code> if the default locale from the environment 
-shall be taken.</p></li>
+automatically write output to <em>stdout</em> and <em>stderr</em>.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em>) – A two-letter language code for the messages to be written
+to <em>stdout</em> and <em>stderr</em>. Defaults to <cite>en</cite> if the requested 
+language is not available. <cite>True</cite> if the default locale from the 
+environment shall be taken.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.threadExecutor">
-<span class="sig-name descname"><span class="pre">threadExecutor</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.threadExecutor" title="Link to this definition"></a></dt>
-<dd><p>The thread pool executor lifecycle-managed by this context manager.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.processExecutor">
-<span class="sig-name descname"><span class="pre">processExecutor</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.processExecutor" title="Link to this definition"></a></dt>
-<dd><p>The process executor lifecycle-managed by this context manager.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.envConfigPath">
-<span class="sig-name descname"><span class="pre">envConfigPath</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.envConfigPath" title="Link to this definition"></a></dt>
-<dd><p>The absolute path of the environment configuration file parsed into
-<a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigDict" title="ctlbase.shell.ControlShell.envConfigDict"><code class="xref py py-attr docutils literal notranslate"><span class="pre">envConfigDict</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.addStandardArgs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isAddAction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.addStandardArgs" title="Link to this definition"></a></dt>
+<dd><p>For uniform arguments of executable scripts, amends an argument 
+parser with standard arguments.</p>
+<p>To create a control shell that handles the standard arguments 
+automatically, simply pass the amended parser to
+<a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<p>It is recommended to add custom arguments before amending the parser
+with standard arguments.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-j</span></code> | <code class="docutils literal notranslate"><span class="pre">--json</span></code> flag: Write JSON output to <em>stdout</em>. Handled by 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.__exit__" title="ctlbase.shell.ControlShell.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> | <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> flag: Write more verbose messages to <em>stdout</em>.
+Handled by <a class="reference internal" href="#ctlbase.shell.ControlShell.__exit__" title="ctlbase.shell.ControlShell.__exit__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code> | <code class="docutils literal notranslate"><span class="pre">--oknodo</span></code> flag: Suppress an error if the requested
+action’s target state is already reached. Passed to 
+<a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> as <a class="reference internal" href="#ctlbase.shell.Control.performAction.params.isOkNodo" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isOkNodo</span></code></a> .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code> flag: Force the action even if the target state is already
+reached. Passed to <a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> as 
+<a class="reference internal" href="#ctlbase.shell.Control.performAction.params.isForced" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isForced</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--noprompt</span></code> flag: Do not prompt the user for any input, e.g. 
+confirmations or passwords. Its inversion is passed to
+<a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> as <a class="reference internal" href="#ctlbase.shell.Control.performAction.params.mayPrompt" title="ctlbase.shell.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">mayPrompt</span></code></a>.</p></li>
+<li><p><em>action</em> (positional argument): The action to perform. An <em>action</em>
+argument is only added if not yet present in the parser and if
+<a class="reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs.params.isAddAction" title="ctlbase.shell.ControlShell.addStandardArgs"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isAddAction</span></code></a> is set to
+<cite>True</cite>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.shell.ControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.ArgumentParser</span></code></a>) – The argument parser to amend.</p></li>
+<li><p><span class="target" id="ctlbase.shell.ControlShell.addStandardArgs.params.isAddAction"></span><strong>isAddAction</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlShell.addStandardArgs.params.isAddAction">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, no <em>action</em> positional argument is 
+added.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
@@ -453,15 +929,37 @@ shall be taken.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.msgBuffer">
-<span class="sig-name descname"><span class="pre">msgBuffer</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.msgBuffer" title="Link to this definition"></a></dt>
-<dd><p>The message buffer used by this context manager to write output to <em>stdout</em>.</p>
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.envConfigName">
+<span class="sig-name descname"><span class="pre">envConfigName</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.envConfigName" title="Link to this definition"></a></dt>
+<dd><p>The absolute path of the environment configuration file parsed into
+<a class="reference internal" href="#ctlbase.shell.ControlShell.envConfigDict" title="ctlbase.shell.ControlShell.envConfigDict"><code class="xref py py-attr docutils literal notranslate"><span class="pre">envConfigDict</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.shell.ControlShell.lng">
 <span class="sig-name descname"><span class="pre">lng</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.lng" title="Link to this definition"></a></dt>
-<dd><p>The two-letter language code used by this context manager to write output to <em>stdout</em>.</p>
+<dd><p>The two-letter language code used by this context manager to write 
+output to <em>stdout</em> and <em>stderr</em>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.msgBuffer">
+<span class="sig-name descname"><span class="pre">msgBuffer</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.msgBuffer" title="Link to this definition"></a></dt>
+<dd><p>The message buffer used by this context manager to write output to
+<em>stdout</em> and <em>stderr</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.printOnExit">
+<span class="sig-name descname"><span class="pre">printOnExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.printOnExit" title="Link to this definition"></a></dt>
+<dd><p>In addition to this context manager’s message buffer, set a text
+that shall be printed to <em>stdout</em> when this context manager exits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.processExecutor">
+<span class="sig-name descname"><span class="pre">processExecutor</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.processExecutor" title="Link to this definition"></a></dt>
+<dd><p>The process executor lifecycle-managed by this context manager.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -469,8 +967,7 @@ shall be taken.</p></li>
 <span class="sig-name descname"><span class="pre">requestCleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signalNumber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stackFrame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.requestCleanup" title="Link to this definition"></a></dt>
 <dd><p>A Python signal handler injecting a <code class="xref py py-class docutils literal notranslate"><span class="pre">CleaningUp</span></code> exception
 into all running code in the current Python process.</p>
-<p>The signature is defined in
-<a class="reference external" href="https://docs.python.org/3/library/signal.html#signal.signal">signal.signal</a>.</p>
+<p>The signature is defined in <a class="reference external" href="https://docs.python.org/3/library/signal.html#signal.signal" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">signal.signal()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -486,50 +983,70 @@ manager.</p></li>
 <li><p>If the context manager’s message buffer does not yet have a  default
 namespace, the namespace of the control is set as its default 
 namespace.</p></li>
-<li><p>When the context manager exits, the <cite>close</cite> coroutine of the control
-is called. This step is skipped if the control does not have a <cite>close</cite>
-coroutine.</p></li>
+<li><p>When the context manager exits, the <cite>close</cite> function or coroutine
+function of the control is called if one exists.</p></li>
 </ul>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.printOnExit">
-<span class="sig-name descname"><span class="pre">printOnExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlShell.printOnExit" title="Link to this definition"></a></dt>
-<dd><p>In addition to this context manager’s message buffer, set a text
-that shall be printed to <em>stdout</em> when this context manager exits.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlShell.threadExecutor">
+<span class="sig-name descname"><span class="pre">threadExecutor</span></span><a class="headerlink" href="#ctlbase.shell.ControlShell.threadExecutor" title="Link to this definition"></a></dt>
+<dd><p>The thread pool executor lifecycle-managed by this context manager.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ServiceControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ServiceControlShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell" title="Link to this definition"></a></dt>
 <dd><p>A context manager for creating services, i.e. background daemons.</p>
-<p>It adds the following features to the base class <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a>:</p>
+<p>It adds the following features to <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a>:</p>
 <ul class="simple">
 <li><p>Auto-creation and lifecycle management for a task monitor. It can be used
 to schedule service tasks in the background, i.e. in the context manager’s
 asyncio event loop.</p></li>
 <li><p>Support for command line arguments common to services.</p></li>
 </ul>
-<p>When the context manager exits, the following steps are taken in addition to
-base class <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a>:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.__exit__">
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errorType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traceback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.__exit__" title="Link to this definition"></a></dt>
+<dd><p>When the context manager exits, the following steps are taken in 
+addition to <a class="reference internal" href="#ctlbase.shell.ControlShell" title="ctlbase.shell.ControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlShell</span></code></a>:</p>
 <ul class="simple">
-<li><p>An auto-created task monitor is auto-closed. This holds if 
-<a class="reference internal" href="#ctlbase.shell.ServiceControlShell.params.taskMonitor" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">taskMonitor</span></code></a> was set to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the
-constructor.</p></li>
+<li><p>An auto-created task monitor is auto-closed.</p></li>
 </ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.__init__" title="Link to this definition"></a></dt>
+<dd><p>Arguments with the same name have the same meaning as with 
+<a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ServiceControlShell.params.taskMonitor"></span><strong>taskMonitor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ServiceControlShell.params.taskMonitor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">TaskMonitor</span></code> | True | None) – A task monitor or <cite>True</cite> if one should be 
+auto-created and lifecycle-managed. <cite>None</cite> if no task monitor is
+needed.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.addStandardArgs">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">addStandardArgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.addStandardArgs" title="Link to this definition"></a></dt>
 <dd><p>For uniform arguments of executable scripts, amends an argument
 parser with standard arguments.</p>
+<p>To create a control shell that handles the standard arguments 
+automatically, simply pass the amended parser to
+<a class="reference internal" href="#ctlbase.shell.ServiceControlShell.__init__" title="ctlbase.shell.ServiceControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
+<p>It is recommended to add custom arguments before amending the parser
+with standard arguments.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">--delay</span></code>: Delay in milliseconds after which the systemd shall be
 notified <em>ready</em>. Handled by <a class="reference internal" href="#ctlbase.shell.ServiceControlShell.notifyReady" title="ctlbase.shell.ServiceControlShell.notifyReady"><code class="xref py py-meth docutils literal notranslate"><span class="pre">notifyReady()</span></code></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-e</span></code> | <code class="docutils literal notranslate"><span class="pre">--errors</span></code>: Maximum number of errors after which the 
-service shall exit (with exit code <code class="docutils literal notranslate"><span class="pre">4</span></code>). To be handled by classes
-extending <a class="reference internal" href="#ctlbase.shell.ServiceControlShell" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a>.</p></li>
+service shall exit (with exit code <code class="docutils literal notranslate"><span class="pre">4</span></code>). To be handled by subclasses
+of <a class="reference internal" href="#ctlbase.shell.ServiceControlShell" title="ctlbase.shell.ServiceControlShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">ServiceControlShell</span></code></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> | <code class="docutils literal notranslate"><span class="pre">--log</span></code>: Path to the service’s log file. Handled by
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">__enter__()</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--tswidth</span></code>: Number of characters the timestamps in the log file 
@@ -539,29 +1056,9 @@ file. Handled by <code class="xref py py-meth docutils literal notranslate"><spa
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ServiceControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ServiceControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser">ArgumentParser</a>) – The argument parser to amend.</p>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ServiceControlShell.addStandardArgs.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ServiceControlShell.addStandardArgs.params.parser">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">argparse.ArgumentParser</span></code></a>) – The argument parser to amend.</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskMonitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfigPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.__init__" title="Link to this definition"></a></dt>
-<dd><p>Arguments with the same name have the same meaning as with 
-<a class="reference internal" href="#ctlbase.shell.ControlShell.__init__" title="ctlbase.shell.ControlShell.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ServiceControlShell.params.taskMonitor"></span><strong>taskMonitor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ServiceControlShell.params.taskMonitor">¶</a> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ctlbase.process.TaskMonitor</span></code> | True | None) – A task monitor or <code class="docutils literal notranslate"><span class="pre">True</span></code> if one should
-be auto-created and lifecycle-managed. <code class="docutils literal notranslate"><span class="pre">None</span></code> if no task monitor
-is needed.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.taskMonitor">
-<span class="sig-name descname"><span class="pre">taskMonitor</span></span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.taskMonitor" title="Link to this definition"></a></dt>
-<dd><p>The task manager lifecycle-managed by this context manager.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -571,15 +1068,164 @@ is needed.</p>
 <p>Useful if the service is wrapped into a systemd service unit.</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.ServiceControlShell.taskMonitor">
+<span class="sig-name descname"><span class="pre">taskMonitor</span></span><a class="headerlink" href="#ctlbase.shell.ServiceControlShell.taskMonitor" title="Link to this definition"></a></dt>
+<dd><p>The task manager lifecycle-managed by this context manager.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlEnum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">ControlEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlEnum" title="Link to this definition"></a></dt>
+<dd><p>Base class for <cite>Enum</cite> classes used by <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>.</p>
+<p>Note that a custom action, mode and property <cite>Enum</cite> does not have to extend
+this class, as the methods of this class are added dynamically at runtime.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlEnum.fromAny">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromAny</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlEnum.fromAny" title="Link to this definition"></a></dt>
+<dd><p>Looks for an <cite>Enum</cite> member corresponding to a given object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ControlEnum.fromAny.params.object"></span><strong>object</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlEnum.fromAny.params.object">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The <cite>str</cite> value of an <cite>Enum</cite> member or an <cite>Enum</cite> member
+itself.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The corresponding <cite>Enum</cite> member.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Enum</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the <cite>Enum</cite> does not have a corresponding member.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.ControlEnum.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.ControlEnum.__eq__" title="Link to this definition"></a></dt>
+<dd><p>Makes an <cite>Enum</cite> member comparable with simple strings, based on its
+value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.shell.ControlEnum.__eq__.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#ctlbase.shell.ControlEnum.__eq__.params.other">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The <cite>str</cite> value of an <cite>Enum</cite> member or an <cite>Enum</cite> member
+itself. May also be from another <cite>Enum</cite> class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">StandardAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.StandardAction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ctlbase.shell.ControlEnum" title="ctlbase.shell.ControlEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlEnum</span></code></a></p>
+<p>Standard actions supported by <a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> without the 
+need for custom implementations in <a class="reference internal" href="#ctlbase.shell.Control._performAction" title="ctlbase.shell.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a>.</p>
+<p>If a custom control wants to use the default implementation of 
+<a class="reference internal" href="#ctlbase.shell.Control.performAction" title="ctlbase.shell.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> for a specific action, one of its action
+<cite>Enum</cite> members must have the same value as the desired standard action.</p>
+<p>Any action <cite>Enum</cite> passed into <a class="reference internal" href="#ctlbase.shell.Control.params.actionType" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionType</span></code></a> will 
+dynamically inherit the methods of this class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardAction.MODE_SET">
+<span class="sig-name descname"><span class="pre">MODE_SET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mode-set'</span></em><a class="headerlink" href="#ctlbase.shell.StandardAction.MODE_SET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardAction.MODE_UNSET">
+<span class="sig-name descname"><span class="pre">MODE_UNSET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mode-unset'</span></em><a class="headerlink" href="#ctlbase.shell.StandardAction.MODE_UNSET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardAction.MODE_ACTIVATE">
+<span class="sig-name descname"><span class="pre">MODE_ACTIVATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mode-activate'</span></em><a class="headerlink" href="#ctlbase.shell.StandardAction.MODE_ACTIVATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">StandardMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.StandardMode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ctlbase.shell.ControlEnum" title="ctlbase.shell.ControlEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlEnum</span></code></a></p>
+<p>Standard modes supported by the <cite>Mode</cite> methods of <a class="reference internal" href="#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>.</p>
+<p>Any mode <cite>Enum</cite> passed into <a class="reference internal" href="#ctlbase.shell.Control.params.modeType" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">modeType</span></code></a> will dynamically 
+inherit the methods of this class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardMode.NONE">
+<span class="sig-name descname"><span class="pre">NONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'none'</span></em><a class="headerlink" href="#ctlbase.shell.StandardMode.NONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardMode.fromAny">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromAny</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.StandardMode.fromAny" title="Link to this definition"></a></dt>
+<dd><p>Extends <a class="reference internal" href="#ctlbase.shell.ControlEnum.fromAny" title="ctlbase.shell.ControlEnum.fromAny"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromAny()</span></code></a> by treating <cite>str</cite>, <code class="docutils literal notranslate"><span class="pre">none</span></code>
+(<cite>str</cite>) and <cite>None</cite> as equivalent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardMode.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.StandardMode.__eq__" title="Link to this definition"></a></dt>
+<dd><p>Extends <a class="reference internal" href="#ctlbase.shell.ControlEnum.__eq__" title="ctlbase.shell.ControlEnum.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a> by treating <cite>str</cite>, <code class="docutils literal notranslate"><span class="pre">none</span></code>
+(<cite>str</cite>) and <cite>None</cite> as equivalent.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardProperty">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">StandardProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.shell.StandardProperty" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ctlbase.shell.ControlEnum" title="ctlbase.shell.ControlEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">ControlEnum</span></code></a></p>
+<p>Standard properties supported by <a class="reference internal" href="#ctlbase.shell.Control.getProperty" title="ctlbase.shell.Control.getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getProperty()</span></code></a> without 
+the need for custom implementations in <a class="reference internal" href="#ctlbase.shell.Control._getProperty" title="ctlbase.shell.Control._getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getProperty()</span></code></a>.</p>
+<p>If a custom control wants to use the default implementation of 
+<a class="reference internal" href="#ctlbase.shell.Control.getProperty" title="ctlbase.shell.Control.getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getProperty()</span></code></a> for a specific property, one of its property
+<cite>Enum</cite> members must have the same value as the desired standard property.</p>
+<p>Any property <cite>Enum</cite> passed into <a class="reference internal" href="#ctlbase.shell.Control.params.propertyType" title="ctlbase.shell.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">propertyType</span></code></a> will
+dynamically inherit the methods of this class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardProperty.MODE_PENDING">
+<span class="sig-name descname"><span class="pre">MODE_PENDING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mode-pending'</span></em><a class="headerlink" href="#ctlbase.shell.StandardProperty.MODE_PENDING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.shell.StandardProperty.MODE_ACTIVE">
+<span class="sig-name descname"><span class="pre">MODE_ACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mode-active'</span></em><a class="headerlink" href="#ctlbase.shell.StandardProperty.MODE_ACTIVE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.shell.MODE_DIR_NAME_ENVKEY">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">MODE_DIR_NAME_ENVKEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MODE_PATH'</span></em><a class="headerlink" href="#ctlbase.shell.MODE_DIR_NAME_ENVKEY" title="Link to this definition"></a></dt>
+<dd><p>Environment configuration key for the mode directory.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.shell.MODE_GROUP_ENVKEY">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">MODE_GROUP_ENVKEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MODE_GROUP'</span></em><a class="headerlink" href="#ctlbase.shell.MODE_GROUP_ENVKEY" title="Link to this definition"></a></dt>
+<dd><p>Environment configuration key for the group ownership of the mode directory.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.shell.MODE_TIMEOUT_DEFAULT_ENVKEY">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.shell.</span></span><span class="sig-name descname"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MODE_TIMEOUT_DEFAULT_S'</span></em><a class="headerlink" href="#ctlbase.shell.MODE_TIMEOUT_DEFAULT_ENVKEY" title="Link to this definition"></a></dt>
+<dd><p>Environment configuration key for the default pending mode timeout in seconds.</p>
+</dd></dl>
+
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="config.html" class="btn btn-neutral float-left" title="config module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mode.html" class="btn btn-neutral float-left" title="mode module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -105,7 +105,7 @@
   };
 
   // Some functions take a variable number of arguments, or a few expected
-  // arguments at the beginning and then a variable number of values to operate
+  // arguments at the beginning and then a variable number of values to performAction
   // on. This helper accumulates all remaining arguments past the function’s
   // argument length (or an explicit `startIndex`), into an array that becomes
   // the last argument. Similar to ES6’s "rest parameter".
