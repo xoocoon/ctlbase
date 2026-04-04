@@ -1,0 +1,995 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>message module &mdash; ctlbase 1.0a1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="mode module" href="mode.html" />
+    <link rel="prev" title="config module" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ctlbase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">message module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.ErrorMessage"><code class="docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageIterator"><code class="docutils literal notranslate"><span class="pre">MessageIterator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctlbase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
+      <li class="breadcrumb-item active">message module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ctlbase.message">
+<span id="message-module"></span><h1>message module<a class="headerlink" href="#module-ctlbase.message" title="Link to this heading"></a></h1>
+<p>Classes for capturing messages from controls and other sources like REST APIs.</p>
+<p>Messages can be appended to an instance of <a class="reference internal" href="#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a> before
+actually writing them to the console and/or a log file. An individual message is
+captured with multiple attributes, not just with its human-readable text. This
+has two benefits:</p>
+<ul class="simple">
+<li><p>Messages can be translated into another language in one go and on-demand. See
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.addTranslation" title="ctlbase.message.MessageBuffer.addTranslation"><code class="xref py py-meth docutils literal notranslate"><span class="pre">addTranslation()</span></code></a>.</p></li>
+<li><p>Message semantics can be queried programatically, e.g. by checking for a
+certain message type via <a class="reference internal" href="#ctlbase.message.MessageBuffer.hasKey" title="ctlbase.message.MessageBuffer.hasKey"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hasKey()</span></code></a>.  Another example is
+checking for a certain message severity like <a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a> via
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity" title="ctlbase.message.MessageBuffer.hasSeverity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hasSeverity()</span></code></a>.</p></li>
+</ul>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
+<li><p><a class="reference internal" href="#constants-and-defaults" id="id2">Constants and defaults</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.Message">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">Message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">textEn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><span class="pre">Severity</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Severity.NORMAL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_iso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message" title="Link to this definition"></a></dt>
+<dd><p>A message captured with several attributes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.textEn">
+<span class="sig-name descname"><span class="pre">textEn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.textEn" title="Link to this definition"></a></dt>
+<dd><p>The human-readable message text in English (<cite>en</cite>). It serves
+multiple purposes:</p>
+<ul class="simple">
+<li><p>At runtime: If the message is to be shown to a user whose preferred
+language is <cite>en</cite>, the message text is used “as is”.</p></li>
+<li><p>If the user has a different preferred language, the English message
+text is used as a fallback if no appropriate translation is available.</p></li>
+<li><p>At development time: If the English message text occurs as a literal
+<cite>str</cite> in the source code, it serves as an additional documentation of
+the source code, e.g. a literal error message for a specific case.</p></li>
+<li><p>Also, it serves as the primary reference when translating the message
+text into other languages.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.key">
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.key" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">An alphanumeric key for the message type.
+It is used to check for messages that have occurred, as well as a key
+into translation files.
+It must be unique within the message namespace (<a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>).</div>
+<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">FILE_NOT_FOUND</span></code></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.arguments">
+<span class="sig-name descname"><span class="pre">arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></em><a class="headerlink" href="#ctlbase.message.Message.arguments" title="Link to this definition"></a></dt>
+<dd><p>The message arguments, i.e. language-neutral literals that can be
+embedded in the message texts of various languages.
+Examples:</p>
+<ul class="simple">
+<li><p>an <cite>int</cite> like <code class="docutils literal notranslate"><span class="pre">5</span></code> for the number of failed retries</p></li>
+<li><p>a <cite>str</cite> representing a user-supplied value, e.g. <code class="docutils literal notranslate"><span class="pre">/tmp/command.log</span></code>
+for a log file path</p></li>
+<li><p>a <cite>float</cite> like <code class="docutils literal notranslate"><span class="pre">1.532</span></code> representing the elapsed time in seconds</p></li>
+</ul>
+<p>If the arguments are specified as a <cite>dict</cite> instead of an ordered
+<cite>list</cite> or <cite>tuple</cite>, the <cite>dict</cite> keys must be semantic identifiers for
+the arguments.
+Examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">retryCount</span></code> for the number of failed retries</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code> for a log file path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elapsed</span></code> for the elapsed time</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.severity">
+<span class="sig-name descname"><span class="pre">severity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><span class="pre">Severity</span></a></em><a class="headerlink" href="#ctlbase.message.Message.severity" title="Link to this definition"></a></dt>
+<dd><p>The message severity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.timestamp_iso">
+<span class="sig-name descname"><span class="pre">timestamp_iso</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><span class="pre">datetime.datetime</span></a></em><a class="headerlink" href="#ctlbase.message.Message.timestamp_iso" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">An optional timestamp in ISO 8601 format or an instance of
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> directly. It should represent
+the point in time when the message occurred originally.</div>
+<div class="line">Example: <code class="docutils literal notranslate"><span class="pre">2024-08-01T14:38:32.499588</span></code></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.ns">
+<span class="sig-name descname"><span class="pre">ns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.ns" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">An alphanumeric identifier for the message namespace within which all
+message keys must be unique. It usually represents the application or
+domain from which the message originates.</div>
+<div class="line">Examples: <code class="docutils literal notranslate"><span class="pre">HOME_THEATER</span></code> or <code class="docutils literal notranslate"><span class="pre">ENGINE_CONTROL</span></code></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Message.correlationId">
+<span class="sig-name descname"><span class="pre">correlationId</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.correlationId" title="Link to this definition"></a></dt>
+<dd><p>An optional correlation ID, i.e. an alphanumeric identifier used to
+operationally group several messages. As an example, it can be an
+identifier for a batch command that produces several messages across
+several message namespaces.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Message.__eq__">
+<span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message.__eq__" title="Link to this definition"></a></dt>
+<dd><p>Compares this message to another object by all attributes except
+the <cite>str</cite> values of the message texts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Message.fromJson">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonStr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message.fromJson" title="Link to this definition"></a></dt>
+<dd><p>Creates a <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> instance from a JSON <cite>str</cite>.</p>
+<p>It may be overridden to deserialize a message from a custom JSON
+representation. In this case, <a class="reference internal" href="#ctlbase.message.Message.toJson" title="ctlbase.message.Message.toJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toJson()</span></code></a> must be
+overridden, too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.fromJson.params.jsonStr"></span><strong>jsonStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.fromJson.params.jsonStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A message in its JSON representation, enclosed in
+<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message">Message</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Message.fromDict">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msgDict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message.fromDict" title="Link to this definition"></a></dt>
+<dd><p>Creates a <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> instance from a <cite>dict</cite>.</p>
+<p>The <cite>dict</cite> must correspond to the JSON representation defined via
+<a class="reference internal" href="#ctlbase.message.Message.fromJson" title="ctlbase.message.Message.fromJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromJson()</span></code></a> and <a class="reference internal" href="#ctlbase.message.Message.toJson" title="ctlbase.message.Message.toJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toJson()</span></code></a>. Hence, if
+these two methods are overridden, <a class="reference internal" href="#ctlbase.message.Message.fromDict" title="ctlbase.message.Message.fromDict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromDict()</span></code></a> must be
+overridden, too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.fromDict.params.msgDict"></span><strong>msgDict</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.fromDict.params.msgDict">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – A message in its <cite>dict</cite> representation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The created message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message">Message</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Message.toJson">
+<span class="sig-name descname"><span class="pre">toJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message.toJson" title="Link to this definition"></a></dt>
+<dd><p>Represents this message as a JSON <cite>str</cite>.</p>
+<p>It may be overridden to serialize the message to a custom JSON
+representation. In this case, <a class="reference internal" href="#ctlbase.message.Message.fromJson" title="ctlbase.message.Message.fromJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromJson()</span></code></a> must be
+overridden, too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The message in its JSON representation, enclosed in
+<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Message.toText">
+<span class="sig-name descname"><span class="pre">toText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message.toText" title="Link to this definition"></a></dt>
+<dd><p>Looks up the message text in a certain language. It must already be
+available as a message attribute, as this method does not perform
+an on-demand translation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.toText.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.toText.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message text to be
+returned.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The message text for language <cite>lng</cite>, if available. Otherwise,
+the English message text (<a class="reference internal" href="#ctlbase.message.Message.textEn" title="ctlbase.message.Message.textEn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textEn</span></code></a>) is returned as
+a fallback.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Message.toColoredText">
+<span class="sig-name descname"><span class="pre">toColoredText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Message.toColoredText" title="Link to this definition"></a></dt>
+<dd><p>A variant of <a class="reference internal" href="#ctlbase.message.Message.toText" title="ctlbase.message.Message.toText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toText()</span></code></a> that encloses the message text
+in ANSI control characters coloring the text according to severity.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.ErrorMessage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">ErrorMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">textEn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_iso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exitCode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.ErrorMessage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>, <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+<p>A variant of <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> that works like an Exception.</p>
+<p>It has an implicit severity of <a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a> and can be “raised”.</p>
+<p>Attributes with the same name have the same meaning as with <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.ErrorMessage.exitCode">
+<span class="sig-name descname"><span class="pre">exitCode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#ctlbase.message.ErrorMessage.exitCode" title="Link to this definition"></a></dt>
+<dd><p>A numeric code to be used as exit code of the process.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">MessageBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsDefault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndentDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lngDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isColoringDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer" title="Link to this definition"></a></dt>
+<dd><p>A buffer for messages.</p>
+<p>Messages can be appended without writing them to the console directly.
+Appended messages can be queried programatically until the buffer is cleared
+via <a class="reference internal" href="#ctlbase.message.MessageBuffer.clear" title="ctlbase.message.MessageBuffer.clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code></a>. For instance, to check for a certain
+message severity like <a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a>,
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity" title="ctlbase.message.MessageBuffer.hasSeverity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">hasSeverity()</span></code></a> is used.</p>
+<p>To eventually print the messages to the console or another IO stream, the
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.printText" title="ctlbase.message.MessageBuffer.printText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">printText()</span></code></a> method is used.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">COLOR_PRINT</span></code> environment variable determines the default behavior for
+coloring in text output functions if <a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a>
+was initialized as <cite>None</cite>. The allowed values for the environment variable
+are <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.nsDefault">
+<span class="sig-name descname"><span class="pre">nsDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.nsDefault" title="Link to this definition"></a></dt>
+<dd><p>The default namespace to be assigned to messages without a namespace
+of their own.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.jsonIndentDefault">
+<span class="sig-name descname"><span class="pre">jsonIndentDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.jsonIndentDefault" title="Link to this definition"></a></dt>
+<dd><p>The default number of spaces used to indent one hierarchy level in
+JSON output functions, namely <a class="reference internal" href="#ctlbase.message.MessageBuffer.getJson" title="ctlbase.message.MessageBuffer.getJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getJson()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.lngDefault">
+<span class="sig-name descname"><span class="pre">lngDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.lngDefault" title="Link to this definition"></a></dt>
+<dd><p>The two-letter language code to be used as the default in text output
+functions, namely <a class="reference internal" href="#ctlbase.message.MessageBuffer.printText" title="ctlbase.message.MessageBuffer.printText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">printText()</span></code></a> and
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.getText" title="ctlbase.message.MessageBuffer.getText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getText()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.isColoringDefault">
+<span class="sig-name descname"><span class="pre">isColoringDefault</span></span><a class="headerlink" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, colored text is the default in text output functions,
+namely <a class="reference internal" href="#ctlbase.message.MessageBuffer.printText" title="ctlbase.message.MessageBuffer.printText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">printText()</span></code></a> and
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.getText" title="ctlbase.message.MessageBuffer.getText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getText()</span></code></a>. Overrides the <code class="docutils literal notranslate"><span class="pre">COLOR_PRINT</span></code>
+environment variable. Defaults to <cite>True</cite> if the environment variable
+is unset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.clear" title="Link to this definition"></a></dt>
+<dd><p>Clears all messages in the buffer.</p>
+<p>The default values of the buffer are retained.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><span class="pre">Severity</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Severity.NORMAL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_iso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isDeduplicate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.append" title="Link to this definition"></a></dt>
+<dd><p>Appends a message to the buffer.
+The message may be given in one of various forms:</p>
+<ol class="arabic">
+<li><p>As an instance of <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>, provided in the
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msg</span></code></a> parameter. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span><span class="s2">&quot;Configuration file not found&quot;</span><span class="p">,</span> <span class="s1">&#39;CONFIG_NOT_FOUND&#39;</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">msgBuffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>As individual attributes, of which the English message text
+(<a class="reference internal" href="#ctlbase.message.Message.textEn" title="ctlbase.message.Message.textEn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textEn</span></code></a>) must be provided in the
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msg</span></code></a> parameter. What is more,
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.append.params.key" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">key</span></code></a> must be provided. All other
+attributes are optional and assume default values if not provided.
+Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msgBuffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Configuration file not found&quot;</span><span class="p">,</span> <span class="s1">&#39;CONFIG_NOT_FOUND&#39;</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>As an instance of <a class="reference internal" href="#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a>, provided in the
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msg</span></code></a> parameter. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msgError</span> <span class="o">=</span> <span class="n">ErrorMessage</span><span class="p">(</span><span class="s2">&quot;Configuration file not found&quot;</span><span class="p">,</span> <span class="s1">&#39;CONFIG_NOT_FOUND&#39;</span><span class="p">,</span> <span class="n">exitCode</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">msgBuffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msgError</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Regardless of the chosen form, if the message namespace
+(<a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>) is <cite>None</cite>, the value of
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDefault" title="ctlbase.message.MessageBuffer.nsDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nsDefault</span></code></a> is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.msg"></span><strong>msg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg">¶</a> (<a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em> | </em><a class="reference internal" href="#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><em>ErrorMessage</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The message to appemd, depending on the chosen form
+(see above).</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The message key (<a class="reference internal" href="#ctlbase.message.Message.key" title="ctlbase.message.Message.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>), if form 2 is chosen.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – The message arguments (<a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>),
+if form 2 is chosen.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.severity"></span><strong>severity</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.severity">¶</a> (<a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><em>Severity</em></a>) – The message severity (<a class="reference internal" href="#ctlbase.message.Message.severity" title="ctlbase.message.Message.severity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">severity</span></code></a>), if
+form 2 is chosen.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A timestamp (<a class="reference internal" href="#ctlbase.message.Message.timestamp_iso" title="ctlbase.message.Message.timestamp_iso"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_iso</span></code></a>) if
+form 2 is chosen.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The message namespace (<a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>), if form 2 is
+chosen.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A correlation ID (<a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>),
+if form 2 is chosen.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.isDeduplicate"></span><strong>isDeduplicate</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.isDeduplicate">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, appends the message only if it is not
+yet contained in the buffer, according to <a class="reference internal" href="#ctlbase.message.Message.__eq__" title="ctlbase.message.Message.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.appendJson">
+<span class="sig-name descname"><span class="pre">appendJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jsonStr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.appendJson" title="Link to this definition"></a></dt>
+<dd><p>Creates <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> instances from a JSON <cite>str</cite> and
+appends them to the buffer. Messages are optionally filtered by
+correlation ID.</p>
+<p>Helpful if messages from another control or REST service were retrieved
+as JSON and need to be appended to the buffer.</p>
+<p>The supported JSON representation is defined by
+<a class="reference internal" href="#ctlbase.message.Message.fromJson" title="ctlbase.message.Message.fromJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromJson()</span></code></a>. Multiple messages must be enclosed in
+<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">...</span> <span class="pre">]</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.appendJson.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendJson.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID by which messages are
+filtered. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.appendBuffer">
+<span class="sig-name descname"><span class="pre">appendBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherBuffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.appendBuffer" title="Link to this definition"></a></dt>
+<dd><p>Appends the messages of another buffer to the buffer, optionally
+filtered by correlation ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.appendBuffer.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendBuffer.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID by which messages are
+filtered. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.printText">
+<span class="sig-name descname"><span class="pre">printText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lngFilter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severityFilter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationIdFilter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isColoring=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stdStream=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdout&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errStream=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stderr&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.printText" title="Link to this definition"></a></dt>
+<dd><p>Writes the messages in the buffer to the given IO streams as plain
+text, optionally filtered by one or more criteria. Individual messages
+are separated by newline characters.</p>
+<p>Messages with severities <a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a> and
+<a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a> are printed to
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.printText.params.errStream" title="ctlbase.message.MessageBuffer.printText"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">errStream</span></code></a>. If the latter is <cite>None</cite>,
+messages are printed to <a class="reference internal" href="#ctlbase.message.MessageBuffer.printText.params.stdStream" title="ctlbase.message.MessageBuffer.printText"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">stdStream</span></code></a>,
+as well as all other messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.lngFilter"></span><strong>lngFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.lngFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message texts to be
+printed. If <cite>None</cite>, the value of <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>
+is used. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code> if a corresponding translation cannot be
+found.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.isColoring">¶</a> – If <cite>True</cite>, the text written to the output streams
+is colored according to message severity. If <cite>None</cite>, the value of
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a> is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.getList">
+<span class="sig-name descname"><span class="pre">getList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.getList" title="Link to this definition"></a></dt>
+<dd><p>Creates an ordered sequence of message objects in this buffer,
+optionally filtered by correlation ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.getList.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getList.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID by which messages are
+filtered. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An ordered sequence of message objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message">Message</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.getJson">
+<span class="sig-name descname"><span class="pre">getJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.getJson" title="Link to this definition"></a></dt>
+<dd><p>Creates a formatted JSON <cite>str</cite> from the messages in the buffer,
+optionally filtered by correlation ID.</p>
+<p>The supported JSON representation is defined by <a class="reference internal" href="#ctlbase.message.Message.toJson" title="ctlbase.message.Message.toJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toJson()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getJson.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getJson.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID by which messages are
+filtered. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getJson.params.indent"></span><strong>indent</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getJson.params.indent">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of space used to indent one hierarchy level
+in the JSON output. If <cite>None</cite>, the value of
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.jsonIndentDefault" title="ctlbase.message.MessageBuffer.jsonIndentDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">jsonIndentDefault</span></code></a> is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The messages in their JSON representation, as an ordered list
+enclosed in <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">...</span> <span class="pre">]</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.getText">
+<span class="sig-name descname"><span class="pre">getText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lngFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severityFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isColoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.getText" title="Link to this definition"></a></dt>
+<dd><p>Merges the message texts in the buffer into one <cite>str</cite>, optionally
+filtered by one or more criteria.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.lngFilter"></span><strong>lngFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.lngFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message texts to be
+merged. If <cite>None</cite>, the value of <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>
+is used. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code> if a corresponding translation cannot be
+found.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.isColoring">¶</a> – If <cite>True</cite>, the returned text is colored according
+to message severity. If <cite>None</cite>, the value of
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a> is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The merged <cite>str</cite>, with individual messages separated by newline
+characters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.getExitCode">
+<span class="sig-name descname"><span class="pre">getExitCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.getExitCode" title="Link to this definition"></a></dt>
+<dd><p>Determines the most appropriate numeric exit code for the process,
+based on the messages in the buffer.</p>
+<div class="line-block">
+<div class="line">If instances of <a class="reference internal" href="#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a> were appended to this buffer,
+the <a class="reference internal" href="#ctlbase.message.ErrorMessage.exitCode" title="ctlbase.message.ErrorMessage.exitCode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">exitCode</span></code></a> of the instance appended last is
+returned.</div>
+<div class="line">Otherwise, the exit code depends on the message in the buffer with the
+“highest” severity:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">4</span></code> if at least one message has the severity
+<a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">3</span></code> if at least one message has the severity
+<a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a>.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code>  otherwise.</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The numeric exit code.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.hasKey">
+<span class="sig-name descname"><span class="pre">hasKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argumentFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.hasKey" title="Link to this definition"></a></dt>
+<dd><p>Searches the buffer for a message with a certain key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The key to search for.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.argumentFilter">¶</a> – An optional argument filter to narrow the search
+space. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional correlation ID filter to narrow
+the search space. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if at least one message has been found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.hasSeverity">
+<span class="sig-name descname"><span class="pre">hasSeverity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">severities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argumentFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.hasSeverity" title="Link to this definition"></a></dt>
+<dd><p>Searches the buffer for a message with one of several possible
+severities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.severities"></span><strong>severities</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.severities">¶</a> – One or more severities to search for. It is
+sufficient for a message to match one of the given severities.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.argumentFilter">¶</a> – An optional argument filter to narrow the search
+space. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional correlation ID filter to narrow
+the search space. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if at least one message has been found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.addTranslation">
+<span class="sig-name descname"><span class="pre">addTranslation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lng</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkMissingFile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkMissingKey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkMissingArgument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageBuffer.addTranslation" title="Link to this definition"></a></dt>
+<dd><p>Loads a translation file and adds the corresponding translations to
+the buffer.</p>
+<p>The syntax of translation files is a basic version of i18next.
+Message arguments can either be interpolated by index or by semantic
+key:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Freigabe {{0}} ausgehängt.&quot;</span>
+<span class="c1"># or</span>
+<span class="s2">&quot;Freigabe {{share}} ausgehängt.&quot;</span>
+</pre></div>
+</div>
+<p>In the first case, <a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a> must be of type <cite>list</cite> or
+<cite>tuple</cite>. In the second case, they must be of type <cite>dict</cite>.
+Default values for arguments may be specified in the translation file in
+a top-level object named <code class="docutils literal notranslate"><span class="pre">defaultVariables</span></code>. It must contain key/value
+pairs of argument indices or keys and the corresponding default values.</p>
+<p>The search path for a translation file is determined by
+<a class="reference internal" href="config.html#ctlbase.config.FileDiscovery.TRANSLATION_LOCATIONS" title="ctlbase.config.FileDiscovery.TRANSLATION_LOCATIONS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TRANSLATION_LOCATIONS</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslation.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslation.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the translations to be added,
+e.g. <code class="docutils literal notranslate"><span class="pre">de</span></code>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslation.params.isOkMissingFile"></span><strong>isOkMissingFile</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslation.params.isOkMissingFile">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>False</cite>, a warning with key
+<cite>TRANSLATION_FILE_NOT_FOUND</cite> is appended to the buffer if a
+translation file for <cite>lng</cite> cannot be found.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslation.params.isOkMissingKey"></span><strong>isOkMissingKey</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslation.params.isOkMissingKey">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>False</cite>, a warning with key
+<cite>TRANSLATION_KEY_NOT_FOUND</cite> is appended to the buffer if the key of a
+message in the buffer cannot be found in the translation file.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslation.params.isOkMissingArgument"></span><strong>isOkMissingArgument</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslation.params.isOkMissingArgument">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>False</cite>, a warning with key
+<cite>MESSAGE_ARGUMENT_NOT_FOUND</cite> is appended to the buffer if the
+translation file requires an argument that cannot be found in the
+message with the corresponding key.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslation.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslation.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID under which possibly occurring
+warning messages are appended to the buffer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.TRUE_VALUE_PATTERN">
+<span class="sig-name descname"><span class="pre">TRUE_VALUE_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:1|yes|true)$',</span> <span class="pre">re.IGNORECASE)</span></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.TRUE_VALUE_PATTERN" title="Link to this definition"></a></dt>
+<dd><p>Regular expression for <cite>str</cite> values that will be treated as <cite>True</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.FALSE_VALUE_PATTERN">
+<span class="sig-name descname"><span class="pre">FALSE_VALUE_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:0|no(?:ne)?|false)$',</span> <span class="pre">re.IGNORECASE)</span></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.FALSE_VALUE_PATTERN" title="Link to this definition"></a></dt>
+<dd><p>Regular expression for <cite>str</cite> values that will be treated as <cite>False</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">LoggingMessageBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsDefault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndentDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lngDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isColoringDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstColumnWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">24</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isLogImmediately</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isLogToConsole</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a></p>
+<p>A message buffer capable of logging messages to a file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.logPath">
+<span class="sig-name descname"><span class="pre">logPath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="Link to this definition"></a></dt>
+<dd><p>The log file path. It is opened only when
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog" title="ctlbase.message.LoggingMessageBuffer.openLog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openLog()</span></code></a> is called.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr">
+<span class="sig-name descname"><span class="pre">firstColumnFormatStr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr" title="Link to this definition"></a></dt>
+<dd><p>The printf-style string used to format the first column in the log
+output.</p>
+<p>The first column contains the timestamp of the corresponding log entry,
+right-padded with spaces to match the number of characters given in
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.firstColumnWidth" title="ctlbase.message.LoggingMessageBuffer"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">firstColumnWidth</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.isLogImmediately">
+<span class="sig-name descname"><span class="pre">isLogImmediately</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, any message is written to the log file as soon as it is
+appended to the buffer. If <cite>False</cite>, all the messages in the buffer are
+written to the log file when the buffer is closed via its
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.close" title="ctlbase.message.LoggingMessageBuffer.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> method.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.isLogToConsole">
+<span class="sig-name descname"><span class="pre">isLogToConsole</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, messages are additionally written to <em>stdout</em> at the same
+time when they are written to the log file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.openLog">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">openLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstColumnWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.openLog" title="Link to this definition"></a></dt>
+<dd><p>Actually opens the log file. If it exists already, log entries will
+be appended to it. Otherwise the file is created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.openLog.params.logPath"></span><strong>logPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog.params.logPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The log file path to open and to set as the value of
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a>. If <cite>None</cite>, the existing
+value of <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a> is used.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.openLog.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Sets the value of
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr" title="ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr"><code class="xref py py-attr docutils literal notranslate"><span class="pre">firstColumnFormatStr</span></code></a>. If <cite>None</cite>,
+the existing value of
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr" title="ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr"><code class="xref py py-attr docutils literal notranslate"><span class="pre">firstColumnFormatStr</span></code></a> is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If neither <cite>logPath</cite> nor
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a> are given.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.setLogToConsole">
+<span class="sig-name descname"><span class="pre">setLogToConsole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isLogToConsole</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.setLogToConsole" title="Link to this definition"></a></dt>
+<dd><p>Sets the value of <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole" title="ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isLogToConsole</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><span class="pre">Severity</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Severity.NORMAL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_iso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.append" title="Link to this definition"></a></dt>
+<dd><p>Immediately writes a message to the log file if 
+<a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately" title="ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isLogImmediately</span></code></a> is <cite>True</cite> and a
+a log file has been opened via <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog" title="ctlbase.message.LoggingMessageBuffer.openLog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openLog()</span></code></a>.
+In this case, messages are not buffered. Hence, they cannot be queried
+programatically via <code class="xref py py-meth docutils literal notranslate"><span class="pre">hasKey()</span></code> or
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">hasSeverity()</span></code> or any other method.</p>
+<p>In all other cases, the call is delegated to the super method
+<a class="reference internal" href="#ctlbase.message.MessageBuffer.append" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the buffer, eventually writing all messages in the buffer
+to the log file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.MessageIterator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">MessageIterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteratorType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Format.OBJECT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isImmutable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argumentFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severityFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lngForText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageIterator" title="Link to this definition"></a></dt>
+<dd><p>Allows for (filtered) iteration over the messages in a buffer.</p>
+<p>While iterating, messages may still be appended to the buffer.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.MessageIterator.Format">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageIterator.Format" title="Link to this definition"></a></dt>
+<dd><p>The format of messages to be yielded.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageIterator.Format.OBJECT">
+<span class="sig-name descname"><span class="pre">OBJECT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#ctlbase.message.MessageIterator.Format.OBJECT" title="Link to this definition"></a></dt>
+<dd><p>An instance of <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageIterator.Format.TEXT">
+<span class="sig-name descname"><span class="pre">TEXT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#ctlbase.message.MessageIterator.Format.TEXT" title="Link to this definition"></a></dt>
+<dd><p>The message text as a <cite>str</cite>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.MessageIterator.Format.TEXT_COLORED">
+<span class="sig-name descname"><span class="pre">TEXT_COLORED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#ctlbase.message.MessageIterator.Format.TEXT_COLORED" title="Link to this definition"></a></dt>
+<dd><p>The message text as a <cite>str</cite> enclosed in ANSI control characters
+coloring the text according to severity.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.MessageIterator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteratorType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Format.OBJECT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isImmutable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argumentFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severityFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationIdFilter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lngForText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.MessageIterator.__init__" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.messages"></span><strong>messages</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.messages">¶</a> (<a class="reference internal" href="#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><em>MessageBuffer</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em>]</em>) – The message sequence to iterate over.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.iteratorType"></span><strong>iteratorType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.iteratorType">¶</a> (<a class="reference internal" href="#ctlbase.message.MessageIterator.Format" title="ctlbase.message.MessageIterator.Format"><code class="xref py py-class docutils literal notranslate"><span class="pre">Format</span></code></a>) – The format of the messages to be yielded.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.startIndex"></span><strong>startIndex</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.startIndex">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The (zero-based) index of the first message to
+yield. It must be less than <code class="docutils literal notranslate"><span class="pre">len(messages)</span></code>. As an example, if
+<cite>startIndex</cite> is <code class="docutils literal notranslate"><span class="pre">2</span></code>, iteration starts with the third message in
+<a class="reference internal" href="#ctlbase.message.MessageIterator.params.messages" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">messages</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.isImmutable"></span><strong>isImmutable</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.isImmutable">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the iterator uses an immutable copy of
+the message sequence. In this case, messages appended afterwards are
+not reflected in the iterator.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <div class="line-block">
+<div class="line">An optional filter for message arguments
+(<a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>). The filter is specified as a scalar
+value, e.g. a <cite>str</cite>, an <cite>int</cite> or a <cite>bool</cite>. For a message to pass
+the filter, one of its arguments must exactly match the value.</div>
+<div class="line">To match a key/value pair instead of just a value, the filter may
+be specified as a <cite>dict</cite> with a single entry. As an example,
+<code class="docutils literal notranslate"><span class="pre">argumentFilter={'retryCount':5}</span></code> matches message arguments
+specified as a <cite>dict</cite>, containing a semantic key <code class="docutils literal notranslate"><span class="pre">retryCount</span></code>
+with a value of <code class="docutils literal notranslate"><span class="pre">5</span></code>.</div>
+<div class="line">If <cite>None</cite>, messages are not filtered by arguments.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.severityFilter"></span><strong>severityFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.severityFilter">¶</a> (<em>Iterable</em>) – <div class="line-block">
+<div class="line">An optional filter for message severities
+(<a class="reference internal" href="#ctlbase.message.Message.severity" title="ctlbase.message.Message.severity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">severity</span></code></a>). The filter is specified as an
+<cite>Iterable</cite> with one or more severities. For a message to pass the
+filter, its severity must match one of the given severities.</div>
+<div class="line">If <cite>None</cite>, messages are not filtered by severity.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – <div class="line-block">
+<div class="line">An optional filter for correlation IDs
+(<a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>). For a message to pass the
+filter, its correlation ID must exactly match the given value.</div>
+<div class="line">If <cite>None</cite>, messages are not filtered by correlation ID.</div>
+</div>
+</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – <div class="line-block">
+<div class="line">Two-letter language code for the message texts to
+be returned.</div>
+<div class="line">Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code>, if a corressponding translation cannot be
+found.</div>
+<div class="line">Only relevant for formats <a class="reference internal" href="#ctlbase.message.MessageIterator.Format.TEXT" title="ctlbase.message.MessageIterator.Format.TEXT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TEXT</span></code></a>
+and <a class="reference internal" href="#ctlbase.message.MessageIterator.Format.TEXT_COLORED" title="ctlbase.message.MessageIterator.Format.TEXT_COLORED"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TEXT_COLORED</span></code></a>.</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.message.MessageIterator.params.startIndex" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">startIndex</span></code></a> is
+invalid.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a> is
+an invalid <cite>dict</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.message.Severity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">Severity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Severity" title="Link to this definition"></a></dt>
+<dd><p>The severity of a single message.</p>
+<p>The member values denote the ANSI color codes for corresponding messages
+written to the console and/or a log file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.DEBUG">
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">90</span></em><a class="headerlink" href="#ctlbase.message.Severity.DEBUG" title="Link to this definition"></a></dt>
+<dd><p>Technical message intended for debugging.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.ERROR">
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">91</span></em><a class="headerlink" href="#ctlbase.message.Severity.ERROR" title="Link to this definition"></a></dt>
+<dd><p>Error message, e.g. for a failed action.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">39</span></em><a class="headerlink" href="#ctlbase.message.Severity.NORMAL" title="Link to this definition"></a></dt>
+<dd><p>Informative message with no special coloring.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.SUCCESS">
+<span class="sig-name descname"><span class="pre">SUCCESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">92</span></em><a class="headerlink" href="#ctlbase.message.Severity.SUCCESS" title="Link to this definition"></a></dt>
+<dd><p>Success message, e.g. for a completed action.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.VERBOSE">
+<span class="sig-name descname"><span class="pre">VERBOSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">37</span></em><a class="headerlink" href="#ctlbase.message.Severity.VERBOSE" title="Link to this definition"></a></dt>
+<dd><p>Verbose message providing more detail than <a class="reference internal" href="#ctlbase.message.Severity.NORMAL" title="ctlbase.message.Severity.NORMAL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NORMAL</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.WARNING">
+<span class="sig-name descname"><span class="pre">WARNING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">93</span></em><a class="headerlink" href="#ctlbase.message.Severity.WARNING" title="Link to this definition"></a></dt>
+<dd><p>Warning message, e.g. for an action that completed, yet in an unexpected
+way.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.setNodoSeverity">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setNodoSeverity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodoSeverity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Severity.setNodoSeverity" title="Link to this definition"></a></dt>
+<dd><p>Sets the “no do” severity globally for the entire Python process.</p>
+<p>Before this method is called, it defaults to <a class="reference internal" href="#ctlbase.message.Severity.NORMAL" title="ctlbase.message.Severity.NORMAL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NORMAL</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Severity.setNodoSeverity.params.nodoSeverity"></span><strong>nodoSeverity</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Severity.setNodoSeverity.params.nodoSeverity">¶</a> (<a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Severity</span></code></a>) – The severity to use for messages stating that an
+action’s target state is already reached.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.message.Severity.setOutputDefaults">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">setOutputDefaults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">severities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.Severity.setOutputDefaults" title="Link to this definition"></a></dt>
+<dd><p>Sets the default severities to include in the console output of the
+Python process.</p>
+<p>Before this method is called, they default to <a class="reference internal" href="#ctlbase.message.Severity.NORMAL" title="ctlbase.message.Severity.NORMAL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NORMAL</span></code></a>,
+<a class="reference internal" href="#ctlbase.message.Severity.SUCCESS" title="ctlbase.message.Severity.SUCCESS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SUCCESS</span></code></a>, <a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a> and
+<a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Severity.setOutputDefaults.params.severities"></span><strong>severities</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Severity.setOutputDefaults.params.severities">¶</a> (<em>Iterable</em>) – An <cite>Iterable</cite> of default severities to include in the
+console output.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="config module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mode.html" class="btn btn-neutral float-right" title="mode module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

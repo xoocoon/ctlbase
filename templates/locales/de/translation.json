@@ -1,0 +1,9 @@
+{
+    "defaultVariables": {
+        "share": "Datenträger"
+    },
+    "UMOUNT_SUCCEEDED": "{{share}} ausgehängt.",
+    "UMOUNTED_ALREADY": "{{share}} bereits ausgehängt.",
+    "MOUNT_SUCCEEDED": "{{share}} eingehängt.",
+    "MOUNTED_ALREADY": "{{share}} bereits eingehängt."
+}
