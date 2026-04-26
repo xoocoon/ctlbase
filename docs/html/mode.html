@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="shell module" href="shell.html" />
+    <link rel="next" title="process module" href="process.html" />
     <link rel="prev" title="message module" href="message.html" /> 
 </head>
 
@@ -61,6 +61,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
 </ul>
 </li>
@@ -94,7 +95,7 @@
 <span id="mode-module"></span><h1>mode module<a class="headerlink" href="#module-ctlbase.mode" title="Link to this heading"></a></h1>
 <p>Low-level classes for mode handling based on text files.</p>
 <p>For the core concepts of mode handling see the <a class="reference internal" href="shell.html#shell-mode"><span class="std std-ref">shell module</span></a>.</p>
-<p>Controls normally should use the high-level <cite>Mode</cite> methods of <a class="reference internal" href="shell.html#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>.</p>
+<p>Controls should normally use the high-level <cite>Mode</cite> methods of <a class="reference internal" href="shell.html#ctlbase.shell.Control" title="ctlbase.shell.Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Control</span></code></a>.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
@@ -113,13 +114,13 @@
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isUseCallerName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isUseScriptName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.ModeDirDiscovery.find" title="Link to this definition"></a></dt>
 <dd><p>Tries to discover a mode directory with the given parameters.</p>
 <p>An eligible mode directory must be writable to the current user.</p>
-<p>If you want to avoid the runtime overhead of auto-discovery, provide an
-absolute path in <a class="reference internal" href="#ctlbase.mode.ModeDirDiscovery.find.params.dirName" title="ctlbase.mode.ModeDirDiscovery.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">dirName</span></code></a>.</p>
+<p>To avoid the runtime overhead of auto-discovery, provide an absolute
+path in <a class="reference internal" href="#ctlbase.mode.ModeDirDiscovery.find.params.dirName" title="ctlbase.mode.ModeDirDiscovery.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">dirName</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><span class="target" id="ctlbase.mode.ModeDirDiscovery.find.params.dirName"></span><strong>dirName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.ModeDirDiscovery.find.params.dirName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em>) – The mode directory name. It may include a relative or
-absolute path specification. <cite>True</cite> for auto-discovering a directory.</p></li>
+absolute path specification. <cite>True</cite> for auto-discovery.</p></li>
 <li><p><span class="target" id="ctlbase.mode.ModeDirDiscovery.find.params.isUseCallerName"></span><strong>isUseCallerName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.ModeDirDiscovery.find.params.isUseCallerName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, when auto-discovering a directory,
 the caller’s normalized module name is assumed as a directory name,
 as returned by <a class="reference internal" href="config.html#ctlbase.config.CallerDiscovery.findName" title="ctlbase.config.CallerDiscovery.findName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findName()</span></code></a>.</p></li>
@@ -155,9 +156,42 @@ writable for the current user.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="target" id="ctlbase.mode.FileModeHandler.params.dirPath"></span><strong>dirPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.FileModeHandler.params.dirPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The path to the mode directory. It may be specified as
 described under <a class="reference internal" href="#ctlbase.mode.ModeDirDiscovery.find.params.dirName" title="ctlbase.mode.ModeDirDiscovery.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">dirName</span></code></a>.
-Normally, a directory in a tmpfs is sufficient. But if modes should
+Normally, a directory in a tmpfs is sufficient. If modes should
 survive system reboots, choose a directory on a persistent file
 system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.activatePending">
+<span class="sig-name descname"><span class="pre">activatePending</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.activatePending" title="Link to this definition"></a></dt>
+<dd><p>Activates the pending mode by renaming the pending mode file with the
+most current modification time.</p>
+<p>Also removes the files of expired pending modes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If there is no pending mode that could be activated.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The activate mode.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.getActive">
+<span class="sig-name descname"><span class="pre">getActive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.getActive" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the active mode by reading the active mode file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The active mode if set, otherwise <code class="docutils literal notranslate"><span class="pre">none</span></code> (<cite>str</cite>).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -179,10 +213,33 @@ mode file with the most current modification time.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.unsetPending">
-<span class="sig-name descname"><span class="pre">unsetPending</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.unsetPending" title="Link to this definition"></a></dt>
-<dd><p>Unsets the pending mode by deleting all existing pending mode files.</p>
-<p>Removes the mode directory altogether if no files are left.</p>
+<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.setActive">
+<span class="sig-name descname"><span class="pre">setActive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.setActive" title="Link to this definition"></a></dt>
+<dd><p>Sets the active mode by creating an active mode file or overwriting
+an existing one.</p>
+<p>If <a class="reference internal" href="#ctlbase.mode.FileModeHandler.setActive.params.group" title="ctlbase.mode.FileModeHandler.setActive"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">group</span></code></a> is not <cite>None</cite>, the group
+group ownership is only set if the current user is the owner of the mode
+directory and file, respectively. Otherwise, the ownership is left 
+unmodified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.mode.FileModeHandler.setActive.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.FileModeHandler.setActive.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The mode to set. Passing an empty <cite>str</cite> or <code class="docutils literal notranslate"><span class="pre">none</span></code> is 
+equivalent to calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetActive()</span></code>.</p></li>
+<li><p><span class="target" id="ctlbase.mode.FileModeHandler.setActive.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.FileModeHandler.setActive.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The group ownership to be set on the mode directory and 
+file. Accepts a group name or numerical group ID (gid).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the given group does not exist.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite> if the mode was set, <cite>False</cite> if it was unset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -218,20 +275,6 @@ file. Accepts a group name or numerical group ID (gid).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.getActive">
-<span class="sig-name descname"><span class="pre">getActive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.getActive" title="Link to this definition"></a></dt>
-<dd><p>Retrieves the active mode by reading the active mode file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The active mode if set, otherwise <code class="docutils literal notranslate"><span class="pre">none</span></code> (<cite>str</cite>).</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.unsetActive">
 <span class="sig-name descname"><span class="pre">unsetActive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.unsetActive" title="Link to this definition"></a></dt>
 <dd><p>Unsets the active mode by deleting the active mode file if it exists.</p>
@@ -239,52 +282,10 @@ file. Accepts a group name or numerical group ID (gid).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.setActive">
-<span class="sig-name descname"><span class="pre">setActive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.setActive" title="Link to this definition"></a></dt>
-<dd><p>Sets the active mode by creating an active mode file or overwriting
-an existing one.</p>
-<p>If <a class="reference internal" href="#ctlbase.mode.FileModeHandler.setActive.params.group" title="ctlbase.mode.FileModeHandler.setActive"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">group</span></code></a> is not <cite>None</cite>, the group
-group ownership is only set if the current user is the owner of the mode
-directory and file, respectively. Otherwise, the ownership is left 
-unmodified.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.mode.FileModeHandler.setActive.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.FileModeHandler.setActive.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The mode to set. Passing an empty <cite>str</cite> or <code class="docutils literal notranslate"><span class="pre">none</span></code> is 
-equivalent to calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetActive()</span></code>.</p></li>
-<li><p><span class="target" id="ctlbase.mode.FileModeHandler.setActive.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.mode.FileModeHandler.setActive.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The group ownership to be set on the mode directory and 
-file. Accepts a group name or numerical group ID (gid).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the given group does not exist.</p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><cite>True</cite> if the mode was set, <cite>False</cite> if it was unset.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.activatePending">
-<span class="sig-name descname"><span class="pre">activatePending</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.activatePending" title="Link to this definition"></a></dt>
-<dd><p>Activates the pending mode by renaming the pending mode file with the
-most current modification time.</p>
-<p>Also removes the files of expired pending modes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If there is no pending mode that could be activated.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The activate mode.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="ctlbase.mode.FileModeHandler.unsetPending">
+<span class="sig-name descname"><span class="pre">unsetPending</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.mode.FileModeHandler.unsetPending" title="Link to this definition"></a></dt>
+<dd><p>Unsets the pending mode by deleting all existing pending mode files.</p>
+<p>Removes the mode directory altogether if no files are left.</p>
 </dd></dl>
 
 </dd></dl>
@@ -312,7 +313,7 @@ most current modification time.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="message.html" class="btn btn-neutral float-left" title="message module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="shell.html" class="btn btn-neutral float-right" title="shell module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="process.html" class="btn btn-neutral float-right" title="process module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
