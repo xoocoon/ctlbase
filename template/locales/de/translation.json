@@ -1,0 +1,10 @@
+{
+    "defaultVariables": {
+        "source": "Signalquelle"
+    },
+    "SOURCE_SET_SUCCEEDED": "{{source}} gewählt.",
+    "THREED_ON_SUCCEEDED": "3D-Modus eingeschaltet.",
+    "THREED_OFF_SUCCEEDED": "3D-Modus ausgeschaltet.",
+    "MODE_SET_SUCCEEDED": "Modus {{mode}} für {{timeout}} Sekunden gesetzt.",
+    "MODE_UNSET_SUCCEEDED": "Modus {{mode}} zurückgenommen."
+}

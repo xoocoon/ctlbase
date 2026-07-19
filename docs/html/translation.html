@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>translation module &mdash; ctlbase 1.0a2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="message module" href="message.html" />
+    <link rel="prev" title="config module" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ctlbase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">translation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.translation.TranslationManager"><code class="docutils literal notranslate"><span class="pre">TranslationManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.translation.Translation"><code class="docutils literal notranslate"><span class="pre">Translation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html">interaction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctlbase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
+      <li class="breadcrumb-item active">translation module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ctlbase.translation">
+<span id="translation-module"></span><h1>translation module<a class="headerlink" href="#module-ctlbase.translation" title="Link to this heading"></a></h1>
+<p>Simplistic internationalization classes inspired by i18next.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
+<li><p><a class="reference internal" href="#constants-and-defaults" id="id2">Constants and defaults</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.translation.TranslationManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.translation.</span></span><span class="sig-name descname"><span class="pre">TranslationManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lng</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.translation.TranslationManager" title="Link to this definition"></a></dt>
+<dd><p>A translation manager for various languages.</p>
+<p>For each target language, a JSON-formatted translation file must exist. The
+following is an example for <code class="docutils literal notranslate"><span class="pre">de</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;defaultVariables&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Signalquelle&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;SOURCE_SET_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;{{source}} gewählt.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;THREED_ON_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;3D-Modus eingeschaltet.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;THREED_OFF_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;3D-Modus ausgeschaltet.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MODE_SET_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;Modus {{mode}} für {{timeout}} Sekunden gesetzt.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MODE_UNSET_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;Modus {{mode}} zurückgenommen.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The syntax is a basic version of i18next. Each translation in the file is
+identified by an individual key. What is more, each translation may contain
+one or more variable names enclosed in double curly braces.</p>
+<p>A variable name in turn can either be a numeric index or a semantic key:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Modus {{0}} für {{1}} Sekunden gesetzt.&quot;</span>
+<span class="c1"># or</span>
+<span class="s2">&quot;Modus {{mode}} für {{timeout}} Sekunden gesetzt.&quot;</span>
+</pre></div>
+</div>
+<p>At runtime, variables are replaced by their actual values. If, during the
+so-called interpolation, the value of an individual variable cannot be
+resolved, a possibly existing default value from the <code class="docutils literal notranslate"><span class="pre">defaultVariables</span></code>
+object is used.</p>
+<p>Only one target language is active at a time. It can be changed via 
+<a class="reference internal" href="#ctlbase.translation.TranslationManager.changeLanguage" title="ctlbase.translation.TranslationManager.changeLanguage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">changeLanguage()</span></code></a>. The actual translation of a <cite>str</cite> is
+done via <a class="reference internal" href="#ctlbase.translation.TranslationManager.translate" title="ctlbase.translation.TranslationManager.translate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">translate()</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.translation.TranslationManager.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lng</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.translation.TranslationManager.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a translation manager with an initial target language.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.translation.TranslationManager.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the initial target language.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.translation.TranslationManager.changeLanguage">
+<span class="sig-name descname"><span class="pre">changeLanguage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lng</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.translation.TranslationManager.changeLanguage" title="Link to this definition"></a></dt>
+<dd><p>Changes the target language for translations. Subsequent calls to
+<a class="reference internal" href="#ctlbase.translation.TranslationManager.translate" title="ctlbase.translation.TranslationManager.translate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">translate()</span></code></a> will use the new language unless
+overridden temporarily.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.translation.TranslationManager.changeLanguage.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.changeLanguage.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the new language.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.translation.TranslationManager.loadLanguages">
+<span class="sig-name descname"><span class="pre">loadLanguages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lngs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isForceReload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.translation.TranslationManager.loadLanguages" title="Link to this definition"></a></dt>
+<dd><p>(Pre)loads the translation files for one or more languagea.</p>
+<p>The search path is determined by
+<a class="reference internal" href="config.html#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS" title="ctlbase.config.FileHelper.TRANSLATION_LOCATIONS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TRANSLATION_LOCATIONS</span></code></a>. Below the search path,
+directories with two-letter language codes are expected, each containing
+a translation file named <code class="docutils literal notranslate"><span class="pre">translation.json</span></code>. A typical structure looks
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locales</span><span class="o">/</span>
+    <span class="n">de</span><span class="o">/</span>
+        <span class="n">translation</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">fr</span><span class="o">/</span>
+        <span class="n">translation</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">it</span><span class="o">/</span>
+        <span class="n">translation</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.translation.TranslationManager.loadLanguages.params.lngs"></span><strong>lngs</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.loadLanguages.params.lngs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – One or more two-letter language codes for the translation 
+files to load, e.g. <code class="docutils literal notranslate"><span class="pre">de</span></code>.</p></li>
+<li><p><span class="target" id="ctlbase.translation.TranslationManager.loadLanguages.params.isForceReload"></span><strong>isForceReload</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.loadLanguages.params.isForceReload">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the translation file for a language is
+reloaded if it has been loaded already.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If a translation file for at least one
+language cannot be found.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.JSONDecodeError" title="(in Python v3.14)"><strong>json.JSONDecodeError</strong></a> – If at least one translation file does not
+contain a valid JSON document.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.translation.TranslationManager.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debugOutput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.translation.TranslationManager.translate" title="Link to this definition"></a></dt>
+<dd><p>Looks up and interpolates a translation for a specific key.</p>
+<p>Lazy-loads the translation file for the target language if it has not 
+been loaded yet via <a class="reference internal" href="#ctlbase.translation.TranslationManager.loadLanguages" title="ctlbase.translation.TranslationManager.loadLanguages"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loadLanguages()</span></code></a>.</p>
+<p>For debugging purposes, messages are written to
+<a class="reference internal" href="#ctlbase.translation.TranslationManager.translate.params.debugOutput" title="ctlbase.translation.TranslationManager.translate"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">debugOutput</span></code></a> in the following
+cases:</p>
+<ul class="simple">
+<li><p>If the value of a variable cannot be resolved.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.translation.TranslationManager.translate.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.translate.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The key to look up.</p></li>
+<li><p><span class="target" id="ctlbase.translation.TranslationManager.translate.params.replace"></span><strong>replace</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.translate.params.replace">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – The variable values to interpolate. If the variable
+names are numeric indices, a <cite>list</cite> or <cite>tuple</cite> must be provided. If
+the variable names are semantic keys, a <cite>dict</cite> with those keys must
+be provided.</p></li>
+<li><p><span class="target" id="ctlbase.translation.TranslationManager.translate.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.translate.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – A temporary override for the target language. If <cite>None</cite>,
+<a class="reference internal" href="#ctlbase.translation.TranslationManager.language" title="ctlbase.translation.TranslationManager.language"><code class="xref py py-attr docutils literal notranslate"><span class="pre">language</span></code></a> is used.</p></li>
+<li><p><span class="target" id="ctlbase.translation.TranslationManager.translate.params.debugOutput"></span><strong>debugOutput</strong><a class="paramlink headerlink reference internal" href="#ctlbase.translation.TranslationManager.translate.params.debugOutput">¶</a> (<em>StringIO</em><em> | </em><em>None</em>) – A string buffer for appending debug messages. If
+<cite>None</cite>, no messages are produced.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If no target language is set.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If a translation file for the target language
+cannot be found. Only relevant when lazy-loading the translation
+file.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.JSONDecodeError" title="(in Python v3.14)"><strong>json.JSONDecodeError</strong></a> – If the translation file does not contain a
+valid JSON document. Only relevant when lazy-loading the translation
+file.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.14)"><strong>KeyError</strong></a> – If the key cannot be found in the translation file for
+the target language.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.translation.TranslationManager.language">
+<span class="sig-name descname"><span class="pre">language</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.translation.TranslationManager.language" title="Link to this definition"></a></dt>
+<dd><p>Two-letter language code for the target language.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.translation.Translation">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.translation.</span></span><span class="sig-name descname"><span class="pre">Translation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;ctlbase.translation.TranslationManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ctlbase.translation.Translation" title="Link to this definition"></a></dt>
+<dd><p>Singleton for translations into the environment’s default language.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="config module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="message.html" class="btn btn-neutral float-right" title="message module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

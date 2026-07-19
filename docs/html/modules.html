@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ctlbase &mdash; ctlbase 1.0a2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="config module" href="config.html" />
+    <link rel="prev" title="Welcome to ctlbase’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ctlbase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ctlbase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html">translation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html">interaction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctlbase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ctlbase</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ctlbase">
+<h1>ctlbase<a class="headerlink" href="#ctlbase" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector"><code class="docutils literal notranslate"><span class="pre">CallerInspector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.__init__"><code class="docutils literal notranslate"><span class="pre">CallerInspector.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getName"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getPath"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getPath()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FileHelper"><code class="docutils literal notranslate"><span class="pre">FileHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.Type"><code class="docutils literal notranslate"><span class="pre">FileHelper.Type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.find"><code class="docutils literal notranslate"><span class="pre">FileHelper.find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findBinary"><code class="docutils literal notranslate"><span class="pre">FileHelper.findBinary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findConfig"><code class="docutils literal notranslate"><span class="pre">FileHelper.findConfig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findTranslation"><code class="docutils literal notranslate"><span class="pre">FileHelper.findTranslation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.BIN_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.BIN_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.CONFIG_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.CONFIG_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.TRANSLATION_LOCATIONS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.BashHelper"><code class="docutils literal notranslate"><span class="pre">BashHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Array"><code class="docutils literal notranslate"><span class="pre">BashHelper.Array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Scalar"><code class="docutils literal notranslate"><span class="pre">BashHelper.Scalar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.parseConfig"><code class="docutils literal notranslate"><span class="pre">BashHelper.parseConfig()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.Caller"><code class="docutils literal notranslate"><span class="pre">Caller</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.TRUE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">TRUE_VALUE_PATTERN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FALSE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">FALSE_VALUE_PATTERN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">translation module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager"><code class="docutils literal notranslate"><span class="pre">TranslationManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.__init__"><code class="docutils literal notranslate"><span class="pre">TranslationManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.changeLanguage"><code class="docutils literal notranslate"><span class="pre">TranslationManager.changeLanguage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.loadLanguages"><code class="docutils literal notranslate"><span class="pre">TranslationManager.loadLanguages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.translate"><code class="docutils literal notranslate"><span class="pre">TranslationManager.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.language"><code class="docutils literal notranslate"><span class="pre">TranslationManager.language</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.Translation"><code class="docutils literal notranslate"><span class="pre">Translation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="message.html">message module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="message.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.__eq__"><code class="docutils literal notranslate"><span class="pre">Message.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.__init__"><code class="docutils literal notranslate"><span class="pre">Message.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.fromDict"><code class="docutils literal notranslate"><span class="pre">Message.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.fromJson"><code class="docutils literal notranslate"><span class="pre">Message.fromJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.getTextLngs"><code class="docutils literal notranslate"><span class="pre">Message.getTextLngs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toColoredText"><code class="docutils literal notranslate"><span class="pre">Message.toColoredText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toJson"><code class="docutils literal notranslate"><span class="pre">Message.toJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toText"><code class="docutils literal notranslate"><span class="pre">Message.toText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.arguments"><code class="docutils literal notranslate"><span class="pre">Message.arguments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.correlationId"><code class="docutils literal notranslate"><span class="pre">Message.correlationId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.key"><code class="docutils literal notranslate"><span class="pre">Message.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.ns"><code class="docutils literal notranslate"><span class="pre">Message.ns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.severity"><code class="docutils literal notranslate"><span class="pre">Message.severity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.textEn"><code class="docutils literal notranslate"><span class="pre">Message.textEn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.timestamp_iso"><code class="docutils literal notranslate"><span class="pre">Message.timestamp_iso</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage"><code class="docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage.__init__"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage.exitCode"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.exitCode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.addTranslations"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.addTranslations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.appendBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendBuffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.appendJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.clear"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getExitCode"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getList"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.hasKey"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasKey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.hasSeverity"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasSeverity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.printText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.printText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.isColoringDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.lngDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.lngDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.nsDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.nsDefault</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.close"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.openLog"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.openLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.firstColumnFormatStr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogImmediately</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogToConsole</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.logPath"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.logPath</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator"><code class="docutils literal notranslate"><span class="pre">MessageIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator.Format"><code class="docutils literal notranslate"><span class="pre">MessageIterator.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator.__init__"><code class="docutils literal notranslate"><span class="pre">MessageIterator.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="message.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.DEBUG"><code class="docutils literal notranslate"><span class="pre">Severity.DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.ERROR"><code class="docutils literal notranslate"><span class="pre">Severity.ERROR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.NORMAL"><code class="docutils literal notranslate"><span class="pre">Severity.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.SUCCESS"><code class="docutils literal notranslate"><span class="pre">Severity.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.VERBOSE"><code class="docutils literal notranslate"><span class="pre">Severity.VERBOSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.WARNING"><code class="docutils literal notranslate"><span class="pre">Severity.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.SEVERITY_FILTER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">SEVERITY_FILTER_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">process module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="process.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor"><code class="docutils literal notranslate"><span class="pre">TaskMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.__init__"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.add"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.cancelTasks"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.cancelTasksInLoop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasksInLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.remove"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.start"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.stop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.loop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.loop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.taskCheckingInterval_ms"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.taskCheckingInterval_ms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor"><code class="docutils literal notranslate"><span class="pre">CommandExecutor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.SynchronousError"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.SynchronousError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.__init__"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor._createProcess"><code class="docutils literal notranslate"><span class="pre">CommandExecutor._createProcess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeAsynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeAsynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeCommands"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeCommands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeSynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeSynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.getOutput"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.getOutput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_ERROR_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_SUCCESS_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.isSynchronousDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.TASK_CHECKING_INTERVAL_MS_DEFAULT"><code class="docutils literal notranslate"><span class="pre">TASK_CHECKING_INTERVAL_MS_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper.find"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper.find()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler"><code class="docutils literal notranslate"><span class="pre">FileModeHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.__init__"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.activatePending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.activatePending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetPending()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.TIMEOUT_DEFAULT_S"><code class="docutils literal notranslate"><span class="pre">TIMEOUT_DEFAULT_S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.BASE_DIR_PATH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">BASE_DIR_PATH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">interaction module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager"><code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.__init__"><code class="docutils literal notranslate"><span class="pre">InteractionManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.promptForCredential"><code class="docutils literal notranslate"><span class="pre">InteractionManager.promptForCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">InteractionManager.isColoringDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">credentials module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader"><code class="docutils literal notranslate"><span class="pre">CredentialReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader.__init__"><code class="docutils literal notranslate"><span class="pre">CredentialReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader"><code class="docutils literal notranslate"><span class="pre">KeyringReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader.__init__"><code class="docutils literal notranslate"><span class="pre">KeyringReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.__init__"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.PCR_AUTH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.PCR_AUTH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader.__init__"><code class="docutils literal notranslate"><span class="pre">FileReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader"><code class="docutils literal notranslate"><span class="pre">PromptReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader.__init__"><code class="docutils literal notranslate"><span class="pre">PromptReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader"><code class="docutils literal notranslate"><span class="pre">BaseReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.__init__"><code class="docutils literal notranslate"><span class="pre">BaseReader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader._readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader._readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader.readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.credentialKeys"><code class="docutils literal notranslate"><span class="pre">BaseReader.credentialKeys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.Format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.__init__"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.deleteCredential"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.deleteCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.delete"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.delete</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mayPrompt"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mayPrompt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mountpoint"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mountpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.namedTemp"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.namedTemp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.path"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.purpose"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.purpose</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey"><code class="docutils literal notranslate"><span class="pre">CredentialKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.CRYPTOPHRASE"><code class="docutils literal notranslate"><span class="pre">CredentialKey.CRYPTOPHRASE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGIN"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGINNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGINNAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.PASSWORD"><code class="docutils literal notranslate"><span class="pre">CredentialKey.PASSWORD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.TOTP"><code class="docutils literal notranslate"><span class="pre">CredentialKey.TOTP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.USERNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.USERNAME</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CREDENTIALS_DIRECTORY_DEFAULT"><code class="docutils literal notranslate"><span class="pre">CREDENTIALS_DIRECTORY_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control.html#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#control">control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#action">action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#mode">mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#property">property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#feedback">feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.__init__"><code class="docutils literal notranslate"><span class="pre">Control.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._actionToGrammarEn"><code class="docutils literal notranslate"><span class="pre">Control._actionToGrammarEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._appendMessageFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._appendMessageFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._createExceptionFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._createExceptionFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._getPropertiesListsEn"><code class="docutils literal notranslate"><span class="pre">Control._getPropertiesListsEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._getProperty"><code class="docutils literal notranslate"><span class="pre">Control._getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._invalidateCache"><code class="docutils literal notranslate"><span class="pre">Control._invalidateCache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._performAction"><code class="docutils literal notranslate"><span class="pre">Control._performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.activatePendingMode"><code class="docutils literal notranslate"><span class="pre">Control.activatePendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.close"><code class="docutils literal notranslate"><span class="pre">Control.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.getActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.getPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPropertiesJson"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPropertiesTextEn"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesTextEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getProperty"><code class="docutils literal notranslate"><span class="pre">Control.getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.performAction"><code class="docutils literal notranslate"><span class="pre">Control.performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.setActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.setActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.setPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.setPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.unsetActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.unsetPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetPendingMode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum"><code class="docutils literal notranslate"><span class="pre">ControlEnum</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum.__eq__"><code class="docutils literal notranslate"><span class="pre">ControlEnum.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum.fromAny"><code class="docutils literal notranslate"><span class="pre">ControlEnum.fromAny()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardAction"><code class="docutils literal notranslate"><span class="pre">StandardAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_ACTIVATE"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_ACTIVATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_SET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_SET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_UNSET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_UNSET</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardMode"><code class="docutils literal notranslate"><span class="pre">StandardMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.__eq__"><code class="docutils literal notranslate"><span class="pre">StandardMode.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.fromAny"><code class="docutils literal notranslate"><span class="pre">StandardMode.fromAny()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.NONE"><code class="docutils literal notranslate"><span class="pre">StandardMode.NONE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty"><code class="docutils literal notranslate"><span class="pre">StandardProperty</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty.MODE_ACTIVE"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_ACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty.MODE_PENDING"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_PENDING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ALREADY_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ALREADY_NOT_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_NOT_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_DIR_NAME_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_GROUP_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.printOnExit"><code class="docutils literal notranslate"><span class="pre">ControlShell.printOnExit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.requestCleanup"><code class="docutils literal notranslate"><span class="pre">ControlShell.requestCleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setControl"><code class="docutils literal notranslate"><span class="pre">ControlShell.setControl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setExitCode"><code class="docutils literal notranslate"><span class="pre">ControlShell.setExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.commandExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.commandExecutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigDict"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigDict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigName"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.msgBuffer"><code class="docutils literal notranslate"><span class="pre">ControlShell.msgBuffer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.notifyReady"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.notifyReady()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.taskMonitor"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.taskMonitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ctlbase’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="config.html" class="btn btn-neutral float-right" title="config module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

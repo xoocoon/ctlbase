@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>config module &mdash; ctlbase 1.0a2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="translation module" href="translation.html" />
+    <link rel="prev" title="ctlbase" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ctlbase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">config module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.CallerInspector"><code class="docutils literal notranslate"><span class="pre">CallerInspector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FileHelper"><code class="docutils literal notranslate"><span class="pre">FileHelper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.BashHelper"><code class="docutils literal notranslate"><span class="pre">BashHelper</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.Caller"><code class="docutils literal notranslate"><span class="pre">Caller</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.TRUE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">TRUE_VALUE_PATTERN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.config.FALSE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">FALSE_VALUE_PATTERN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html">translation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html">interaction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctlbase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
+      <li class="breadcrumb-item active">config module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ctlbase.config">
+<span id="config-module"></span><h1>config module<a class="headerlink" href="#module-ctlbase.config" title="Link to this heading"></a></h1>
+<p>Classes for discovering and parsing configuration and other files.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
+<li><p><a class="reference internal" href="#constants-and-defaults" id="id2">Constants and defaults</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.config.CallerInspector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">CallerInspector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffixPatternStr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'(?:ctl|)(?:\\.py|\\.pyc|\\.pyo|)$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blacklistPatternStr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerInspector" title="Link to this definition"></a></dt>
+<dd><p>An inspector for the so-called caller,  i.e. the Python module topmost in
+the call stack.</p>
+<p>The caller is determined by iterating the call stack, checking the 
+corresponding module file names against a blacklist. By default the list is
+made up of all the module names in the <cite>ctlbase</cite> package.</p>
+<p>Once the caller is determined, its normalized name is obtained by applying a
+regex pattern to its module file name, without the path specification.</p>
+<p>As an example using the default pattern, a Python module
+<code class="docutils literal notranslate"><span class="pre">/usr/local/bin/screenctl.py</span></code> results in the normalized name <code class="docutils literal notranslate"><span class="pre">screen</span></code>. 
+It can be used as a component in related file names like <code class="docutils literal notranslate"><span class="pre">etc/screen</span></code>.
+This in turn facilitates the auto-discovery of related files.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.CallerInspector.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffixPatternStr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'(?:ctl|)(?:\\.py|\\.pyc|\\.pyo|)$'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blacklistPatternStr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerInspector.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates a caller inspector with a specific configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.config.CallerInspector.params.suffixPatternStr"></span><strong>suffixPatternStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.CallerInspector.params.suffixPatternStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A regex pattern applied to the end of a Python
+module’s file name. If it matches, it is removed from the file name
+to form the caller’s normalized module name.</p></li>
+<li><p><span class="target" id="ctlbase.config.CallerInspector.params.blacklistPatternStr"></span><strong>blacklistPatternStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.CallerInspector.params.blacklistPatternStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – A regex pattern applied to a Python module’s
+file name. If the pattern matches, the corresponding module
+skipped in the call hierarchy, i.e. not considered a caller. If
+<cite>None</cite>, a pattern matching the module names in the <cite>ctlbase</cite> package
+is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.CallerInspector.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerInspector.getName" title="Link to this definition"></a></dt>
+<dd><p>Determines the caller and obtains its normalized name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The caller’s normalized name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.CallerInspector.getPath">
+<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.CallerInspector.getPath" title="Link to this definition"></a></dt>
+<dd><p>Determines the caller and obtains its file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The caller’s real path including the absolute path and file
+name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">FileHelper</span></span><a class="headerlink" href="#ctlbase.config.FileHelper" title="Link to this definition"></a></dt>
+<dd><p>Static functions for dealing with files.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.Type">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileHelper.Type" title="Link to this definition"></a></dt>
+<dd><p>The type of a file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.Type.BIN">
+<span class="sig-name descname"><span class="pre">BIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'binary'</span></em><a class="headerlink" href="#ctlbase.config.FileHelper.Type.BIN" title="Link to this definition"></a></dt>
+<dd><p>An executable file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.Type.CONFIG">
+<span class="sig-name descname"><span class="pre">CONFIG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'config'</span></em><a class="headerlink" href="#ctlbase.config.FileHelper.Type.CONFIG" title="Link to this definition"></a></dt>
+<dd><p>A configuration file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.Type.TRANSLATION">
+<span class="sig-name descname"><span class="pre">TRANSLATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'language'</span></em><a class="headerlink" href="#ctlbase.config.FileHelper.Type.TRANSLATION" title="Link to this definition"></a></dt>
+<dd><p>A translation file for a specific language.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.find">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileHelper.find" title="Link to this definition"></a></dt>
+<dd><p>Tries to find a file with the given parameters in a set of well-known
+directories.</p>
+<p>The available sets of directories are defined by 
+<a class="reference internal" href="#ctlbase.config.FileHelper.CONFIG_LOCATIONS" title="ctlbase.config.FileHelper.CONFIG_LOCATIONS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CONFIG_LOCATIONS</span></code></a>, <a class="reference internal" href="#ctlbase.config.FileHelper.BIN_LOCATIONS" title="ctlbase.config.FileHelper.BIN_LOCATIONS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">BIN_LOCATIONS</span></code></a> and 
+<a class="reference internal" href="#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS" title="ctlbase.config.FileHelper.TRANSLATION_LOCATIONS"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TRANSLATION_LOCATIONS</span></code></a>. The actual set is determined by the 
+<a class="reference internal" href="#ctlbase.config.FileHelper.find.params.fileType" title="ctlbase.config.FileHelper.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileType</span></code></a> parameter.</p>
+<p>Relative path specifications in those sets are applied up the directory
+tree until the file is found or the root of the file system is reached. 
+For instance, if the search for a configuration file named <code class="docutils literal notranslate"><span class="pre">file_1.conf</span></code> 
+starts at the directory <code class="docutils literal notranslate"><span class="pre">/home/myuser/myapp/</span></code>, the existence of 
+<code class="docutils literal notranslate"><span class="pre">/home/myuser/myapp/etc/default/file_1.conf</span></code> is checked first, then
+<code class="docutils literal notranslate"><span class="pre">/home/myuser/etc/default/file_1.conf</span></code>, then 
+<code class="docutils literal notranslate"><span class="pre">/home/etc/default/file_1.conf</span></code> and so on.</p>
+<p>An eligible target file must be accessible to the current user. That is, 
+it must be readable, or, in the case of an executable file, be executable
+for the current user.</p>
+<p>To avoid the runtime overhead of auto-discovery, provide an absolute
+path in <a class="reference internal" href="#ctlbase.config.FileHelper.find.params.fileName" title="ctlbase.config.FileHelper.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileName</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.config.FileHelper.find.params.fileName"></span><strong>fileName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileHelper.find.params.fileName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em>) – The file name of the searched file. It may include a 
+relative or absolute path specification. <cite>True</cite> for auto-discovery.</p></li>
+<li><p><span class="target" id="ctlbase.config.FileHelper.find.params.fileType"></span><strong>fileType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileHelper.find.params.fileType">¶</a> (<a class="reference internal" href="#ctlbase.config.FileHelper.Type" title="ctlbase.config.FileHelper.Type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>) – The type of the file to search for. It determines the
+set of well-known directories to use.</p></li>
+<li><p><span class="target" id="ctlbase.config.FileHelper.find.params.isStartFromCallerPath"></span><strong>isStartFromCallerPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileHelper.find.params.isStartFromCallerPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, relative path specifications 
+are treated relative to the caller’s file path as returned by 
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">getPath()</span></code>. What is more, if 
+<a class="reference internal" href="#ctlbase.config.FileHelper.find.params.fileName" title="ctlbase.config.FileHelper.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileName</span></code></a> is <cite>True</cite>, the caller’s
+normalized module name is used as a file name.</p></li>
+<li><p><span class="target" id="ctlbase.config.FileHelper.find.params.isStartFromScriptPath"></span><strong>isStartFromScriptPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileHelper.find.params.isStartFromScriptPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, relative path specifications
+are treated relative to the current script’s path, based on
+<code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code>. What is more, if
+<a class="reference internal" href="#ctlbase.config.FileHelper.find.params.fileName" title="ctlbase.config.FileHelper.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileName</span></code></a> is <cite>True</cite>, the script’s
+normalized module name is used as a file name.
+<a class="reference internal" href="#ctlbase.config.FileHelper.find.params.isStartFromCallerPath" title="ctlbase.config.FileHelper.find"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isStartFromCallerPath</span></code></a> takes 
+precedence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The absolute real path of the file if found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the file could not be found or is 
+inaccessible to the current user.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.findBinary">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileHelper.findBinary" title="Link to this definition"></a></dt>
+<dd><p>Convenience method for finding configuration files.</p>
+<p>Corresponds to the <a class="reference internal" href="#ctlbase.config.FileHelper.Type.BIN" title="ctlbase.config.FileHelper.Type.BIN"><code class="xref py py-attr docutils literal notranslate"><span class="pre">BIN</span></code></a> type.</p>
+<p>The parameters have the same meanings as with <a class="reference internal" href="#ctlbase.config.FileHelper.find" title="ctlbase.config.FileHelper.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.findConfig">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileHelper.findConfig" title="Link to this definition"></a></dt>
+<dd><p>Convenience method for finding configuration files.</p>
+<p>Corresponds to the <a class="reference internal" href="#ctlbase.config.FileHelper.Type.CONFIG" title="ctlbase.config.FileHelper.Type.CONFIG"><code class="xref py py-attr docutils literal notranslate"><span class="pre">CONFIG</span></code></a> type.</p>
+<p>The parameters have the same meanings as with <a class="reference internal" href="#ctlbase.config.FileHelper.find" title="ctlbase.config.FileHelper.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.findTranslation">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">findTranslation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromCallerPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isStartFromScriptPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.FileHelper.findTranslation" title="Link to this definition"></a></dt>
+<dd><p>Convenience method for finding configuration files.</p>
+<p>Corresponds to the <a class="reference internal" href="#ctlbase.config.FileHelper.Type.TRANSLATION" title="ctlbase.config.FileHelper.Type.TRANSLATION"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TRANSLATION</span></code></a> type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.config.FileHelper.findTranslation.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.FileHelper.findTranslation.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A two-letter language code for the translation file to find,
+e.g. <code class="docutils literal notranslate"><span class="pre">de</span></code>. If given, 
+If <a class="reference internal" href="#ctlbase.config.FileHelper.findTranslation.params.fileName" title="ctlbase.config.FileHelper.findTranslation"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">fileName</span></code></a> must only
+be a file name without a path.</p>
+</dd>
+</dl>
+<p>The other parameters have the same meanings as with <a class="reference internal" href="#ctlbase.config.FileHelper.find" title="ctlbase.config.FileHelper.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.BIN_LOCATIONS">
+<span class="sig-name descname"><span class="pre">BIN_LOCATIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('.',</span> <span class="pre">'bin',</span> <span class="pre">'/usr/bin',</span> <span class="pre">'/usr/sbin',</span> <span class="pre">'/usr/local/bin')</span></em><a class="headerlink" href="#ctlbase.config.FileHelper.BIN_LOCATIONS" title="Link to this definition"></a></dt>
+<dd><p>Well-known directory paths for executable files. May contain both
+relative and absolute paths.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.CONFIG_LOCATIONS">
+<span class="sig-name descname"><span class="pre">CONFIG_LOCATIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('etc/default',</span> <span class="pre">'etc',</span> <span class="pre">'/etc/default',</span> <span class="pre">'/etc')</span></em><a class="headerlink" href="#ctlbase.config.FileHelper.CONFIG_LOCATIONS" title="Link to this definition"></a></dt>
+<dd><p>Well-known directory paths for configuration files. May contain both
+relative and absolute paths.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.config.FileHelper.TRANSLATION_LOCATIONS">
+<span class="sig-name descname"><span class="pre">TRANSLATION_LOCATIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('locales',)</span></em><a class="headerlink" href="#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS" title="Link to this definition"></a></dt>
+<dd><p>Well-known directory paths for translation files. May contain both
+relative and absolute paths.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.config.BashHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">BashHelper</span></span><a class="headerlink" href="#ctlbase.config.BashHelper" title="Link to this definition"></a></dt>
+<dd><p>Static functions for dealing with Bash-style configuration files.</p>
+<p>That is, Bash-style variable assignments are supported, including 
+interpolation of the following environment variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$$</span></code>: The process ID (PID) of the current process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$EUID</span></code>: The effective user ID of the user executing the process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HOME</span></code>: The home directory of the user executing the process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPID</span></code>: The process ID of the parent process of the current process.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PWD</span></code>: The current working directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UID</span></code>: The user ID of the user executing the process.</p></li>
+</ul>
+<p>Within the configuration file, former variables are interpolated in later
+variables. As an example, if <code class="docutils literal notranslate"><span class="pre">FILE_INDEX=1</span></code> is followed by 
+<code class="docutils literal notranslate"><span class="pre">FILE_NAME=file_$FILE_INDEX.conf</span></code>, then <code class="docutils literal notranslate"><span class="pre">FILE_NAME</span></code> is resolved to
+<code class="docutils literal notranslate"><span class="pre">file_1.conf</span></code>. Curly brace syntax is supported, i.e. <code class="docutils literal notranslate"><span class="pre">$FILE_INDEX</span></code> is
+equivalent to <code class="docutils literal notranslate"><span class="pre">${FILE_INDEX}</span></code>.</p>
+<p>Regarding data types, values are parsed as follows:</p>
+<ul class="simple">
+<li><p>Integer literals declared with <code class="docutils literal notranslate"><span class="pre">declare</span> <span class="pre">-i</span></code> are cast to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p>String literals enclosed in <code class="docutils literal notranslate"><span class="pre">'</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> are cast to <code class="docutils literal notranslate"><span class="pre">str</span></code>, including spaces.</p></li>
+<li><p>Array literals starting with <code class="docutils literal notranslate"><span class="pre">(</span></code> and ending with <code class="docutils literal notranslate"><span class="pre">)</span></code> are cast to <code class="docutils literal notranslate"><span class="pre">list</span></code> unless …</p></li>
+<li><p>… they contain entries in the form <code class="docutils literal notranslate"><span class="pre">[key]=value</span></code>. Then they are cast to <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.config.BashHelper.Array">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.BashHelper.Array" title="Link to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.config.BashHelper.Scalar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.BashHelper.Scalar" title="Link to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.config.BashHelper.parseConfig">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parseConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolationDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.config.BashHelper.parseConfig" title="Link to this definition"></a></dt>
+<dd><p>Finds a Bash-like configuration file and parses it into a <cite>dict</cite> if
+found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.config.BashHelper.parseConfig.params.configName"></span><strong>configName</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.BashHelper.parseConfig.params.configName">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em>) – The configuration file name. It may include a 
+relative or absolute path specification. <cite>True</cite> for auto-discovering
+a configuration file based on the caller’s normalized module name as
+returned by <a class="reference internal" href="#ctlbase.config.CallerInspector.getName" title="ctlbase.config.CallerInspector.getName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getName()</span></code></a>.
+See <a class="reference internal" href="#ctlbase.config.FileHelper.find" title="ctlbase.config.FileHelper.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery algorithm.</p></li>
+<li><p><span class="target" id="ctlbase.config.BashHelper.parseConfig.params.interpolationDict"></span><strong>interpolationDict</strong><a class="paramlink headerlink reference internal" href="#ctlbase.config.BashHelper.parseConfig.params.interpolationDict">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><em>None</em>) – An additionl <cite>dict</cite> used for variable
+interpolation. As an example, if the <cite>dict</cite> contains a key 
+<code class="docutils literal notranslate"><span class="pre">MY_INDEX</span></code>, its value will substitute all occurrences of 
+<code class="docutils literal notranslate"><span class="pre">$MY_INDEX</span></code> and <code class="docutils literal notranslate"><span class="pre">${MY_INDEX}</span></code> in the configuration file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A <cite>dict</cite> containg the Bash-like variables names as keys and 
+their parsed values as values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.config.Caller">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">Caller</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;ctlbase.config.CallerInspector</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ctlbase.config.Caller" title="Link to this definition"></a></dt>
+<dd><p>Singleton for inspecting the caller.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.config.TRUE_VALUE_PATTERN">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">TRUE_VALUE_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:1|yes|true)$',</span> <span class="pre">re.IGNORECASE)</span></em><a class="headerlink" href="#ctlbase.config.TRUE_VALUE_PATTERN" title="Link to this definition"></a></dt>
+<dd><p>Regular expression for <cite>str</cite> values to be treated as <cite>True</cite>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.config.FALSE_VALUE_PATTERN">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.config.</span></span><span class="sig-name descname"><span class="pre">FALSE_VALUE_PATTERN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">re.compile('^(?:0|no(?:ne)?|false)$',</span> <span class="pre">re.IGNORECASE)</span></em><a class="headerlink" href="#ctlbase.config.FALSE_VALUE_PATTERN" title="Link to this definition"></a></dt>
+<dd><p>Regular expression for <cite>str</cite> values to be treated as <cite>False</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="ctlbase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="translation.html" class="btn btn-neutral float-right" title="translation module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
