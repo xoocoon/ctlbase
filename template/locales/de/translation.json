@@ -1,0 +1,11 @@
+{
+    "defaultVariables": {
+        "0": "USB-Gerät"
+    },
+    "ATTACHED_ALREADY": "{{0}} bereits verbunden.",
+    "ATTACH_SUCCEEDED": "{{0}} verbunden.",
+    "DETACHED_ALREADY": "{{0}} bereits getrennt.",
+    "DETACH_SUCCEEDED": "{{0}} getrennt.",
+    "REATTACH_SUCCEEDED": "{{0}} wiederverbunden.",
+    "MODULE_LOADED_ALREADY": "USB/IP-Modul bereits geladen."
+}

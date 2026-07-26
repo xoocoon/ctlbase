@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>interaction module &mdash; ctlbase 1.0a2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6ac1bee6"></script>
+      <script src="_static/doctools.js?v=4ed4bc18"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="credentials module" href="credentials.html" />
+    <link rel="prev" title="mode module" href="mode.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ctlbase
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html">translation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">interaction module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.interaction.InteractionManager"><code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.interaction.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control.html">control module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ctlbase</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
+      <li class="breadcrumb-item active">interaction module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ctlbase.interaction">
+<span id="interaction-module"></span><h1>interaction module<a class="headerlink" href="#module-ctlbase.interaction" title="Link to this heading"></a></h1>
+<p>Classes for basic interaction with the user.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
+<li><p><a class="reference internal" href="#constants-and-defaults" id="id2">Constants and defaults</a></p></li>
+</ul>
+</nav>
+<section id="classes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.interaction.InteractionManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.interaction.</span></span><span class="sig-name descname"><span class="pre">InteractionManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isColoringDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.interaction.InteractionManager" title="Link to this definition"></a></dt>
+<dd><p>A manager for user interactions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.interaction.InteractionManager.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isColoringDefault</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.interaction.InteractionManager.__init__" title="Link to this definition"></a></dt>
+<dd><p>Creates an interaction manager with a specific configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.interaction.InteractionManager.params.isColoringDefault"></span><strong>isColoringDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.interaction.InteractionManager.params.isColoringDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, prompts are colored by default when
+printed to <em>stdout</em>. If <cite>None</cite>, a possibly existing 
+<a class="reference internal" href="#ctlbase.interaction.COLOR_PRINT_ENVKEY" title="ctlbase.interaction.COLOR_PRINT_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a> environment value is used. If the
+latter does not exist, a default value of <cite>True</cite> is assumed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.interaction.InteractionManager.promptForCredential">
+<span class="sig-name descname"><span class="pre">promptForCredential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">purpose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isColoring</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.interaction.InteractionManager.promptForCredential" title="Link to this definition"></a></dt>
+<dd><p>Prompts the user for a credential. The characters entered are not
+shown.</p>
+<p>The prompt can be translated via the message key
+<cite>INTERACTION_CREDENTIAL_PROMPT</cite>, including a variable named <cite>purpose</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.interaction.InteractionManager.promptForCredential.params.purpose"></span><strong>purpose</strong><a class="paramlink headerlink reference internal" href="#ctlbase.interaction.InteractionManager.promptForCredential.params.purpose">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A language-agnostic <cite>str</cite> to present to the user as the 
+purpose of the requested credentials. Example: <code class="docutils literal notranslate"><span class="pre">HomeServer</span> <span class="pre">via</span> <span class="pre">SMB</span></code></p></li>
+<li><p><span class="target" id="ctlbase.interaction.InteractionManager.promptForCredential.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.interaction.InteractionManager.promptForCredential.params.isColoring">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the prompt is colored when printed to
+<em>stdout</em>. If <cite>None</cite>, the value of
+<a class="reference internal" href="#ctlbase.interaction.InteractionManager.isColoringDefault" title="ctlbase.interaction.InteractionManager.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a> is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><strong>ErrorMessage</strong></a> – <cite>INTERACTION_PROMPT_ABORTED</cite> – If entering the
+credential was aborted by the user.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The entered credential.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ctlbase.interaction.InteractionManager.isColoringDefault">
+<span class="sig-name descname"><span class="pre">isColoringDefault</span></span><a class="headerlink" href="#ctlbase.interaction.InteractionManager.isColoringDefault" title="Link to this definition"></a></dt>
+<dd><p>If <cite>True</cite>, prompts are colored by default when printed to <em>stdout</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="constants-and-defaults">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Constants and defaults</a><a class="headerlink" href="#constants-and-defaults" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.interaction.COLOR_PRINT_ENVKEY">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.interaction.</span></span><span class="sig-name descname"><span class="pre">COLOR_PRINT_ENVKEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'COLOR_PRINT'</span></em><a class="headerlink" href="#ctlbase.interaction.COLOR_PRINT_ENVKEY" title="Link to this definition"></a></dt>
+<dd><p>Environment configuration key for the coloring of interactive prompts printed
+to <em>stdout</em>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ctlbase.interaction.Interaction">
+<span class="sig-prename descclassname"><span class="pre">ctlbase.interaction.</span></span><span class="sig-name descname"><span class="pre">Interaction</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;ctlbase.interaction.InteractionManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ctlbase.interaction.Interaction" title="Link to this definition"></a></dt>
+<dd><p>Singleton for interacting with the user.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mode.html" class="btn btn-neutral float-left" title="mode module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="credentials.html" class="btn btn-neutral float-right" title="credentials module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, xoocoon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
