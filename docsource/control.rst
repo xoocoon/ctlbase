@@ -149,7 +149,7 @@ Classes
 
 .. autoclass:: Control
    :members:
-   :private-members: _actionToGrammarEn, _appendMessageFromActionEn, _createExceptionFromActionEn, _performAction, _invalidateCache, _getProperty, _getPropertiesListsEn, _actionToGrammarEn
+   :private-members: _actionToGrammarEn, _appendMessageFromActionEn, _createExceptionFromActionEn, _preprocessArgument, _performAction, _invalidateCache, _getProperty, _getPropertiesListsEn, _actionToGrammarEn
    :special-members: __init__
 
 .. autoclass:: ControlEnum

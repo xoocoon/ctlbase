@@ -6,17 +6,17 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>message module &mdash; ctlbase 1.0a2 documentation</title>
+  <title>message module &mdash; ctlbase 1.0a3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=c5a2a4e5"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=4ed4bc18"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=d801d12e"></script>
+      <script src="_static/sphinx_highlight.js?v=b747cce0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -43,34 +43,376 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="translation.html">translation module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">message module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.ErrorMessage"><code class="docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageIterator"><code class="docutils literal notranslate"><span class="pre">MessageIterator</span></code></a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="config.html">config module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector"><code class="docutils literal notranslate"><span class="pre">CallerInspector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.__init__"><code class="docutils literal notranslate"><span class="pre">CallerInspector.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getName"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getPath"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getPath()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.SEVERITY_FILTER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">SEVERITY_FILTER_DEFAULT</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FileHelper"><code class="docutils literal notranslate"><span class="pre">FileHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.Type"><code class="docutils literal notranslate"><span class="pre">FileHelper.Type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.find"><code class="docutils literal notranslate"><span class="pre">FileHelper.find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findBinary"><code class="docutils literal notranslate"><span class="pre">FileHelper.findBinary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findConfig"><code class="docutils literal notranslate"><span class="pre">FileHelper.findConfig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findTranslation"><code class="docutils literal notranslate"><span class="pre">FileHelper.findTranslation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.BIN_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.BIN_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.CONFIG_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.CONFIG_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.TRANSLATION_LOCATIONS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.BashHelper"><code class="docutils literal notranslate"><span class="pre">BashHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Array"><code class="docutils literal notranslate"><span class="pre">BashHelper.Array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Scalar"><code class="docutils literal notranslate"><span class="pre">BashHelper.Scalar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.parseConfig"><code class="docutils literal notranslate"><span class="pre">BashHelper.parseConfig()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interaction.html">interaction module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="control.html">control module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.Caller"><code class="docutils literal notranslate"><span class="pre">Caller</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.TRUE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">TRUE_VALUE_PATTERN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FALSE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">FALSE_VALUE_PATTERN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">translation module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager"><code class="docutils literal notranslate"><span class="pre">TranslationManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.__init__"><code class="docutils literal notranslate"><span class="pre">TranslationManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.changeLanguage"><code class="docutils literal notranslate"><span class="pre">TranslationManager.changeLanguage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.loadLanguages"><code class="docutils literal notranslate"><span class="pre">TranslationManager.loadLanguages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.translate"><code class="docutils literal notranslate"><span class="pre">TranslationManager.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.language"><code class="docutils literal notranslate"><span class="pre">TranslationManager.language</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.Translation"><code class="docutils literal notranslate"><span class="pre">Translation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">message module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.__eq__"><code class="docutils literal notranslate"><span class="pre">Message.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.__init__"><code class="docutils literal notranslate"><span class="pre">Message.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.fromDict"><code class="docutils literal notranslate"><span class="pre">Message.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.fromJson"><code class="docutils literal notranslate"><span class="pre">Message.fromJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.getTextLngs"><code class="docutils literal notranslate"><span class="pre">Message.getTextLngs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.toColoredText"><code class="docutils literal notranslate"><span class="pre">Message.toColoredText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.toJson"><code class="docutils literal notranslate"><span class="pre">Message.toJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.toText"><code class="docutils literal notranslate"><span class="pre">Message.toText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.arguments"><code class="docutils literal notranslate"><span class="pre">Message.arguments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.correlationId"><code class="docutils literal notranslate"><span class="pre">Message.correlationId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.key"><code class="docutils literal notranslate"><span class="pre">Message.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.ns"><code class="docutils literal notranslate"><span class="pre">Message.ns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.severity"><code class="docutils literal notranslate"><span class="pre">Message.severity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.textEn"><code class="docutils literal notranslate"><span class="pre">Message.textEn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Message.timestamp_iso"><code class="docutils literal notranslate"><span class="pre">Message.timestamp_iso</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.ErrorMessage"><code class="docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.ErrorMessage.__init__"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.ErrorMessage.exitCode"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.exitCode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.MessageBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.addTranslations"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.addTranslations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.appendBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendBuffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.appendJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.clear"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.getExitCode"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.getJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.getList"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.getText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.hasKey"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasKey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasSeverity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.printText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.printText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.isColoringDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.lngDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.nsDefault</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.close"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.openLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.firstColumnFormatStr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogImmediately</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogToConsole</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.logPath</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.MessageIterator"><code class="docutils literal notranslate"><span class="pre">MessageIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageIterator.Format"><code class="docutils literal notranslate"><span class="pre">MessageIterator.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.MessageIterator.__init__"><code class="docutils literal notranslate"><span class="pre">MessageIterator.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity.DEBUG"><code class="docutils literal notranslate"><span class="pre">Severity.DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity.ERROR"><code class="docutils literal notranslate"><span class="pre">Severity.ERROR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity.NORMAL"><code class="docutils literal notranslate"><span class="pre">Severity.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity.SUCCESS"><code class="docutils literal notranslate"><span class="pre">Severity.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity.VERBOSE"><code class="docutils literal notranslate"><span class="pre">Severity.VERBOSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.message.Severity.WARNING"><code class="docutils literal notranslate"><span class="pre">Severity.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.SEVERITY_FILTER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">SEVERITY_FILTER_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.message.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">process module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="process.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.LoopBase"><code class="docutils literal notranslate"><span class="pre">LoopBase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.SyncMixin"><code class="docutils literal notranslate"><span class="pre">SyncMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.SyncMixin.syncify"><code class="docutils literal notranslate"><span class="pre">SyncMixin.syncify()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor"><code class="docutils literal notranslate"><span class="pre">TaskMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.__init__"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.add"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.cancelTasks"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.cancelTasksInLoop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasksInLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.remove"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.start"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.stop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.loop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.loop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.taskCheckingInterval_ms"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.taskCheckingInterval_ms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor"><code class="docutils literal notranslate"><span class="pre">CommandExecutor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.SynchronousError"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.SynchronousError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.__init__"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor._createProcess"><code class="docutils literal notranslate"><span class="pre">CommandExecutor._createProcess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeAsynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeAsynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeCommands"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeCommands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeSynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeSynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.getOutput"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.getOutput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_ERROR_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_SUCCESS_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.isSynchronousDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.TASK_CHECKING_INTERVAL_MS_DEFAULT"><code class="docutils literal notranslate"><span class="pre">TASK_CHECKING_INTERVAL_MS_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper.find"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper.find()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler"><code class="docutils literal notranslate"><span class="pre">FileModeHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.__init__"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.activatePending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.activatePending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetPending()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.TIMEOUT_DEFAULT_S"><code class="docutils literal notranslate"><span class="pre">TIMEOUT_DEFAULT_S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.BASE_DIR_PATH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">BASE_DIR_PATH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">interaction module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager"><code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.__init__"><code class="docutils literal notranslate"><span class="pre">InteractionManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.promptForCredential"><code class="docutils literal notranslate"><span class="pre">InteractionManager.promptForCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">InteractionManager.isColoringDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">credentials module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader"><code class="docutils literal notranslate"><span class="pre">CredentialReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader.__init__"><code class="docutils literal notranslate"><span class="pre">CredentialReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader"><code class="docutils literal notranslate"><span class="pre">KeyringReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader.__init__"><code class="docutils literal notranslate"><span class="pre">KeyringReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.__init__"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.PCR_AUTH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.PCR_AUTH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader.__init__"><code class="docutils literal notranslate"><span class="pre">FileReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader"><code class="docutils literal notranslate"><span class="pre">PromptReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader.__init__"><code class="docutils literal notranslate"><span class="pre">PromptReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader"><code class="docutils literal notranslate"><span class="pre">BaseReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.__init__"><code class="docutils literal notranslate"><span class="pre">BaseReader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader._readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader._readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader.readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.credentialKeys"><code class="docutils literal notranslate"><span class="pre">BaseReader.credentialKeys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.Format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.__init__"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.deleteCredential"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.deleteCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.delete"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.delete</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mayPrompt"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mayPrompt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mountpoint"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mountpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.namedTemp"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.namedTemp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.path"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.purpose"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.purpose</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey"><code class="docutils literal notranslate"><span class="pre">CredentialKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.CRYPTOPHRASE"><code class="docutils literal notranslate"><span class="pre">CredentialKey.CRYPTOPHRASE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGIN"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGINNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGINNAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.PASSWORD"><code class="docutils literal notranslate"><span class="pre">CredentialKey.PASSWORD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.TOTP"><code class="docutils literal notranslate"><span class="pre">CredentialKey.TOTP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.USERNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.USERNAME</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CREDENTIALS_DIRECTORY_DEFAULT"><code class="docutils literal notranslate"><span class="pre">CREDENTIALS_DIRECTORY_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control.html#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#control">control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#action">action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#mode">mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#property">property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#feedback">feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.__init__"><code class="docutils literal notranslate"><span class="pre">Control.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._actionToGrammarEn"><code class="docutils literal notranslate"><span class="pre">Control._actionToGrammarEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._appendMessageFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._appendMessageFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._createExceptionFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._createExceptionFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._getPropertiesListsEn"><code class="docutils literal notranslate"><span class="pre">Control._getPropertiesListsEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._getProperty"><code class="docutils literal notranslate"><span class="pre">Control._getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._invalidateCache"><code class="docutils literal notranslate"><span class="pre">Control._invalidateCache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._performAction"><code class="docutils literal notranslate"><span class="pre">Control._performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._preprocessArgument"><code class="docutils literal notranslate"><span class="pre">Control._preprocessArgument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.activatePendingMode"><code class="docutils literal notranslate"><span class="pre">Control.activatePendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.close"><code class="docutils literal notranslate"><span class="pre">Control.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.getActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.getPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPropertiesJson"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPropertiesTextEn"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesTextEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getProperty"><code class="docutils literal notranslate"><span class="pre">Control.getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.performAction"><code class="docutils literal notranslate"><span class="pre">Control.performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.setActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.setActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.setPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.setPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.unsetActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.unsetPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetPendingMode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum"><code class="docutils literal notranslate"><span class="pre">ControlEnum</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum.__eq__"><code class="docutils literal notranslate"><span class="pre">ControlEnum.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum.fromAny"><code class="docutils literal notranslate"><span class="pre">ControlEnum.fromAny()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardAction"><code class="docutils literal notranslate"><span class="pre">StandardAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_ACTIVATE"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_ACTIVATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_SET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_SET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_UNSET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_UNSET</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardMode"><code class="docutils literal notranslate"><span class="pre">StandardMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.__eq__"><code class="docutils literal notranslate"><span class="pre">StandardMode.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.fromAny"><code class="docutils literal notranslate"><span class="pre">StandardMode.fromAny()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.NONE"><code class="docutils literal notranslate"><span class="pre">StandardMode.NONE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty"><code class="docutils literal notranslate"><span class="pre">StandardProperty</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty.MODE_ACTIVE"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_ACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty.MODE_PENDING"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_PENDING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ALREADY_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ALREADY_NOT_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_NOT_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_DIR_NAME_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_GROUP_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.argsToActionArg"><code class="docutils literal notranslate"><span class="pre">ControlShell.argsToActionArg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.printOnExit"><code class="docutils literal notranslate"><span class="pre">ControlShell.printOnExit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.requestCleanup"><code class="docutils literal notranslate"><span class="pre">ControlShell.requestCleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setControl"><code class="docutils literal notranslate"><span class="pre">ControlShell.setControl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setExitCode"><code class="docutils literal notranslate"><span class="pre">ControlShell.setExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.commandExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.commandExecutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigDict"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigDict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigName"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.msgBuffer"><code class="docutils literal notranslate"><span class="pre">ControlShell.msgBuffer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.notifyReady"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.notifyReady()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.taskMonitor"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.taskMonitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -89,7 +431,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
       <li class="breadcrumb-item active">message module</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -140,13 +481,13 @@ the <cite>str</cite> values of the message texts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.Message.params.textEn"></span><strong>textEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.textEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.textEn" title="ctlbase.message.Message.textEn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textEn</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.Message.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.key" title="ctlbase.message.Message.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.Message.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.Message.params.textEn"></span><strong>textEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.textEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.textEn" title="ctlbase.message.Message.textEn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textEn</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.Message.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.key" title="ctlbase.message.Message.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.Message.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>.</p></li>
 <li><p><span class="target" id="ctlbase.message.Message.params.severity"></span><strong>severity</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.severity">¶</a> (<a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><em>Severity</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.severity" title="ctlbase.message.Message.severity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">severity</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.Message.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><em>datetime.datetime</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.timestamp_iso" title="ctlbase.message.Message.timestamp_iso"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_iso</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.Message.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.Message.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.Message.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><em>datetime.datetime</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.timestamp_iso" title="ctlbase.message.Message.timestamp_iso"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_iso</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.Message.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.Message.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -162,7 +503,7 @@ these two methods are overridden, <a class="reference internal" href="#ctlbase.m
 overridden, too.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.fromDict.params.msgDict"></span><strong>msgDict</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.fromDict.params.msgDict">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – A message in its <cite>dict</cite> representation.</p>
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.fromDict.params.msgDict"></span><strong>msgDict</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.fromDict.params.msgDict">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – A message in its <cite>dict</cite> representation.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The created message.</p>
@@ -182,7 +523,7 @@ representation. In this case, <a class="reference internal" href="#ctlbase.messa
 <a class="reference internal" href="#ctlbase.message.Message.fromDict" title="ctlbase.message.Message.fromDict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromDict()</span></code></a> must be overridden, too.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.fromJson.params.jsonStr"></span><strong>jsonStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.fromJson.params.jsonStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – A message in its JSON representation, enclosed in
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.fromJson.params.jsonStr"></span><strong>jsonStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.fromJson.params.jsonStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – A message in its JSON representation, enclosed in
 <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -208,7 +549,7 @@ must be appended to a message buffer.</p>
 message texts.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -247,7 +588,7 @@ representation. In this case, <a class="reference internal" href="#ctlbase.messa
 <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -260,7 +601,7 @@ available as a message attribute, as this method does not perform
 any on-demand translation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.toText.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.toText.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message text to be
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.Message.toText.params.lng"></span><strong>lng</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.Message.toText.params.lng">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Two-letter language code for the message text to be
 returned.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -268,14 +609,14 @@ returned.</p>
 the English message text is returned as a fallback.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.Message.arguments">
-<span class="sig-name descname"><span class="pre">arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></em><a class="headerlink" href="#ctlbase.message.Message.arguments" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><span class="pre">list</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><span class="pre">tuple</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><span class="pre">dict</span></a></em><a class="headerlink" href="#ctlbase.message.Message.arguments" title="Link to this definition"></a></dt>
 <dd><p>The message arguments, i.e. language-neutral literals that can be
 embedded in the message texts of various languages.
 Examples:</p>
@@ -297,7 +638,7 @@ arguments. Examples:</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.Message.correlationId">
-<span class="sig-name descname"><span class="pre">correlationId</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.message.Message.correlationId" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">correlationId</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.message.Message.correlationId" title="Link to this definition"></a></dt>
 <dd><p>An optional correlation ID, i.e. an alphanumeric identifier used to
 group several messages. As an example, it can be an identifier for a
 batch command that produces several messages across several message
@@ -306,7 +647,7 @@ namespaces.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.Message.key">
-<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.key" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.key" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
 <div class="line">An alphanumeric key for the message semantics.
 It is used to check for messages that have occurred, as well as a key
@@ -318,7 +659,7 @@ It must be unique within the message namespace.</div>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.Message.ns">
-<span class="sig-name descname"><span class="pre">ns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.ns" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.ns" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
 <div class="line">An alphanumeric identifier for the message namespace within which all
 message keys must be unique. It usually represents the application or
@@ -338,7 +679,7 @@ namespace of the message buffer is assumed. See
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.Message.textEn">
-<span class="sig-name descname"><span class="pre">textEn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.textEn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">textEn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.Message.textEn" title="Link to this definition"></a></dt>
 <dd><p>The human-readable message text in English (<cite>en</cite>). It serves
 multiple purposes:</p>
 <ul class="simple">
@@ -356,10 +697,10 @@ text into other languages.</p></li>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.Message.timestamp_iso">
-<span class="sig-name descname"><span class="pre">timestamp_iso</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><span class="pre">datetime.datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.message.Message.timestamp_iso" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">timestamp_iso</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><span class="pre">datetime.datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.message.Message.timestamp_iso" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
 <div class="line">An optional timestamp in ISO 8601 format or an instance of
-<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> directly. It should represent
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> directly. It should represent
 the point in time when the message occurred originally.</div>
 <div class="line">Example: <code class="docutils literal notranslate"><span class="pre">2024-08-01T14:38:32.499588</span></code></div>
 </div>
@@ -370,8 +711,8 @@ the point in time when the message occurred originally.</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctlbase.message.ErrorMessage">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.message.</span></span><span class="sig-name descname"><span class="pre">ErrorMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">textEn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp_iso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exitCode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.message.ErrorMessage" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>, <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
-<p>A variant of <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> that works like an <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#Exception" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>, <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+<p>A variant of <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> that works like an <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#Exception" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a>.</p>
 <p>It has an implicit severity of <a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a> and can be “raised”.</p>
 <p>Attributes with the same name have the same meaning as with <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>.</p>
 <dl class="py method">
@@ -381,14 +722,14 @@ the point in time when the message occurred originally.</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.textEn"></span><strong>textEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.textEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.textEn" title="ctlbase.message.Message.textEn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textEn</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.key" title="ctlbase.message.Message.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.textEn"></span><strong>textEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.textEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.textEn" title="ctlbase.message.Message.textEn"><code class="xref py py-attr docutils literal notranslate"><span class="pre">textEn</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.key" title="ctlbase.message.Message.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>.</p></li>
 <li><p><span class="target" id="ctlbase.message.ErrorMessage.params.severity"></span><strong>severity</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.severity">¶</a> (<a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><em>Severity</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.severity" title="ctlbase.message.Message.severity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">severity</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.14)"><em>datetime.datetime</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.timestamp_iso" title="ctlbase.message.Message.timestamp_iso"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_iso</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.exitCode"></span><strong>exitCode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.exitCode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.ErrorMessage.exitCode" title="ctlbase.message.ErrorMessage.exitCode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">exitCode</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><em>datetime.datetime</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.timestamp_iso" title="ctlbase.message.Message.timestamp_iso"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_iso</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.ErrorMessage.params.exitCode"></span><strong>exitCode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.ErrorMessage.params.exitCode">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.ErrorMessage.exitCode" title="ctlbase.message.ErrorMessage.exitCode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">exitCode</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -396,7 +737,7 @@ the point in time when the message occurred originally.</div>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.ErrorMessage.exitCode">
-<span class="sig-name descname"><span class="pre">exitCode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.message.ErrorMessage.exitCode" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">exitCode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.message.ErrorMessage.exitCode" title="Link to this definition"></a></dt>
 <dd><p>An optional numeric code to be used as exit code of the process. See
 <a class="reference internal" href="#ctlbase.message.MessageBuffer.getExitCode" title="ctlbase.message.MessageBuffer.getExitCode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getExitCode()</span></code></a>.</p>
 </dd></dl>
@@ -425,9 +766,9 @@ are <code class="docutils literal notranslate"><span class="pre">true</span></co
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.params.nsDefault"></span><strong>nsDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.params.nsDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDefault" title="ctlbase.message.MessageBuffer.nsDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nsDefault</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.params.lngDefault"></span><strong>lngDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.params.lngDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.params.isColoringDefault"></span><strong>isColoringDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.params.isColoringDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, text is colored by default when 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.params.nsDefault"></span><strong>nsDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.params.nsDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDefault" title="ctlbase.message.MessageBuffer.nsDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nsDefault</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.params.lngDefault"></span><strong>lngDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.params.lngDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.params.isColoringDefault"></span><strong>isColoringDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.params.isColoringDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, text is colored by default when 
 printed to <em>stdout</em> or <em>stederr</em>. If <cite>None</cite>, a possibly existing 
 <a class="reference internal" href="#ctlbase.message.COLOR_PRINT_ENVKEY" title="ctlbase.message.COLOR_PRINT_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a> environment value is used. If the 
 latter does not exist, a default value of <cite>True</cite> is assumed.</p></li>
@@ -445,12 +786,12 @@ latter does not exist, a default value of <cite>True</cite> is assumed.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslations.params.isOkLoadError"></span><strong>isOkLoadError</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslations.params.isOkLoadError">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>False</cite>, a message with key
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslations.params.isOkLoadError"></span><strong>isOkLoadError</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslations.params.isOkLoadError">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>False</cite>, a message with key
 <cite>TRANSLATION_LOAD_FAILED</cite> and severity <a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a>
 is appended to the buffer if a translation file for the target
 language cannot be loaded. If <cite>True</cite>, the message is appended with
 severity <a class="reference internal" href="#ctlbase.message.Severity.DEBUG" title="ctlbase.message.Severity.DEBUG"><code class="xref py py-attr docutils literal notranslate"><span class="pre">DEBUG</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslations.params.isOkKeyError"></span><strong>isOkKeyError</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslations.params.isOkKeyError">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>False</cite>, a message with key
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.addTranslations.params.isOkKeyError"></span><strong>isOkKeyError</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.addTranslations.params.isOkKeyError">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>False</cite>, a message with key
 <cite>TRANSLATION_KEY_NOT_FOUND</cite> and severity <a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a>
 is appended to the buffer if a specific translation key cannot be
 found. If <cite>True</cite>, the message is appended with severity
@@ -493,20 +834,20 @@ value of <a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDe
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.msg"></span><strong>msg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg">¶</a> (<a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em> | </em><a class="reference internal" href="#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><em>ErrorMessage</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The message to append, depending on the chosen form
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.msg"></span><strong>msg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg">¶</a> (<a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em> | </em><a class="reference internal" href="#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><em>ErrorMessage</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The message to append, depending on the chosen form
 (see above).</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Only relevant if form 2 is chosen. See 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Only relevant if form 2 is chosen. See 
 <a class="reference internal" href="#ctlbase.message.Message.key" title="ctlbase.message.Message.key"><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – Only relevant if form 2 is chosen. See 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.arguments"></span><strong>arguments</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.arguments">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – Only relevant if form 2 is chosen. See 
 <a class="reference internal" href="#ctlbase.message.Message.arguments" title="ctlbase.message.Message.arguments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">arguments</span></code></a>.</p></li>
 <li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.severity"></span><strong>severity</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.severity">¶</a> (<a class="reference internal" href="#ctlbase.message.Severity" title="ctlbase.message.Severity"><em>Severity</em></a>) – Only relevant if form 2 is chosen. See 
 <a class="reference internal" href="#ctlbase.message.Message.severity" title="ctlbase.message.Message.severity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">severity</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Only relevant if form 2 is chosen. See 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.timestamp_iso"></span><strong>timestamp_iso</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.timestamp_iso">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Only relevant if form 2 is chosen. See 
 <a class="reference internal" href="#ctlbase.message.Message.timestamp_iso" title="ctlbase.message.Message.timestamp_iso"><code class="xref py py-attr docutils literal notranslate"><span class="pre">timestamp_iso</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Only relevant if form 2 is chosen. See <a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – Only relevant if form 2 is chosen. See 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Only relevant if form 2 is chosen. See <a class="reference internal" href="#ctlbase.message.Message.ns" title="ctlbase.message.Message.ns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ns</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – Only relevant if form 2 is chosen. See 
 <a class="reference internal" href="#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.isDeduplicate"></span><strong>isDeduplicate</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.isDeduplicate">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, appends the message only if it is not
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.append.params.isDeduplicate"></span><strong>isDeduplicate</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.append.params.isDeduplicate">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, appends the message only if it is not
 yet contained in the buffer, according to <a class="reference internal" href="#ctlbase.message.Message.__eq__" title="ctlbase.message.Message.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__eq__()</span></code></a>.</p></li>
 </ul>
 </dd>
@@ -521,7 +862,7 @@ yet contained in the buffer, according to <a class="reference internal" href="#c
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><span class="target" id="ctlbase.message.MessageBuffer.appendBuffer.params.otherBuffer"></span><strong>otherBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendBuffer.params.otherBuffer">¶</a> (<a class="reference internal" href="#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><em>MessageBuffer</em></a>) – The source buffer from which to append messages.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.appendBuffer.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendBuffer.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.appendBuffer.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendBuffer.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
 </ul>
 </dd>
@@ -540,8 +881,8 @@ as JSON and need to be appended to the buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.appendJson.params.jsonStr"></span><strong>jsonStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendJson.params.jsonStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The source JSON <cite>str</cite> from which to append messages.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.appendJson.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendJson.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.appendJson.params.jsonStr"></span><strong>jsonStr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendJson.params.jsonStr">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The source JSON <cite>str</cite> from which to append messages.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.appendJson.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.appendJson.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
 </ul>
 </dd>
@@ -577,7 +918,7 @@ returned.</div>
 <dd class="field-odd"><p>The numeric exit code.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -589,7 +930,7 @@ returned.</div>
 <p>The supported JSON representation is defined by <a class="reference internal" href="#ctlbase.message.Message.toJson" title="ctlbase.message.Message.toJson"><code class="xref py py-meth docutils literal notranslate"><span class="pre">toJson()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.getJson.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getJson.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.getJson.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getJson.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -597,7 +938,7 @@ correlation ID. See <a class="reference internal" href="#ctlbase.message.Message
 enclosed in <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">...</span> <span class="pre">]</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -608,14 +949,14 @@ enclosed in <code class="docutils literal notranslate"><span class="pre">[</span
 <dd><p>Creates an ordered sequence of message objects in this buffer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.getList.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getList.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<dd class="field-odd"><p><span class="target" id="ctlbase.message.MessageBuffer.getList.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getList.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>An ordered sequence of message objects.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message">Message</a>]</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message">Message</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -627,15 +968,15 @@ correlation ID. See <a class="reference internal" href="#ctlbase.message.Message
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message texts to be
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Two-letter language code for the message texts to be
 concatenated. If <cite>None</cite>, the value of
 <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a> is used. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code> if a
 corresponding translation cannot be found.</p></li>
 <li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.severityFilter"></span><strong>severityFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.severityFilter">¶</a> (<em>Iterable</em><em> | </em><em>None</em>) – An optional filter for messages by severity.
 See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.severityFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">severityFilter</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.isColoring">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the returned text is colored according to
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.getText.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.getText.params.isColoring">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the returned text is colored according to
 message severity. If <cite>None</cite>, the value of
 <a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a> is used.</p></li>
 </ul>
@@ -645,7 +986,7 @@ message severity. If <cite>None</cite>, the value of
 newline characters.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -657,10 +998,10 @@ newline characters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The key to search for.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><em>None</em>) – An optional filter for messages by argument. See
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.key">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The key to search for.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a><em> | </em><em>None</em>) – An optional filter for messages by actionArg. See
 <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasKey.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasKey.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
 </ul>
 </dd>
@@ -668,7 +1009,7 @@ correlation ID. See <a class="reference internal" href="#ctlbase.message.Message
 <dd class="field-even"><p><cite>True</cite> if at least one message has been found.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -681,11 +1022,11 @@ severities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.severities"></span><strong>severities</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.severities">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a>) – One or more severities to search for. It is
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.severities"></span><strong>severities</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.severities">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a>) – One or more severities to search for. It is
 sufficient for a message to match one of the given severities.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><em>None</em>) – An optional filter for messages by argument. See
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a><em> | </em><em>None</em>) – An optional filter for messages by actionArg. See
 <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.hasSeverity.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.hasSeverity.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
 </ul>
 </dd>
@@ -693,7 +1034,7 @@ correlation ID. See <a class="reference internal" href="#ctlbase.message.Message
 <dd class="field-even"><p><cite>True</cite> if at least one message has been found.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -706,23 +1047,23 @@ The messages are separated by newline characters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message texts to be
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Two-letter language code for the message texts to be
 printed. If <cite>None</cite>, the value of <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>
 is used. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code> if a corresponding translation cannot be
 found.</p></li>
 <li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.severityFilter"></span><strong>severityFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.severityFilter">¶</a> (<em>Iterable</em><em> | </em><em>None</em>) – An optional filter for messages by severity.
 See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.severityFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">severityFilter</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for messages by 
 correlation ID. See <a class="reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationIdFilter</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.isColoring">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the text is colored according to message
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.isColoring"></span><strong>isColoring</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.isColoring">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, the text is colored according to message
 severity. If <cite>None</cite>, the value of
 <a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a> is used.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.stdStream"></span><strong>stdStream</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.stdStream">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase" title="(in Python v3.14)"><em>io.TextIOBase</em></a>) – The output stream to which all messages are printed by
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.stdStream"></span><strong>stdStream</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.stdStream">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase" title="(in Python v3.15)"><em>io.TextIOBase</em></a>) – The output stream to which all messages are printed by
 default. The only exceptions are messages with severities
 <a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a> and <a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a>. These are 
 printed to the <a class="reference internal" href="#ctlbase.message.MessageBuffer.printText.params.errStream" title="ctlbase.message.MessageBuffer.printText"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">errStream</span></code></a>, if 
 it is not <cite>None</cite>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.errStream"></span><strong>errStream</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.errStream">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase" title="(in Python v3.14)"><em>io.TextIOBase</em></a><em> | </em><em>None</em>) – An optional output stream to which messages with 
+<li><p><span class="target" id="ctlbase.message.MessageBuffer.printText.params.errStream"></span><strong>errStream</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageBuffer.printText.params.errStream">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.TextIOBase" title="(in Python v3.15)"><em>io.TextIOBase</em></a><em> | </em><em>None</em>) – An optional output stream to which messages with 
 severities <a class="reference internal" href="#ctlbase.message.Severity.WARNING" title="ctlbase.message.Severity.WARNING"><code class="xref py py-attr docutils literal notranslate"><span class="pre">WARNING</span></code></a> and <a class="reference internal" href="#ctlbase.message.Severity.ERROR" title="ctlbase.message.Severity.ERROR"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ERROR</span></code></a>
 are printed.</p></li>
 </ul>
@@ -739,14 +1080,14 @@ are printed.</p></li>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.lngDefault">
-<span class="sig-name descname"><span class="pre">lngDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.lngDefault" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lngDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.lngDefault" title="Link to this definition"></a></dt>
 <dd><p>Two-letter language code to be used as default when printing text to
 <em>stdout</em> or <em>stderr</em>.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.MessageBuffer.nsDefault">
-<span class="sig-name descname"><span class="pre">nsDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.nsDefault" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nsDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.MessageBuffer.nsDefault" title="Link to this definition"></a></dt>
 <dd><p>The default namespace to be assigned to a message if its namespace
 is <cite>None</cite>.</p>
 </dd></dl>
@@ -765,14 +1106,14 @@ is <cite>None</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.nsDefault"></span><strong>nsDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.nsDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDefault" title="ctlbase.message.MessageBuffer.nsDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nsDefault</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.lngDefault"></span><strong>lngDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.lngDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.isColoringDefault"></span><strong>isColoringDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.isColoringDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.logPath"></span><strong>logPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.logPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The width of the first column in the log 
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.nsDefault"></span><strong>nsDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.nsDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.nsDefault" title="ctlbase.message.MessageBuffer.nsDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">nsDefault</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.lngDefault"></span><strong>lngDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.lngDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.lngDefault" title="ctlbase.message.MessageBuffer.lngDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">lngDefault</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.isColoringDefault"></span><strong>isColoringDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.isColoringDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – See <a class="reference internal" href="#ctlbase.message.MessageBuffer.isColoringDefault" title="ctlbase.message.MessageBuffer.isColoringDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isColoringDefault</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.logPath"></span><strong>logPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.logPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – See <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – The width of the first column in the log 
 output, as number of characters.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.isLogImmediately"></span><strong>isLogImmediately</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.isLogImmediately">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – See <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately" title="ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isLogImmediately</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.isLogToConsole"></span><strong>isLogToConsole</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.isLogToConsole">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – See <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole" title="ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isLogToConsole</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.isLogImmediately"></span><strong>isLogImmediately</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.isLogImmediately">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – See <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately" title="ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isLogImmediately</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.params.isLogToConsole"></span><strong>isLogToConsole</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.isLogToConsole">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – See <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole" title="ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isLogToConsole</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -806,23 +1147,23 @@ be appended to it. Otherwise the file is created.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.openLog.params.logPath"></span><strong>logPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog.params.logPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The log file path to open and to set as the value of
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.openLog.params.logPath"></span><strong>logPath</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog.params.logPath">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The log file path to open and to set as the value of
 <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a>. If <cite>None</cite>, the existing
 value of <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="ctlbase.message.LoggingMessageBuffer.logPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">logPath</span></code></a> is used.</p></li>
-<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.openLog.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The width of the first column in the log 
+<li><p><span class="target" id="ctlbase.message.LoggingMessageBuffer.openLog.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – The width of the first column in the log 
 output, as a number of characters. If <cite>None</cite>, the value given in
 <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.params.firstColumnWidth" title="ctlbase.message.LoggingMessageBuffer"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">firstColumnWidth</span></code></a> is retained.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If no log file path is given.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If no log file path is given.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr">
-<span class="sig-name descname"><span class="pre">firstColumnFormatStr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">firstColumnFormatStr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr" title="Link to this definition"></a></dt>
 <dd><p>The printf-style string used to format the first column in the log
 output.</p>
 <p>The first column contains the timestamp of the corresponding log entry,
@@ -832,7 +1173,7 @@ right-padded with spaces to match the number of characters given in
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.isLogImmediately">
-<span class="sig-name descname"><span class="pre">isLogImmediately</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">isLogImmediately</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.isLogImmediately" title="Link to this definition"></a></dt>
 <dd><p>If <cite>True</cite>, any message is written to the log file as soon as it is
 appended to the buffer. If <cite>False</cite>, all the messages in the buffer are
 written to the log file when the buffer is closed via its
@@ -841,14 +1182,14 @@ written to the log file when the buffer is closed via its
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.isLogToConsole">
-<span class="sig-name descname"><span class="pre">isLogToConsole</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">isLogToConsole</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.isLogToConsole" title="Link to this definition"></a></dt>
 <dd><p>If <cite>True</cite>, messages are additionally printed to <em>stdout</em> at the same
 time when they are written to the log file.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.message.LoggingMessageBuffer.logPath">
-<span class="sig-name descname"><span class="pre">logPath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">logPath</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.message.LoggingMessageBuffer.logPath" title="Link to this definition"></a></dt>
 <dd><p>The log file path. It is only opened when
 <a class="reference internal" href="#ctlbase.message.LoggingMessageBuffer.openLog" title="ctlbase.message.LoggingMessageBuffer.openLog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openLog()</span></code></a> is called.</p>
 </dd></dl>
@@ -891,16 +1232,16 @@ coloring the text according to severity.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.message.MessageIterator.params.messages"></span><strong>messages</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.messages">¶</a> (<a class="reference internal" href="#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><em>MessageBuffer</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em>]</em>) – The messages to iterate over.</p></li>
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.messages"></span><strong>messages</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.messages">¶</a> (<a class="reference internal" href="#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><em>MessageBuffer</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><em>Message</em></a><em>]</em>) – The messages to iterate over.</p></li>
 <li><p><span class="target" id="ctlbase.message.MessageIterator.params.format"></span><strong>format</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.format">¶</a> (<a class="reference internal" href="#ctlbase.message.MessageIterator.Format" title="ctlbase.message.MessageIterator.Format"><code class="xref py py-class docutils literal notranslate"><span class="pre">Format</span></code></a>) – The output format of the messages.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageIterator.params.startIndex"></span><strong>startIndex</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.startIndex">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The (zero-based) index of the first message to be
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.startIndex"></span><strong>startIndex</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.startIndex">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – The (zero-based) index of the first message to be
 included in the output. It must be less than <code class="docutils literal notranslate"><span class="pre">len(messages)</span></code>. As
 an example, if  <cite>startIndex</cite> is <code class="docutils literal notranslate"><span class="pre">2</span></code>, iteration starts with the
 third message in <a class="reference internal" href="#ctlbase.message.MessageIterator.params.messages" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">messages</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageIterator.params.isImmutable"></span><strong>isImmutable</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.isImmutable">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the iterator uses an immutable copy of
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.isImmutable"></span><strong>isImmutable</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.isImmutable">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the iterator uses an immutable copy of
 the message sequence. In this case, messages appended afterwards are
 not reflected in the iterator.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageIterator.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em> | </em><em>None</em>) – An optional filter for message arguments. The
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.argumentFilter"></span><strong>argumentFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a><em> | </em><em>None</em>) – An optional filter for message arguments. The
 filter is specified as a scalar value, e.g. as a <cite>str</cite>, <cite>int</cite> or 
 <cite>bool</cite>. The value must exactly match the value of one of a message’s
 arguments to be included in the output. Alternatively, the filter is
@@ -914,11 +1255,11 @@ filter is specified as an <cite>Iterable</cite> with one or more severities. At
 least one of them must match the severity of a message for it to be
 included in the output. If <cite>None</cite>, messages are not filtered by
 severity.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageIterator.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for correlation IDs. The
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.correlationIdFilter"></span><strong>correlationIdFilter</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.correlationIdFilter">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An optional filter for correlation IDs. The
 value must exactly match the correlation ID of a message for it to
 be included in the output. If <cite>None</cite>, messages are not filtered by
 correlation ID.</p></li>
-<li><p><span class="target" id="ctlbase.message.MessageIterator.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Two-letter language code for the message texts to
+<li><p><span class="target" id="ctlbase.message.MessageIterator.params.lngForText"></span><strong>lngForText</strong><a class="paramlink headerlink reference internal" href="#ctlbase.message.MessageIterator.params.lngForText">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Two-letter language code for the message texts to
 be included in the output. Defaults to <code class="docutils literal notranslate"><span class="pre">en</span></code>, if a corressponding
 translation cannot be found. Only relevant for output formats
 <a class="reference internal" href="#ctlbase.message.MessageIterator.Format.TEXT" title="ctlbase.message.MessageIterator.Format.TEXT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">TEXT</span></code></a> and 
@@ -927,9 +1268,9 @@ translation cannot be found. Only relevant for output formats
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.message.MessageIterator.params.startIndex" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">startIndex</span></code></a> is
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.message.MessageIterator.params.startIndex" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">startIndex</span></code></a> is
 invalid.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a> is
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.message.MessageIterator.params.argumentFilter" title="ctlbase.message.MessageIterator"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argumentFilter</span></code></a> is
 an invalid <cite>dict</cite>.</p></li>
 </ul>
 </dd>

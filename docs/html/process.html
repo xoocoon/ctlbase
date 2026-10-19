@@ -6,17 +6,17 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>process module &mdash; ctlbase 1.0a2 documentation</title>
+  <title>process module &mdash; ctlbase 1.0a3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=c5a2a4e5"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=4ed4bc18"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=d801d12e"></script>
+      <script src="_static/sphinx_highlight.js?v=b747cce0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -43,29 +43,376 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="translation.html">translation module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">process module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor"><code class="docutils literal notranslate"><span class="pre">TaskMonitor</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor"><code class="docutils literal notranslate"><span class="pre">CommandExecutor</span></code></a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="config.html">config module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector"><code class="docutils literal notranslate"><span class="pre">CallerInspector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.__init__"><code class="docutils literal notranslate"><span class="pre">CallerInspector.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getName"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getPath"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getPath()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TASK_CHECKING_INTERVAL_MS_DEFAULT"><code class="docutils literal notranslate"><span class="pre">TASK_CHECKING_INTERVAL_MS_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FileHelper"><code class="docutils literal notranslate"><span class="pre">FileHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.Type"><code class="docutils literal notranslate"><span class="pre">FileHelper.Type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.find"><code class="docutils literal notranslate"><span class="pre">FileHelper.find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findBinary"><code class="docutils literal notranslate"><span class="pre">FileHelper.findBinary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findConfig"><code class="docutils literal notranslate"><span class="pre">FileHelper.findConfig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findTranslation"><code class="docutils literal notranslate"><span class="pre">FileHelper.findTranslation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.BIN_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.BIN_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.CONFIG_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.CONFIG_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.TRANSLATION_LOCATIONS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.BashHelper"><code class="docutils literal notranslate"><span class="pre">BashHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Array"><code class="docutils literal notranslate"><span class="pre">BashHelper.Array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Scalar"><code class="docutils literal notranslate"><span class="pre">BashHelper.Scalar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.parseConfig"><code class="docutils literal notranslate"><span class="pre">BashHelper.parseConfig()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interaction.html">interaction module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="control.html">control module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.Caller"><code class="docutils literal notranslate"><span class="pre">Caller</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.TRUE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">TRUE_VALUE_PATTERN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FALSE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">FALSE_VALUE_PATTERN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">translation module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager"><code class="docutils literal notranslate"><span class="pre">TranslationManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.__init__"><code class="docutils literal notranslate"><span class="pre">TranslationManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.changeLanguage"><code class="docutils literal notranslate"><span class="pre">TranslationManager.changeLanguage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.loadLanguages"><code class="docutils literal notranslate"><span class="pre">TranslationManager.loadLanguages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.translate"><code class="docutils literal notranslate"><span class="pre">TranslationManager.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.language"><code class="docutils literal notranslate"><span class="pre">TranslationManager.language</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.Translation"><code class="docutils literal notranslate"><span class="pre">Translation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="message.html">message module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="message.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.__eq__"><code class="docutils literal notranslate"><span class="pre">Message.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.__init__"><code class="docutils literal notranslate"><span class="pre">Message.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.fromDict"><code class="docutils literal notranslate"><span class="pre">Message.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.fromJson"><code class="docutils literal notranslate"><span class="pre">Message.fromJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.getTextLngs"><code class="docutils literal notranslate"><span class="pre">Message.getTextLngs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toColoredText"><code class="docutils literal notranslate"><span class="pre">Message.toColoredText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toJson"><code class="docutils literal notranslate"><span class="pre">Message.toJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toText"><code class="docutils literal notranslate"><span class="pre">Message.toText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.arguments"><code class="docutils literal notranslate"><span class="pre">Message.arguments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.correlationId"><code class="docutils literal notranslate"><span class="pre">Message.correlationId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.key"><code class="docutils literal notranslate"><span class="pre">Message.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.ns"><code class="docutils literal notranslate"><span class="pre">Message.ns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.severity"><code class="docutils literal notranslate"><span class="pre">Message.severity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.textEn"><code class="docutils literal notranslate"><span class="pre">Message.textEn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.timestamp_iso"><code class="docutils literal notranslate"><span class="pre">Message.timestamp_iso</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage"><code class="docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage.__init__"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage.exitCode"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.exitCode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.addTranslations"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.addTranslations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.appendBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendBuffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.appendJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.clear"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getExitCode"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getList"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.hasKey"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasKey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.hasSeverity"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasSeverity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.printText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.printText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.isColoringDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.lngDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.lngDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.nsDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.nsDefault</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.close"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.openLog"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.openLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.firstColumnFormatStr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogImmediately</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogToConsole</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.logPath"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.logPath</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator"><code class="docutils literal notranslate"><span class="pre">MessageIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator.Format"><code class="docutils literal notranslate"><span class="pre">MessageIterator.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator.__init__"><code class="docutils literal notranslate"><span class="pre">MessageIterator.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="message.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.DEBUG"><code class="docutils literal notranslate"><span class="pre">Severity.DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.ERROR"><code class="docutils literal notranslate"><span class="pre">Severity.ERROR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.NORMAL"><code class="docutils literal notranslate"><span class="pre">Severity.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.SUCCESS"><code class="docutils literal notranslate"><span class="pre">Severity.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.VERBOSE"><code class="docutils literal notranslate"><span class="pre">Severity.VERBOSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.WARNING"><code class="docutils literal notranslate"><span class="pre">Severity.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.SEVERITY_FILTER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">SEVERITY_FILTER_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">process module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.process.LoopBase"><code class="docutils literal notranslate"><span class="pre">LoopBase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.process.SyncMixin"><code class="docutils literal notranslate"><span class="pre">SyncMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.SyncMixin.syncify"><code class="docutils literal notranslate"><span class="pre">SyncMixin.syncify()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.process.TaskMonitor"><code class="docutils literal notranslate"><span class="pre">TaskMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.__init__"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.add"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.cancelTasks"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.cancelTasksInLoop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasksInLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.remove"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.start"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.stop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.loop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.loop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.TaskMonitor.taskCheckingInterval_ms"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.taskCheckingInterval_ms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.process.CommandExecutor"><code class="docutils literal notranslate"><span class="pre">CommandExecutor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.SynchronousError"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.SynchronousError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.__init__"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor._createProcess"><code class="docutils literal notranslate"><span class="pre">CommandExecutor._createProcess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeAsynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.executeCommands"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeCommands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeSynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.getOutput"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.getOutput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_ERROR_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_SUCCESS_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.isSynchronousDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.process.TASK_CHECKING_INTERVAL_MS_DEFAULT"><code class="docutils literal notranslate"><span class="pre">TASK_CHECKING_INTERVAL_MS_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper.find"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper.find()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler"><code class="docutils literal notranslate"><span class="pre">FileModeHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.__init__"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.activatePending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.activatePending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetPending()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.TIMEOUT_DEFAULT_S"><code class="docutils literal notranslate"><span class="pre">TIMEOUT_DEFAULT_S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.BASE_DIR_PATH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">BASE_DIR_PATH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">interaction module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager"><code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.__init__"><code class="docutils literal notranslate"><span class="pre">InteractionManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.promptForCredential"><code class="docutils literal notranslate"><span class="pre">InteractionManager.promptForCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">InteractionManager.isColoringDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">credentials module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader"><code class="docutils literal notranslate"><span class="pre">CredentialReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader.__init__"><code class="docutils literal notranslate"><span class="pre">CredentialReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader"><code class="docutils literal notranslate"><span class="pre">KeyringReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader.__init__"><code class="docutils literal notranslate"><span class="pre">KeyringReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.__init__"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.PCR_AUTH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.PCR_AUTH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader.__init__"><code class="docutils literal notranslate"><span class="pre">FileReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader"><code class="docutils literal notranslate"><span class="pre">PromptReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader.__init__"><code class="docutils literal notranslate"><span class="pre">PromptReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader"><code class="docutils literal notranslate"><span class="pre">BaseReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.__init__"><code class="docutils literal notranslate"><span class="pre">BaseReader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader._readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader._readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader.readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.credentialKeys"><code class="docutils literal notranslate"><span class="pre">BaseReader.credentialKeys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.Format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.__init__"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.deleteCredential"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.deleteCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.delete"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.delete</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mayPrompt"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mayPrompt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mountpoint"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mountpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.namedTemp"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.namedTemp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.path"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.purpose"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.purpose</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey"><code class="docutils literal notranslate"><span class="pre">CredentialKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.CRYPTOPHRASE"><code class="docutils literal notranslate"><span class="pre">CredentialKey.CRYPTOPHRASE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGIN"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGINNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGINNAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.PASSWORD"><code class="docutils literal notranslate"><span class="pre">CredentialKey.PASSWORD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.TOTP"><code class="docutils literal notranslate"><span class="pre">CredentialKey.TOTP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.USERNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.USERNAME</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CREDENTIALS_DIRECTORY_DEFAULT"><code class="docutils literal notranslate"><span class="pre">CREDENTIALS_DIRECTORY_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control.html">control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control.html#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#control">control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#action">action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#mode">mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#property">property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#feedback">feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.__init__"><code class="docutils literal notranslate"><span class="pre">Control.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._actionToGrammarEn"><code class="docutils literal notranslate"><span class="pre">Control._actionToGrammarEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._appendMessageFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._appendMessageFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._createExceptionFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._createExceptionFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._getPropertiesListsEn"><code class="docutils literal notranslate"><span class="pre">Control._getPropertiesListsEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._getProperty"><code class="docutils literal notranslate"><span class="pre">Control._getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._invalidateCache"><code class="docutils literal notranslate"><span class="pre">Control._invalidateCache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._performAction"><code class="docutils literal notranslate"><span class="pre">Control._performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control._preprocessArgument"><code class="docutils literal notranslate"><span class="pre">Control._preprocessArgument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.activatePendingMode"><code class="docutils literal notranslate"><span class="pre">Control.activatePendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.close"><code class="docutils literal notranslate"><span class="pre">Control.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.getActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.getPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPropertiesJson"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getPropertiesTextEn"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesTextEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.getProperty"><code class="docutils literal notranslate"><span class="pre">Control.getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.performAction"><code class="docutils literal notranslate"><span class="pre">Control.performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.setActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.setActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.setPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.setPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.unsetActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.Control.unsetPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetPendingMode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum"><code class="docutils literal notranslate"><span class="pre">ControlEnum</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum.__eq__"><code class="docutils literal notranslate"><span class="pre">ControlEnum.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.ControlEnum.fromAny"><code class="docutils literal notranslate"><span class="pre">ControlEnum.fromAny()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardAction"><code class="docutils literal notranslate"><span class="pre">StandardAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_ACTIVATE"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_ACTIVATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_SET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_SET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardAction.MODE_UNSET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_UNSET</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardMode"><code class="docutils literal notranslate"><span class="pre">StandardMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.__eq__"><code class="docutils literal notranslate"><span class="pre">StandardMode.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.fromAny"><code class="docutils literal notranslate"><span class="pre">StandardMode.fromAny()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardMode.NONE"><code class="docutils literal notranslate"><span class="pre">StandardMode.NONE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty"><code class="docutils literal notranslate"><span class="pre">StandardProperty</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty.MODE_ACTIVE"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_ACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.html#ctlbase.control.StandardProperty.MODE_PENDING"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_PENDING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ALREADY_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.ALREADY_NOT_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_NOT_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_DIR_NAME_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_GROUP_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="control.html#ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.argsToActionArg"><code class="docutils literal notranslate"><span class="pre">ControlShell.argsToActionArg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.printOnExit"><code class="docutils literal notranslate"><span class="pre">ControlShell.printOnExit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.requestCleanup"><code class="docutils literal notranslate"><span class="pre">ControlShell.requestCleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setControl"><code class="docutils literal notranslate"><span class="pre">ControlShell.setControl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setExitCode"><code class="docutils literal notranslate"><span class="pre">ControlShell.setExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.commandExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.commandExecutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigDict"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigDict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigName"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.msgBuffer"><code class="docutils literal notranslate"><span class="pre">ControlShell.msgBuffer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.notifyReady"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.notifyReady()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.taskMonitor"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.taskMonitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -84,7 +431,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
       <li class="breadcrumb-item active">process module</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -97,8 +443,8 @@
   <section id="module-ctlbase.process">
 <span id="process-module"></span><h1>process module<a class="headerlink" href="#module-ctlbase.process" title="Link to this heading"></a></h1>
 <p>Classes for handling OS processes and background tasks.</p>
-<p>They integrate low-level Python constructs like <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>
-and <a class="reference external" href="https://docs.python.org/3/library/asyncio-subprocess.html#asyncio.create_subprocess_exec" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.create_subprocess_exec()</span></code></a> into the <cite>ctlbase</cite> package.</p>
+<p>They integrate low-level Python constructs like <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>
+and <a class="reference external" href="https://docs.python.org/3/library/asyncio-subprocess.html#asyncio.create_subprocess_exec" title="(in Python v3.15)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.create_subprocess_exec()</span></code></a> into the <cite>ctlbase</cite> package.</p>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#classes" id="id1">Classes</a></p></li>
@@ -107,6 +453,39 @@ and <a class="reference external" href="https://docs.python.org/3/library/asynci
 </nav>
 <section id="classes">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Classes</a><a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.process.LoopBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.process.</span></span><span class="sig-name descname"><span class="pre">LoopBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.process.LoopBase" title="Link to this definition"></a></dt>
+<dd><p>Base class for an inheritance hierarchy of slotted classes, with an
+asyncio event loop as a common attribute.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ctlbase.process.SyncMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.process.</span></span><span class="sig-name descname"><span class="pre">SyncMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.process.SyncMixin" title="Link to this definition"></a></dt>
+<dd><p>Provides support for executing a function synchronously.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.process.SyncMixin.syncify">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">syncify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.process.SyncMixin.syncify" title="Link to this definition"></a></dt>
+<dd><p>Executes a given function synchronously.</p>
+<p>That is, if <cite>func</cite> is a regular function, it is simply executed. If it
+is a coroutine function, it is executed in the mixin’s asyncio event
+loop and awaited.</p>
+<p>In either case, any exception raised by <cite>func</cite> is passed on, as well
+as the return value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.process.SyncMixin.syncify.params.func"></span><strong>func</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.SyncMixin.syncify.params.func">¶</a> (<em>callable</em>) – The function or coroutine function to execute.</p></li>
+<li><p><span class="target" id="ctlbase.process.SyncMixin.syncify.params.args"></span><strong>args</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.SyncMixin.syncify.params.args">¶</a> – The positional arguments for <cite>func</cite>.</p></li>
+<li><p><span class="target" id="ctlbase.process.SyncMixin.syncify.params.kwargs"></span><strong>kwargs</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.SyncMixin.syncify.params.kwargs">¶</a> – The keyword arguments for <cite>func</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="ctlbase.process.TaskMonitor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ctlbase.process.</span></span><span class="sig-name descname"><span class="pre">TaskMonitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskCheckingInterval_ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.process.TaskMonitor" title="Link to this definition"></a></dt>
@@ -124,13 +503,13 @@ regularly checked for success or failure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.process.TaskMonitor.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.EventLoop</span></code></a>) – See <a class="reference internal" href="#ctlbase.process.TaskMonitor.loop" title="ctlbase.process.TaskMonitor.loop"><code class="xref py py-attr docutils literal notranslate"><span class="pre">loop</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.process.TaskMonitor.params.taskCheckingInterval_ms"></span><strong>taskCheckingInterval_ms</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.taskCheckingInterval_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – See 
+<li><p><span class="target" id="ctlbase.process.TaskMonitor.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.EventLoop</span></code></a>) – See <a class="reference internal" href="#ctlbase.process.TaskMonitor.loop" title="ctlbase.process.TaskMonitor.loop"><code class="xref py py-attr docutils literal notranslate"><span class="pre">loop</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.process.TaskMonitor.params.taskCheckingInterval_ms"></span><strong>taskCheckingInterval_ms</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.taskCheckingInterval_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – See 
 <a class="reference internal" href="#ctlbase.process.TaskMonitor.taskCheckingInterval_ms" title="ctlbase.process.TaskMonitor.taskCheckingInterval_ms"><code class="xref py py-attr docutils literal notranslate"><span class="pre">taskCheckingInterval_ms</span></code></a>.</p></li>
 <li><p><span class="target" id="ctlbase.process.TaskMonitor.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.msgBuffer">¶</a> (<a class="reference internal" href="message.html#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><em>MessageBuffer</em></a><em> | </em><em>None</em>) – The message buffer to which results and error messages
 of completed tasks are appended. If <cite>None</cite>, results and errors are
 silently ignored.</p></li>
-<li><p><span class="target" id="ctlbase.process.TaskMonitor.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The message namespace for appended messages. If <cite>True</cite>, the
+<li><p><span class="target" id="ctlbase.process.TaskMonitor.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The message namespace for appended messages. If <cite>True</cite>, the
 namespace is derived from the caller name. See
 <a class="reference internal" href="config.html#ctlbase.config.CallerInspector" title="ctlbase.config.CallerInspector"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerInspector</span></code></a> for the discovery algorithm. Only
 relevant if <a class="reference internal" href="#ctlbase.process.TaskMonitor.params.msgBuffer" title="ctlbase.process.TaskMonitor"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msgBuffer</span></code></a> is not <cite>None</cite>.</p></li>
@@ -145,18 +524,18 @@ relevant if <a class="reference internal" href="#ctlbase.process.TaskMonitor.par
 <dd><p>Adds a task to the task monitor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.process.TaskMonitor.add.params.task"></span><strong>task</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.add.params.task">¶</a> (coroutine | <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>) – The task to be added. If it is a coroutine, it is scheduled
+<dd class="field-odd"><p><span class="target" id="ctlbase.process.TaskMonitor.add.params.task"></span><strong>task</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.add.params.task">¶</a> (coroutine | <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>) – The task to be added. If it is a coroutine, it is scheduled
 as a task in the event loop.</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-exceptions.html#asyncio.InvalidStateError" title="(in Python v3.14)"><strong>asyncio.InvalidStateError</strong></a> – If the event loop is already closed.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-exceptions.html#asyncio.InvalidStateError" title="(in Python v3.15)"><strong>asyncio.InvalidStateError</strong></a> – If the event loop is already closed.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The added task. Only relevant if 
 <a class="reference internal" href="#ctlbase.process.TaskMonitor.add.params.task" title="ctlbase.process.TaskMonitor.add"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">task</span></code></a> is a coroutine.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -182,7 +561,7 @@ added to the task monitor ot not.</p>
 <dd><p>Removes a task from the task monitor without cancelling it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.process.TaskMonitor.remove.params.task"></span><strong>task</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.remove.params.task">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>) – The task to be removed.</p>
+<dd class="field-odd"><p><span class="target" id="ctlbase.process.TaskMonitor.remove.params.task"></span><strong>task</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.TaskMonitor.remove.params.task">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>) – The task to be removed.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,14 +589,14 @@ In any case, a completed task is removed from the task monitor.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.process.TaskMonitor.loop">
-<span class="sig-name descname"><span class="pre">loop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.14)"><span class="pre">asyncio.EventLoop</span></a></em><a class="headerlink" href="#ctlbase.process.TaskMonitor.loop" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">loop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.15)"><span class="pre">asyncio.EventLoop</span></a></em><a class="headerlink" href="#ctlbase.process.TaskMonitor.loop" title="Link to this definition"></a></dt>
 <dd><p>The asyncio event loop in which new tasks are created, including the
 monitoring thread itself.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.process.TaskMonitor.taskCheckingInterval_ms">
-<span class="sig-name descname"><span class="pre">taskCheckingInterval_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#ctlbase.process.TaskMonitor.taskCheckingInterval_ms" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">taskCheckingInterval_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a></em><a class="headerlink" href="#ctlbase.process.TaskMonitor.taskCheckingInterval_ms" title="Link to this definition"></a></dt>
 <dd><p>The interval in milliseconds in which tasks are checked for their
 state.</p>
 </dd></dl>
@@ -243,19 +622,19 @@ executed in an asyncio event loop.</p>
 <dd><p>An error that occurred while synchronously executing a command.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.process.CommandExecutor.SynchronousError.lng">
-<span class="sig-name descname"><span class="pre">lng</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.SynchronousError.lng" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lng</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.SynchronousError.lng" title="Link to this definition"></a></dt>
 <dd><p>A two-letter language code for the language of the message text.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.process.CommandExecutor.SynchronousError.message">
-<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.SynchronousError.message" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.SynchronousError.message" title="Link to this definition"></a></dt>
 <dd><p>The message text of the error returned by the command.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.process.CommandExecutor.SynchronousError.returncode">
-<span class="sig-name descname"><span class="pre">returncode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.SynchronousError.returncode" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">returncode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.SynchronousError.returncode" title="Link to this definition"></a></dt>
 <dd><p>The numeric return code of the command.</p>
 </dd></dl>
 
@@ -272,10 +651,10 @@ executed in an asyncio event loop.</p>
 Logging is always asynchronous. The actual log output can be 
 controlled per execution via the <code class="docutils literal notranslate"><span class="pre">isLogEnabled</span></code> parameter of the
 execution method.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The message namespace for logged messages. If <cite>True</cite>, the
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The message namespace for logged messages. If <cite>True</cite>, the
 namespace is derived from the caller name. See
 <a class="reference internal" href="config.html#ctlbase.config.CallerInspector" title="ctlbase.config.CallerInspector"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallerInspector</span></code></a> for the discovery algorithm.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.params.isSynchronousDefault"></span><strong>isSynchronousDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.params.isSynchronousDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – See <a class="reference internal" href="#ctlbase.process.CommandExecutor.isSynchronousDefault" title="ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isSynchronousDefault</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.params.isSynchronousDefault"></span><strong>isSynchronousDefault</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.params.isSynchronousDefault">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – See <a class="reference internal" href="#ctlbase.process.CommandExecutor.isSynchronousDefault" title="ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isSynchronousDefault</span></code></a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -295,19 +674,19 @@ the executable.</p></li>
 </ol>
 <p>If form 1 is used without a path specification, the path to the
 executable is resolved via <a class="reference internal" href="config.html#ctlbase.config.FileHelper.findBinary" title="ctlbase.config.FileHelper.findBinary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">findBinary()</span></code></a> and
-<a class="reference external" href="https://docs.python.org/3/library/shutil.html#shutil.which" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.which()</span></code></a>, then cached to speed up subsequent calls.</p>
+<a class="reference external" href="https://docs.python.org/3/library/shutil.html#shutil.which" title="(in Python v3.15)"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.which()</span></code></a>, then cached to speed up subsequent calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.command"></span><strong>command</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.command">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The command to execute, depending on the chosen form
+<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.command"></span><strong>command</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.command">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The command to execute, depending on the chosen form
 (see above).</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.env"></span><strong>env</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.env">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – Environment variables to be passed to the subprocess, as
-defined for <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.isStdIn"></span><strong>isStdIn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.isStdIn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the subprocess is prepared for receiving
+<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.env"></span><strong>env</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.env">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – Environment variables to be passed to the subprocess, as
+defined for <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.isStdIn"></span><strong>isStdIn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.isStdIn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the subprocess is prepared for receiving
 data from the parent process via <em>stdin</em>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.isStdOut"></span><strong>isStdOut</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.isStdOut">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the parent process is prepared for
+<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.isStdOut"></span><strong>isStdOut</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.isStdOut">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the parent process is prepared for
 receiving data from the subprocess via <em>stdout</em>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.isStdErr"></span><strong>isStdErr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.isStdErr">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the parent process is prepared for
+<li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.isStdErr"></span><strong>isStdErr</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.isStdErr">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the parent process is prepared for
 receiving data from the subprocess via <em>stderr</em>.</p></li>
 <li><p><span class="target" id="ctlbase.process.CommandExecutor._createProcess.params.useAsyncio"></span><strong>useAsyncio</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.useAsyncio">¶</a> – If <cite>True</cite>, the subprocess is created with asyncio.
 Consequently, the communication with the subprocess takes place in
@@ -315,7 +694,7 @@ an asyncio event loop.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#FileNotFoundError" title="(in Python v3.15)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
 path.</p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -323,7 +702,7 @@ path.</p>
 <a class="reference internal" href="#ctlbase.process.CommandExecutor._createProcess.params.useAsyncio" title="ctlbase.process.CommandExecutor._createProcess"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">useAsyncio</span></code></a>.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/asyncio-subprocess.html#asyncio.subprocess.Process" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.subprocess.Process</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/asyncio-subprocess.html#asyncio.subprocess.Process" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.subprocess.Process</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -336,18 +715,18 @@ completion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeAsynchronously.params.command"></span><strong>command</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously.params.command">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The command to execute in one of the forms defined for
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeAsynchronously.params.command"></span><strong>command</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously.params.command">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The command to execute in one of the forms defined for
 <a class="reference internal" href="#ctlbase.process.CommandExecutor._createProcess" title="ctlbase.process.CommandExecutor._createProcess"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_createProcess()</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeAsynchronously.params.env"></span><strong>env</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously.params.env">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – Environment variables to be passed to the subprocess, as
-defined for <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeAsynchronously.params.isLogEnabled"></span><strong>isLogEnabled</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously.params.isLogEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – If <cite>True</cite>, all occurring messages are written to
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeAsynchronously.params.env"></span><strong>env</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously.params.env">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – Environment variables to be passed to the subprocess, as
+defined for <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeAsynchronously.params.isLogEnabled"></span><strong>isLogEnabled</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeAsynchronously.params.isLogEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – If <cite>True</cite>, all occurring messages are written to
 the command executor’s message buffer. For more fine-grained
 behavior, use the values <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY" title="ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ON_SUCCESS_ONLY</span></code></a>
 and <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_ERROR_ONLY" title="ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ON_ERROR_ONLY</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#FileNotFoundError" title="(in Python v3.15)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
 path.</p>
 </dd>
 </dl>
@@ -364,20 +743,20 @@ wrapped in another <cite>list</cite> or <cite>tuple</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.commands"></span><strong>commands</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.commands">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The command(s) to execute.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.stdInput"></span><strong>stdInput</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.stdInput">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.14)"><em>bytes</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytearray" title="(in Python v3.14)"><em>bytearray</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – Data to be sent to the subprocess via <em>stdin</em>. If
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.commands"></span><strong>commands</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.commands">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The command(s) to execute.</p></li>
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.stdInput"></span><strong>stdInput</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.stdInput">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytearray" title="(in Python v3.15)"><em>bytearray</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – Data to be sent to the subprocess via <em>stdin</em>. If
 <cite>None</cite>, no data is sent via <em>stdin</em>. Must be <cite>None</cite> if
 <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous" title="ctlbase.process.CommandExecutor.executeCommands"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSynchronous</span></code></a> evaluates to <cite>True</cite>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous"></span><strong>isSynchronous</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, all commands are executed
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous"></span><strong>isSynchronous</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, all commands are executed
 synchronously. If <cite>False</cite>, all commands are executed asynchronously.
 If <cite>None</cite>, the value of <a class="reference internal" href="#ctlbase.process.CommandExecutor.isSynchronousDefault" title="ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="xref py py-attr docutils literal notranslate"><span class="pre">isSynchronousDefault</span></code></a> is used.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.timeout_ms"></span><strong>timeout_ms</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.timeout_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – Timeout in milliseconds as described for
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.timeout_ms"></span><strong>timeout_ms</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.timeout_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a><em> | </em><em>None</em>) – Timeout in milliseconds as described for
 <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms" title="ctlbase.process.CommandExecutor.executeSynchronously"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout_ms</span></code></a>. Must be <cite>None</cite>
 if <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous" title="ctlbase.process.CommandExecutor.executeCommands"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSynchronous</span></code></a> evaluates to <cite>True</cite>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.outputEncoding"></span><strong>outputEncoding</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.outputEncoding">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An encoding specifier as described for
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.outputEncoding"></span><strong>outputEncoding</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.outputEncoding">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An encoding specifier as described for
 <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.outputEncoding" title="ctlbase.process.CommandExecutor.executeSynchronously"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">outputEncoding</span></code></a>. Must be <cite>None</cite> if
 <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous" title="ctlbase.process.CommandExecutor.executeCommands"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSynchronous</span></code></a> evaluates to <cite>True</cite>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.isLogEnabled"></span><strong>isLogEnabled</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isLogEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – If <cite>True</cite>, all occurring messages are written to
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeCommands.params.isLogEnabled"></span><strong>isLogEnabled</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isLogEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – If <cite>True</cite>, all occurring messages are written to
 the command executor’s message buffer. For more fine-grained
 behavior, use the values <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY" title="ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ON_SUCCESS_ONLY</span></code></a>
 and <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_ERROR_ONLY" title="ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ON_ERROR_ONLY</span></code></a>.</p></li>
@@ -385,10 +764,10 @@ and <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_ERRO
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous" title="ctlbase.process.CommandExecutor.executeCommands"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSynchronous</span></code></a> evaluates to <cite>False</cite>
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeCommands.params.isSynchronous" title="ctlbase.process.CommandExecutor.executeCommands"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSynchronous</span></code></a> evaluates to <cite>False</cite>
 and at least one synchronous-only parameter has a value other than
 <cite>None</cite>.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#FileNotFoundError" title="(in Python v3.15)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
 path.</p></li>
 </ul>
 </dd>
@@ -408,7 +787,7 @@ is concatenated to one <cite>str</cite> with newlines.</div>
 </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.14)">bytes</a>] | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a> | None</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a>] | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a> | None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -421,19 +800,19 @@ completion in an asyncio event loop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.command"></span><strong>command</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.command">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The command to execute in one of the forms defined for
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.command"></span><strong>command</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.command">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The command to execute in one of the forms defined for
 <a class="reference internal" href="#ctlbase.process.CommandExecutor._createProcess" title="ctlbase.process.CommandExecutor._createProcess"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_createProcess()</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.env"></span><strong>env</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.env">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – Environment variables to be passed to the subprocess, as
-defined for <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.stdInput"></span><strong>stdInput</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.stdInput">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.14)"><em>bytes</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytearray" title="(in Python v3.14)"><em>bytearray</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – Data to be sent to the subprocess via <em>stdin</em>. If
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.env"></span><strong>env</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.env">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – Environment variables to be passed to the subprocess, as
+defined for <a class="reference external" href="https://docs.python.org/3/library/subprocess.html#subprocess.Popen" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.stdInput"></span><strong>stdInput</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.stdInput">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytearray" title="(in Python v3.15)"><em>bytearray</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – Data to be sent to the subprocess via <em>stdin</em>. If
 <cite>None</cite>, no data is sent.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms"></span><strong>timeout_ms</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – Timeout in milliseconds to wait for the subprocess to
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms"></span><strong>timeout_ms</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a><em> | </em><em>None</em>) – Timeout in milliseconds to wait for the subprocess to
 complete. If the timeout expires, the subprocess is killed. If
 <cite>None</cite>, the  subprocess might run indefinitely.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.outputEncoding"></span><strong>outputEncoding</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.outputEncoding">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – An encoding specifier like <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> for decoding
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.outputEncoding"></span><strong>outputEncoding</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.outputEncoding">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – An encoding specifier like <code class="docutils literal notranslate"><span class="pre">utf-8</span></code> for decoding
 the bytes from <em>stdout</em> and <em>stderr</em> into a <cite>str</cite>. If <cite>None</cite>, bytes
 are returned unmodified.</p></li>
-<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.isLogEnabled"></span><strong>isLogEnabled</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.isLogEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – If <cite>True</cite>, all occurring messages are written to
+<li><p><span class="target" id="ctlbase.process.CommandExecutor.executeSynchronously.params.isLogEnabled"></span><strong>isLogEnabled</strong><a class="paramlink headerlink reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.isLogEnabled">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – If <cite>True</cite>, all occurring messages are written to
 the command executor’s message buffer. For more fine-grained
 behavior, use the values <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY" title="ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ON_SUCCESS_ONLY</span></code></a>
 and <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_ERROR_ONLY" title="ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ON_ERROR_ONLY</span></code></a>.</p></li>
@@ -441,11 +820,11 @@ and <a class="reference internal" href="#ctlbase.process.CommandExecutor.ON_ERRO
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TimeoutError" title="(in Python v3.14)"><strong>TimeoutError</strong></a> – If <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms" title="ctlbase.process.CommandExecutor.executeSynchronously"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout_ms</span></code></a> is
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#TimeoutError" title="(in Python v3.15)"><strong>TimeoutError</strong></a> – If <a class="reference internal" href="#ctlbase.process.CommandExecutor.executeSynchronously.params.timeout_ms" title="ctlbase.process.CommandExecutor.executeSynchronously"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout_ms</span></code></a> is
 not <cite>None</cite> and the timeout is reached before the subprocess
 completes.</p></li>
 <li><p><a class="reference internal" href="#ctlbase.process.CommandExecutor.SynchronousError" title="ctlbase.process.CommandExecutor.SynchronousError"><strong>SynchronousError</strong></a> – If an error occurs in the subprocess.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#FileNotFoundError" title="(in Python v3.15)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
 path.</p></li>
 </ul>
 </dd>
@@ -456,7 +835,7 @@ decoded to a <cite>str</cite>. See
 for decoding options.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.14)">bytes</a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -472,7 +851,7 @@ retrieving the output of an command. No logging is done.</p>
 so it can be easily processed programmatically.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#FileNotFoundError" title="(in Python v3.15)"><strong>FileNotFoundError</strong></a> – If the executable could not be resolved to a
 path.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -480,7 +859,7 @@ path.</p>
 <code class="docutils literal notranslate"><span class="pre">0</span></code>. The output of <em>stderr</em> otherwise.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -501,7 +880,7 @@ messages are logged.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctlbase.process.CommandExecutor.isSynchronousDefault">
-<span class="sig-name descname"><span class="pre">isSynchronousDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.isSynchronousDefault" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">isSynchronousDefault</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ctlbase.process.CommandExecutor.isSynchronousDefault" title="Link to this definition"></a></dt>
 <dd><p>If <cite>True</cite> commands are executed synchronously by default.</p>
 </dd></dl>
 

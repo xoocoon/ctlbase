@@ -22,7 +22,7 @@ copyright = '2026, xoocoon'
 author = 'xoocoon'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0a2'
+release = '1.0a3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -58,7 +58,6 @@ intersphinx_mapping = {
 }
 primary_domain = 'py'
 
-
 # Options for HTML output -------------------------------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -66,9 +65,16 @@ primary_domain = 'py'
 #
 html_theme = 'sphinx_rtd_theme'
 
+html_theme_options = {
+    "navigation_depth": 4,
+    "collapse_navigation": False,
+    "titles_only": False,
+    "includehidden": True
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
+# so a filenamed "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
 html_copy_source = False
@@ -76,6 +82,8 @@ html_copy_source = False
 html_show_sourcelink = False
 
 # Output finetuning -------------------------------------------------------------------------------
+
+modindex_common_prefix = ["ctlbase."]
 
 autodoc_member_order = 'groupwise'
 

@@ -12,6 +12,14 @@ process module
 Classes
 -------
 
+.. autoclass:: LoopBase
+   :members:
+   :special-members: __init__
+
+.. autoclass:: SyncMixin
+   :members:
+   :special-members: __init__
+
 .. autoclass:: TaskMonitor
    :members:
    :special-members: __init__

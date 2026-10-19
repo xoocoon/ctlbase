@@ -6,17 +6,17 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>control module &mdash; ctlbase 1.0a2 documentation</title>
+  <title>control module &mdash; ctlbase 1.0a3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9f7e994e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css?v=dd72e65a" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/jquery.js?v=c5a2a4e5"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=6ac1bee6"></script>
-      <script src="_static/doctools.js?v=4ed4bc18"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=d801d12e"></script>
+      <script src="_static/sphinx_highlight.js?v=b747cce0"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -43,44 +43,376 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ctlbase</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="translation.html">translation module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="message.html">message module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="process.html">process module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mode.html">mode module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interaction.html">interaction module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="credentials.html">credentials module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">control module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#core-concepts">Core concepts</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#control">control</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#action">action</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mode">mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#property">property</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feedback">feedback</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="config.html">config module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector"><code class="docutils literal notranslate"><span class="pre">CallerInspector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.__init__"><code class="docutils literal notranslate"><span class="pre">CallerInspector.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getName"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getPath"><code class="docutils literal notranslate"><span class="pre">CallerInspector.getPath()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.ControlEnum"><code class="docutils literal notranslate"><span class="pre">ControlEnum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FileHelper"><code class="docutils literal notranslate"><span class="pre">FileHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.Type"><code class="docutils literal notranslate"><span class="pre">FileHelper.Type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.find"><code class="docutils literal notranslate"><span class="pre">FileHelper.find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findBinary"><code class="docutils literal notranslate"><span class="pre">FileHelper.findBinary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findConfig"><code class="docutils literal notranslate"><span class="pre">FileHelper.findConfig()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.findTranslation"><code class="docutils literal notranslate"><span class="pre">FileHelper.findTranslation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.BIN_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.BIN_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.CONFIG_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.CONFIG_LOCATIONS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.FileHelper.TRANSLATION_LOCATIONS"><code class="docutils literal notranslate"><span class="pre">FileHelper.TRANSLATION_LOCATIONS</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardAction"><code class="docutils literal notranslate"><span class="pre">StandardAction</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardMode"><code class="docutils literal notranslate"><span class="pre">StandardMode</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardProperty"><code class="docutils literal notranslate"><span class="pre">StandardProperty</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.ALREADY_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_OK_SEVERITY</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.ALREADY_NOT_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_NOT_OK_SEVERITY</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.MODE_DIR_NAME_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.MODE_GROUP_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.BashHelper"><code class="docutils literal notranslate"><span class="pre">BashHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Array"><code class="docutils literal notranslate"><span class="pre">BashHelper.Array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.Scalar"><code class="docutils literal notranslate"><span class="pre">BashHelper.Scalar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="config.html#ctlbase.config.BashHelper.parseConfig"><code class="docutils literal notranslate"><span class="pre">BashHelper.parseConfig()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html">shell module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.Caller"><code class="docutils literal notranslate"><span class="pre">Caller</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.TRUE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">TRUE_VALUE_PATTERN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="config.html#ctlbase.config.FALSE_VALUE_PATTERN"><code class="docutils literal notranslate"><span class="pre">FALSE_VALUE_PATTERN</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation.html">translation module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager"><code class="docutils literal notranslate"><span class="pre">TranslationManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.__init__"><code class="docutils literal notranslate"><span class="pre">TranslationManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.changeLanguage"><code class="docutils literal notranslate"><span class="pre">TranslationManager.changeLanguage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.loadLanguages"><code class="docutils literal notranslate"><span class="pre">TranslationManager.loadLanguages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.translate"><code class="docutils literal notranslate"><span class="pre">TranslationManager.translate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="translation.html#ctlbase.translation.TranslationManager.language"><code class="docutils literal notranslate"><span class="pre">TranslationManager.language</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="translation.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="translation.html#ctlbase.translation.Translation"><code class="docutils literal notranslate"><span class="pre">Translation</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="message.html">message module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="message.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.__eq__"><code class="docutils literal notranslate"><span class="pre">Message.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.__init__"><code class="docutils literal notranslate"><span class="pre">Message.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.fromDict"><code class="docutils literal notranslate"><span class="pre">Message.fromDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.fromJson"><code class="docutils literal notranslate"><span class="pre">Message.fromJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.getTextLngs"><code class="docutils literal notranslate"><span class="pre">Message.getTextLngs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toColoredText"><code class="docutils literal notranslate"><span class="pre">Message.toColoredText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toJson"><code class="docutils literal notranslate"><span class="pre">Message.toJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.toText"><code class="docutils literal notranslate"><span class="pre">Message.toText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.arguments"><code class="docutils literal notranslate"><span class="pre">Message.arguments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.correlationId"><code class="docutils literal notranslate"><span class="pre">Message.correlationId</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.key"><code class="docutils literal notranslate"><span class="pre">Message.key</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.ns"><code class="docutils literal notranslate"><span class="pre">Message.ns</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.severity"><code class="docutils literal notranslate"><span class="pre">Message.severity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.textEn"><code class="docutils literal notranslate"><span class="pre">Message.textEn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Message.timestamp_iso"><code class="docutils literal notranslate"><span class="pre">Message.timestamp_iso</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage"><code class="docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage.__init__"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage.exitCode"><code class="docutils literal notranslate"><span class="pre">ErrorMessage.exitCode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.addTranslations"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.addTranslations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.appendBuffer"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendBuffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.appendJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.appendJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.clear"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getExitCode"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getJson"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getList"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.getText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.getText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.hasKey"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasKey()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.hasSeverity"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.hasSeverity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.printText"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.printText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.isColoringDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.lngDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.lngDefault</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageBuffer.nsDefault"><code class="docutils literal notranslate"><span class="pre">MessageBuffer.nsDefault</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.__init__"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.append"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.append()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.close"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.openLog"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.openLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.firstColumnFormatStr"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.firstColumnFormatStr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.isLogImmediately"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogImmediately</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.isLogToConsole"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.isLogToConsole</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.LoggingMessageBuffer.logPath"><code class="docutils literal notranslate"><span class="pre">LoggingMessageBuffer.logPath</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator"><code class="docutils literal notranslate"><span class="pre">MessageIterator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator.Format"><code class="docutils literal notranslate"><span class="pre">MessageIterator.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.MessageIterator.__init__"><code class="docutils literal notranslate"><span class="pre">MessageIterator.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="message.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.Severity"><code class="docutils literal notranslate"><span class="pre">Severity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.DEBUG"><code class="docutils literal notranslate"><span class="pre">Severity.DEBUG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.ERROR"><code class="docutils literal notranslate"><span class="pre">Severity.ERROR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.NORMAL"><code class="docutils literal notranslate"><span class="pre">Severity.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.SUCCESS"><code class="docutils literal notranslate"><span class="pre">Severity.SUCCESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.VERBOSE"><code class="docutils literal notranslate"><span class="pre">Severity.VERBOSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="message.html#ctlbase.message.Severity.WARNING"><code class="docutils literal notranslate"><span class="pre">Severity.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.SEVERITY_FILTER_DEFAULT"><code class="docutils literal notranslate"><span class="pre">SEVERITY_FILTER_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="message.html#ctlbase.message.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">process module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="process.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.LoopBase"><code class="docutils literal notranslate"><span class="pre">LoopBase</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.SyncMixin"><code class="docutils literal notranslate"><span class="pre">SyncMixin</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.SyncMixin.syncify"><code class="docutils literal notranslate"><span class="pre">SyncMixin.syncify()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor"><code class="docutils literal notranslate"><span class="pre">TaskMonitor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.__init__"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.add"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.cancelTasks"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.cancelTasksInLoop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.cancelTasksInLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.remove"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.start"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.stop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.loop"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.loop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.TaskMonitor.taskCheckingInterval_ms"><code class="docutils literal notranslate"><span class="pre">TaskMonitor.taskCheckingInterval_ms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor"><code class="docutils literal notranslate"><span class="pre">CommandExecutor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.SynchronousError"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.SynchronousError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.__init__"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor._createProcess"><code class="docutils literal notranslate"><span class="pre">CommandExecutor._createProcess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeAsynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeAsynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeCommands"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeCommands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.executeSynchronously"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.executeSynchronously()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.getOutput"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.getOutput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.ON_ERROR_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_ERROR_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.ON_SUCCESS_ONLY"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.ON_SUCCESS_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.isSynchronousDefault"><code class="docutils literal notranslate"><span class="pre">CommandExecutor.isSynchronousDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="process.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="process.html#ctlbase.process.TASK_CHECKING_INTERVAL_MS_DEFAULT"><code class="docutils literal notranslate"><span class="pre">TASK_CHECKING_INTERVAL_MS_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.ModeDirHelper.find"><code class="docutils literal notranslate"><span class="pre">ModeDirHelper.find()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler"><code class="docutils literal notranslate"><span class="pre">FileModeHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.__init__"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.activatePending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.activatePending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.getPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.getPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.setPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.setPending()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetActive"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mode.html#ctlbase.mode.FileModeHandler.unsetPending"><code class="docutils literal notranslate"><span class="pre">FileModeHandler.unsetPending()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mode.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.TIMEOUT_DEFAULT_S"><code class="docutils literal notranslate"><span class="pre">TIMEOUT_DEFAULT_S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mode.html#ctlbase.mode.BASE_DIR_PATH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">BASE_DIR_PATH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">interaction module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager"><code class="docutils literal notranslate"><span class="pre">InteractionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.__init__"><code class="docutils literal notranslate"><span class="pre">InteractionManager.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.promptForCredential"><code class="docutils literal notranslate"><span class="pre">InteractionManager.promptForCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="interaction.html#ctlbase.interaction.InteractionManager.isColoringDefault"><code class="docutils literal notranslate"><span class="pre">InteractionManager.isColoringDefault</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.COLOR_PRINT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">COLOR_PRINT_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="interaction.html#ctlbase.interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">credentials module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader"><code class="docutils literal notranslate"><span class="pre">CredentialReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialReader.__init__"><code class="docutils literal notranslate"><span class="pre">CredentialReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader"><code class="docutils literal notranslate"><span class="pre">KeyringReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.KeyringReader.__init__"><code class="docutils literal notranslate"><span class="pre">KeyringReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.__init__"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.Tpm2Reader.PCR_AUTH_DEFAULT"><code class="docutils literal notranslate"><span class="pre">Tpm2Reader.PCR_AUTH_DEFAULT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader"><code class="docutils literal notranslate"><span class="pre">FileReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.FileReader.__init__"><code class="docutils literal notranslate"><span class="pre">FileReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader"><code class="docutils literal notranslate"><span class="pre">PromptReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.PromptReader.__init__"><code class="docutils literal notranslate"><span class="pre">PromptReader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader"><code class="docutils literal notranslate"><span class="pre">BaseReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.__init__"><code class="docutils literal notranslate"><span class="pre">BaseReader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader._readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader._readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.readCredential"><code class="docutils literal notranslate"><span class="pre">BaseReader.readCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.BaseReader.credentialKeys"><code class="docutils literal notranslate"><span class="pre">BaseReader.credentialKeys</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.Format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.Format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.__init__"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.deleteCredential"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.deleteCredential()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.delete"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.delete</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.format"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mayPrompt"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mayPrompt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.mountpoint"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.mountpoint</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.namedTemp"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.namedTemp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.path"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.TemporaryCredentials.purpose"><code class="docutils literal notranslate"><span class="pre">TemporaryCredentials.purpose</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey"><code class="docutils literal notranslate"><span class="pre">CredentialKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.CRYPTOPHRASE"><code class="docutils literal notranslate"><span class="pre">CredentialKey.CRYPTOPHRASE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGIN"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.LOGINNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.LOGINNAME</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.PASSWORD"><code class="docutils literal notranslate"><span class="pre">CredentialKey.PASSWORD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.TOTP"><code class="docutils literal notranslate"><span class="pre">CredentialKey.TOTP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="credentials.html#ctlbase.credentials.CredentialKey.USERNAME"><code class="docutils literal notranslate"><span class="pre">CredentialKey.USERNAME</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="credentials.html#ctlbase.credentials.CREDENTIALS_DIRECTORY_DEFAULT"><code class="docutils literal notranslate"><span class="pre">CREDENTIALS_DIRECTORY_DEFAULT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">control module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#core-concepts">Core concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#control">control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action">action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mode">mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property">property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feedback">feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.__init__"><code class="docutils literal notranslate"><span class="pre">Control.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._actionToGrammarEn"><code class="docutils literal notranslate"><span class="pre">Control._actionToGrammarEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._appendMessageFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn"><code class="docutils literal notranslate"><span class="pre">Control._createExceptionFromActionEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._getPropertiesListsEn"><code class="docutils literal notranslate"><span class="pre">Control._getPropertiesListsEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._getProperty"><code class="docutils literal notranslate"><span class="pre">Control._getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._invalidateCache"><code class="docutils literal notranslate"><span class="pre">Control._invalidateCache()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._performAction"><code class="docutils literal notranslate"><span class="pre">Control._performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control._preprocessArgument"><code class="docutils literal notranslate"><span class="pre">Control._preprocessArgument()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.activatePendingMode"><code class="docutils literal notranslate"><span class="pre">Control.activatePendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.close"><code class="docutils literal notranslate"><span class="pre">Control.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.getActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.getActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.getPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.getPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.getPropertiesJson"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesJson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.getPropertiesTextEn"><code class="docutils literal notranslate"><span class="pre">Control.getPropertiesTextEn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.getProperty"><code class="docutils literal notranslate"><span class="pre">Control.getProperty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.performAction"><code class="docutils literal notranslate"><span class="pre">Control.performAction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.setActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.setActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.setPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.setPendingMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.unsetActiveMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetActiveMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.Control.unsetPendingMode"><code class="docutils literal notranslate"><span class="pre">Control.unsetPendingMode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.ControlEnum"><code class="docutils literal notranslate"><span class="pre">ControlEnum</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.ControlEnum.__eq__"><code class="docutils literal notranslate"><span class="pre">ControlEnum.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.ControlEnum.fromAny"><code class="docutils literal notranslate"><span class="pre">ControlEnum.fromAny()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#constants-and-defaults">Constants and defaults</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.StandardAction"><code class="docutils literal notranslate"><span class="pre">StandardAction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardAction.MODE_ACTIVATE"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_ACTIVATE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardAction.MODE_SET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_SET</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardAction.MODE_UNSET"><code class="docutils literal notranslate"><span class="pre">StandardAction.MODE_UNSET</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.StandardMode"><code class="docutils literal notranslate"><span class="pre">StandardMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardMode.__eq__"><code class="docutils literal notranslate"><span class="pre">StandardMode.__eq__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardMode.fromAny"><code class="docutils literal notranslate"><span class="pre">StandardMode.fromAny()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardMode.NONE"><code class="docutils literal notranslate"><span class="pre">StandardMode.NONE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.StandardProperty"><code class="docutils literal notranslate"><span class="pre">StandardProperty</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardProperty.MODE_ACTIVE"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_ACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctlbase.control.StandardProperty.MODE_PENDING"><code class="docutils literal notranslate"><span class="pre">StandardProperty.MODE_PENDING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.ALREADY_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.ALREADY_NOT_OK_SEVERITY"><code class="docutils literal notranslate"><span class="pre">ALREADY_NOT_OK_SEVERITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.MODE_DIR_NAME_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_DIR_NAME_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.MODE_GROUP_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shell.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell"><code class="docutils literal notranslate"><span class="pre">ControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">ControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">ControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.argsToActionArg"><code class="docutils literal notranslate"><span class="pre">ControlShell.argsToActionArg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.printOnExit"><code class="docutils literal notranslate"><span class="pre">ControlShell.printOnExit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.requestCleanup"><code class="docutils literal notranslate"><span class="pre">ControlShell.requestCleanup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setControl"><code class="docutils literal notranslate"><span class="pre">ControlShell.setControl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.setExitCode"><code class="docutils literal notranslate"><span class="pre">ControlShell.setExitCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.commandExecutor"><code class="docutils literal notranslate"><span class="pre">ControlShell.commandExecutor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigDict"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigDict</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.envConfigName"><code class="docutils literal notranslate"><span class="pre">ControlShell.envConfigName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.ControlShell.msgBuffer"><code class="docutils literal notranslate"><span class="pre">ControlShell.msgBuffer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__exit__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__exit__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.__init__"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.addStandardArgs"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.addStandardArgs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.notifyReady"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.notifyReady()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#ctlbase.shell.DaemonControlShell.taskMonitor"><code class="docutils literal notranslate"><span class="pre">DaemonControlShell.taskMonitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -99,7 +431,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">ctlbase</a></li>
       <li class="breadcrumb-item active">control module</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -264,17 +595,20 @@ control can provide.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.control.Control.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commandExecutor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">envConfig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isSkipPendingMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msgBuffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jsonIndent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control.__init__" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Creates a control.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="ctlbase.control.Control.params.loop"></span><strong>loop</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.loop">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.EventLoop" title="(in Python v3.15)"><em>asyncio.EventLoop</em></a>) – The asyncio event loop in which the control performs its
+actions.</p></li>
 <li><p><span class="target" id="ctlbase.control.Control.params.commandExecutor"></span><strong>commandExecutor</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.commandExecutor">¶</a> (<a class="reference internal" href="process.html#ctlbase.process.CommandExecutor" title="ctlbase.process.CommandExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommandExecutor</span></code></a> | None) – A process executor for executing commands in a
 subprocess. <cite>None</cite> if the control does not need to execute commands.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.params.envConfig"></span><strong>envConfig</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.envConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – <p>An environment configuration in one of the following 
+<li><p><span class="target" id="ctlbase.control.Control.params.envConfig"></span><strong>envConfig</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.envConfig">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a><em>] </em><em>| </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – <p>An environment configuration in one of the following 
 forms:</p>
 <ul>
 <li><p>A tuple of an absolute file path and a <cite>dict</cite> representing the
 parsed configuration.</p></li>
-<li><p>The file name of the Bash-style configuration file to be parsed.
+<li><p>The filename of the Bash-style configuration file to be parsed.
 It may include a relative or absolute path specification.
 See <a class="reference internal" href="config.html#ctlbase.config.FileHelper.find" title="ctlbase.config.FileHelper.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a> for the discovery algorithm.</p></li>
 <li><p><cite>True</cite> for auto-discovering a configuration file based on the 
@@ -294,7 +628,7 @@ This is only relevant if <a class="reference internal" href="#ctlbase.control.Co
 <li><p><span class="target" id="ctlbase.control.Control.params.actionType"></span><strong>actionType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.actionType">¶</a> (<em>Enum</em>) – The action <cite>Enum</cite> class.</p></li>
 <li><p><span class="target" id="ctlbase.control.Control.params.modeType"></span><strong>modeType</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.modeType">¶</a> (<em>Enum</em><em> | </em><em>None</em>) – The mode <cite>Enum</cite> class. <cite>None</cite> if the control does not
 support different modes.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.params.isSkipPendingMode"></span><strong>isSkipPendingMode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.isSkipPendingMode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the
+<li><p><span class="target" id="ctlbase.control.Control.params.isSkipPendingMode"></span><strong>isSkipPendingMode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.isSkipPendingMode">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the
 <a class="reference internal" href="#ctlbase.control.StandardAction.MODE_SET" title="ctlbase.control.StandardAction.MODE_SET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_SET</span></code></a> and
 <a class="reference internal" href="#ctlbase.control.StandardAction.MODE_UNSET" title="ctlbase.control.StandardAction.MODE_UNSET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_UNSET</span></code></a> actions always related to the
 active mode. The pending mode is skipped. Only relevant if
@@ -303,12 +637,12 @@ active mode. The pending mode is skipped. Only relevant if
 does not support any property.</p></li>
 <li><p><span class="target" id="ctlbase.control.Control.params.msgBuffer"></span><strong>msgBuffer</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.msgBuffer">¶</a> (<a class="reference internal" href="message.html#ctlbase.message.MessageBuffer" title="ctlbase.message.MessageBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageBuffer</span></code></a> | True) – The message buffer to which all occurring messages are
 appended. <cite>True</cite> for auto-creation.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>True</em><em> | </em><em>None</em>) – The message namespace to use when writing messages to the
+<li><p><span class="target" id="ctlbase.control.Control.params.ns"></span><strong>ns</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.ns">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>True</em><em> | </em><em>None</em>) – The message namespace to use when writing messages to the
 message buffer. If <cite>True</cite>, the namespace is derived from the 
 caller’s normalized module name, as returned by 
 <a class="reference internal" href="config.html#ctlbase.config.CallerInspector.getName" title="ctlbase.config.CallerInspector.getName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">getName()</span></code></a>. If auto-creating a message
 buffer, the namespace set as its default namespace.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.params.jsonIndent"></span><strong>jsonIndent</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.jsonIndent">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The number of spaces used to indent one hierarchy
+<li><p><span class="target" id="ctlbase.control.Control.params.jsonIndent"></span><strong>jsonIndent</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.params.jsonIndent">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – The number of spaces used to indent one hierarchy
 level in JSON output.</p></li>
 </ul>
 </dd>
@@ -317,7 +651,7 @@ level in JSON output.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.control.Control._actionToGrammarEn">
-<span class="sig-name descname"><span class="pre">_actionToGrammarEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._actionToGrammarEn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">_actionToGrammarEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionArg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._actionToGrammarEn" title="Link to this definition"></a></dt>
 <dd><p>Creates a set of English word forms for a given action.</p>
 <p>The control uses these word forms to auto-create English message texts.
 In order to fine-tune message texts, an implementation may override this
@@ -335,13 +669,13 @@ above.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control._actionToGrammarEn.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._actionToGrammarEn.params.action">¶</a> (<em>Enum</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The action for which to create the word forms. Either an
+<li><p><span class="target" id="ctlbase.control.Control._actionToGrammarEn.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._actionToGrammarEn.params.action">¶</a> (<em>Enum</em><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The action for which to create the word forms. Either an
 action <cite>Enum</cite> value (<cite>str</cite>) or the action <cite>Enum</cite> member itself. The 
 value must comply to the rules described under
 <a class="reference internal" href="#control-action"><span class="std std-ref">action</span></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._actionToGrammarEn.params.argument"></span><strong>argument</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._actionToGrammarEn.params.argument">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><em>None</em>) – The argument(s) to the action. See
-<a class="reference internal" href="#ctlbase.control.Control.performAction.params.argument" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._actionToGrammarEn.params.feedback"></span><strong>feedback</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._actionToGrammarEn.params.feedback">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – A feedback identifier. See
+<li><p><span class="target" id="ctlbase.control.Control._actionToGrammarEn.params.actionArg"></span><strong>actionArg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._actionToGrammarEn.params.actionArg">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em> | </em><em>None</em>) – The argument(s) to the action. See
+<a class="reference internal" href="#ctlbase.control.Control.performAction.params.actionArg" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionArg</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.control.Control._actionToGrammarEn.params.feedback"></span><strong>feedback</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._actionToGrammarEn.params.feedback">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – A feedback identifier. See
 <a class="reference internal" href="#control-feedback"><span class="std std-ref">feedback</span></a>.</p></li>
 </ul>
 </dd>
@@ -365,14 +699,14 @@ texts are formulated without an addendum.</p></li>
 </p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.control.Control._appendMessageFromActionEn">
-<span class="sig-name descname"><span class="pre">_appendMessageFromActionEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._appendMessageFromActionEn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">_appendMessageFromActionEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionArg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._appendMessageFromActionEn" title="Link to this definition"></a></dt>
 <dd><p>Creates a message for a given action and appends it to the message
 buffer.</p>
 <p>If the control does not have a message buffer, nothing happens.</p>
@@ -394,17 +728,17 @@ of <a class="reference internal" href="#ctlbase.control.Control._appendMessageFr
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.action">¶</a> (<em>Enum</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The action for which to create a message. Either an
+<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.action">¶</a> (<em>Enum</em><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The action for which to create a message. Either an
 action <cite>Enum</cite> value (<cite>str</cite>) or the action <cite>Enum</cite> member itself. The 
 value must comply to the rules described under
 <a class="reference internal" href="#control-action"><span class="std std-ref">action</span></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.argument"></span><strong>argument</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.argument">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><em>None</em>) – The argument(s) to the action. See
-<a class="reference internal" href="#ctlbase.control.Control.performAction.params.argument" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.feedback"></span><strong>feedback</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.feedback">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – A feedback identifier. See
+<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.actionArg"></span><strong>actionArg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.actionArg">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em> | </em><em>None</em>) – The argument(s) to the action. See
+<a class="reference internal" href="#ctlbase.control.Control.performAction.params.actionArg" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionArg</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.feedback"></span><strong>feedback</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.feedback">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – A feedback identifier. See
 <a class="reference internal" href="#control-feedback"><span class="std std-ref">feedback</span></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.isOkNodo"></span><strong>isOkNodo</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.isOkNodo">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, it is considered “OK” when the target state
+<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.isOkNodo"></span><strong>isOkNodo</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.isOkNodo">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a><em> | </em><em>None</em>) – If <cite>True</cite>, it is considered “OK” when the target state
 of the action is already reached.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID with which to create the
+<li><p><span class="target" id="ctlbase.control.Control._appendMessageFromActionEn.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – The correlation ID with which to create the
 message. See <a class="reference internal" href="message.html#ctlbase.message.Message.correlationId" title="ctlbase.message.Message.correlationId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">correlationId</span></code></a>.</p></li>
 </ul>
 </dd>
@@ -413,23 +747,23 @@ message. See <a class="reference internal" href="message.html#ctlbase.message.Me
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.control.Control._createExceptionFromActionEn">
-<span class="sig-name descname"><span class="pre">_createExceptionFromActionEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'failed'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._createExceptionFromActionEn" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">_createExceptionFromActionEn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionArg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'failed'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._createExceptionFromActionEn" title="Link to this definition"></a></dt>
 <dd><p>A variant of <a class="reference internal" href="#ctlbase.control.Control._appendMessageFromActionEn" title="ctlbase.control.Control._appendMessageFromActionEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_appendMessageFromActionEn()</span></code></a>, creating
 an exception, i.e. an instance of <a class="reference internal" href="message.html#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.action">¶</a> (<em>Enum</em><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The action for which to create an exception. Either an
+<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.action">¶</a> (<em>Enum</em><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The action for which to create an exception. Either an
 action <cite>Enum</cite> value (<cite>str</cite>) or the action <cite>Enum</cite> member itself. The 
 value must comply to the rules described under
 <a class="reference internal" href="#control-action"><span class="std std-ref">action</span></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.argument"></span><strong>argument</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.argument">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em> | </em><em>None</em>) – The argument(s) to the action. See
-<a class="reference internal" href="#ctlbase.control.Control.performAction.params.argument" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.error"></span><strong>error</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.error">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><em>Exception</em></a><em> | </em><em>None</em>) – The original error from which to derive an English message
+<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.actionArg"></span><strong>actionArg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.actionArg">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em> | </em><em>None</em>) – The argument(s) to the action. See
+<a class="reference internal" href="#ctlbase.control.Control.performAction.params.actionArg" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionArg</span></code></a>.</p></li>
+<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.error"></span><strong>error</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.error">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#Exception" title="(in Python v3.15)"><em>Exception</em></a><em> | </em><em>None</em>) – The original error from which to derive an English message
 text. If <cite>None</cite>, a generic text is created. For errors of type 
 <a class="reference internal" href="process.html#ctlbase.process.CommandExecutor.SynchronousError" title="ctlbase.process.CommandExecutor.SynchronousError"><code class="xref py py-class docutils literal notranslate"><span class="pre">SynchronousError</span></code></a>, a specific text is
 created. For all other types, a generic text is created.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.feedback"></span><strong>feedback</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.feedback">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – A feedback identifier. See
+<li><p><span class="target" id="ctlbase.control.Control._createExceptionFromActionEn.params.feedback"></span><strong>feedback</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._createExceptionFromActionEn.params.feedback">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – A feedback identifier. See
 <a class="reference internal" href="#control-feedback"><span class="std std-ref">feedback</span></a>. The default of <code class="docutils literal notranslate"><span class="pre">failed</span></code> only
 needs to be changed if a more specific feedback identifier is
 required for the error.</p></li>
@@ -491,7 +825,7 @@ Otherwise, the unmodified property value is used.</p></li>
 <dd><p>Implements the logic for retrieving the value of a custom property.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control._getProperty.params.property"></span><strong>property</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._getProperty.params.property">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The property whose value to retrieve. Either a property
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control._getProperty.params.property"></span><strong>property</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._getProperty.params.property">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The property whose value to retrieve. Either a property
 <cite>Enum</cite> value (<cite>str</cite>) or the property <cite>Enum</cite> member itself.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -500,7 +834,7 @@ custom implementation uses caching. To ensure fresh values, call
 <a class="reference internal" href="#ctlbase.control.Control._invalidateCache" title="ctlbase.control.Control._invalidateCache"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_invalidateCache()</span></code></a> first.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)">object</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)">object</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -514,13 +848,14 @@ custom implementation uses caching. To ensure fresh values, call
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.control.Control._performAction">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_performAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requestedAction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#ctlbase.control.Control._performAction" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_performAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionArg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">standardKwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><span class="pre">tuple</span></a></span></span><a class="headerlink" href="#ctlbase.control.Control._performAction" title="Link to this definition"></a></dt>
 <dd><p>Implements the logic for performing a custom action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control._performAction.params.kwargs"></span><strong>kwargs</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._performAction.params.kwargs">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – <p>Any number of the following keyword arguments, depending
-on which the implementation wants to support:</p>
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control._performAction.params.standardKwargs"></span><strong>standardKwargs</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._performAction.params.standardKwargs">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a>) – <p>Any number of the following keyword arguments,
+depending on which the implementation wants to support:</p>
 <ul class="simple">
+<li><p><a class="reference internal" href="#ctlbase.control.Control.performAction.params.isOkNodo" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isOkNodo</span></code></a></p></li>
 <li><p><a class="reference internal" href="#ctlbase.control.Control.performAction.params.isForced" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isForced</span></code></a></p></li>
 <li><p><a class="reference internal" href="#ctlbase.control.Control.performAction.params.mayPrompt" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">mayPrompt</span></code></a></p></li>
 <li><p><a class="reference internal" href="#ctlbase.control.Control.performAction.params.correlationId" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">correlationId</span></code></a></p></li>
@@ -541,7 +876,38 @@ used argument(s) as a single object or a sequence of objects.</p></li>
 </p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a> | None</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)">tuple</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ctlbase.control.Control._preprocessArgument">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_preprocessArgument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actionArg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control._preprocessArgument" title="Link to this definition"></a></dt>
+<dd><p>Preprocesses the given argument(s) before they are passed to
+<a class="reference internal" href="#ctlbase.control.Control._performAction" title="ctlbase.control.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a>.</p>
+<p>Preprocessing is intended to be light-weight, i.e. no async or other
+“costly” actions should be performed. Preprocessing steps may include:</p>
+<ul class="simple">
+<li><p>Casting the given actionArg to a <cite>dict</cite> for easy access.</p></li>
+<li><p>Casting individual values to specific types, if multiple values are
+given.</p></li>
+<li><p>Filling in default values.</p></li>
+<li><p>Validating values and raise instances of <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a>
+upon failure.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control._preprocessArgument.params.actionArg"></span><strong>actionArg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control._preprocessArgument.params.actionArg">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a>) – The argument(s) to preprocess.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If at least one of the argument(s) is invalid.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The preprocessed arguments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)">object</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)">dict</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -555,7 +921,7 @@ is cleared.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p></li>
 <li><p><a class="reference internal" href="message.html#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><strong>ErrorMessage</strong></a> – <cite>MODE_NOT_PENDING</cite> – If no pending mode is set.</p></li>
 </ul>
@@ -588,7 +954,7 @@ mode <cite>Enum</cite> member.</p>
 <dd class="field-even"><p>Enum</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p>
 </dd>
 </dl>
@@ -607,7 +973,7 @@ mode <cite>Enum</cite> member.</p>
 <dd class="field-even"><p>Enum</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p>
 </dd>
 </dl>
@@ -619,7 +985,7 @@ modes.</p>
 <dd><p>Creates a JSON-formatted list of all current property values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control.getPropertiesJson.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getPropertiesJson.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – The property lists to be rendered in JSON 
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control.getPropertiesJson.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getPropertiesJson.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>]</em>) – The property lists to be rendered in JSON 
 format, as returned by <a class="reference internal" href="#ctlbase.control.Control._getPropertiesListsEn" title="ctlbase.control.Control._getPropertiesListsEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code></a>.
 Only the first two elements of each property list are used.</p>
 </dd>
@@ -627,7 +993,7 @@ Only the first two elements of each property list are used.</p>
 <dd class="field-even"><p>The properties list in JSON format.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -654,10 +1020,10 @@ property value has any other type, a colon is appended.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control.getPropertiesTextEn.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getPropertiesTextEn.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – The property lists to be rendered as plain text,
+<li><p><span class="target" id="ctlbase.control.Control.getPropertiesTextEn.params.propertiesListsEn"></span><strong>propertiesListsEn</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getPropertiesTextEn.params.propertiesListsEn">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>]</em>) – The property lists to be rendered as plain text,
 as returned by <a class="reference internal" href="#ctlbase.control.Control._getPropertiesListsEn" title="ctlbase.control.Control._getPropertiesListsEn"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getPropertiesListsEn()</span></code></a>.
 Only the last two elements of each property list are used.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.getPropertiesTextEn.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getPropertiesTextEn.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – The width of the first column in the log
+<li><p><span class="target" id="ctlbase.control.Control.getPropertiesTextEn.params.firstColumnWidth"></span><strong>firstColumnWidth</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getPropertiesTextEn.params.firstColumnWidth">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – The width of the first column in the log
 output, as number of characters.</p></li>
 </ul>
 </dd>
@@ -665,7 +1031,7 @@ output, as number of characters.</p></li>
 <dd class="field-even"><p>The human-readable property listing.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -677,7 +1043,7 @@ output, as number of characters.</p></li>
 <p>Custom properties are delegated to <a class="reference internal" href="#ctlbase.control.Control._getProperty" title="ctlbase.control.Control._getProperty"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_getProperty()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control.getProperty.params.property"></span><strong>property</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getProperty.params.property">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The property whose value to retrieve. Either a property
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.Control.getProperty.params.property"></span><strong>property</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.getProperty.params.property">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The property whose value to retrieve. Either a property
 <cite>Enum</cite> value (<cite>str</cite>) or the property <cite>Enum</cite> member itself.</p>
 </dd>
 </dl>
@@ -691,7 +1057,7 @@ implementation works as follows:</p>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the property <cite>Enum</cite> does not have a member
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If the property <cite>Enum</cite> does not have a member
 corresponding to <a class="reference internal" href="#ctlbase.control.Control.getProperty.params.property" title="ctlbase.control.Control.getProperty"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">property</span></code></a>.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -700,36 +1066,37 @@ a scalar type like <cite>int</cite> or <cite>str</cite>, be it a <cite>list</cit
 custom object.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)">object</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)">object</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctlbase.control.Control.performAction">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">performAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isForced</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mayPrompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control.performAction" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">performAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionArg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isOkNodo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isForced</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mayPrompt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlationId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ctlbase.control.Control.performAction" title="Link to this definition"></a></dt>
 <dd><p>Performs an action.</p>
 <p>Custom actions are delegated to <a class="reference internal" href="#ctlbase.control.Control._performAction" title="ctlbase.control.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control.performAction.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.action">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The action to perform. Either an action <cite>Enum</cite> value
+<li><p><span class="target" id="ctlbase.control.Control.performAction.params.action"></span><strong>action</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.action">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The action to perform. Either an action <cite>Enum</cite> value
 (<cite>str</cite>) or an action <cite>Enum</cite> member itself. If the implementation of
 <a class="reference internal" href="#ctlbase.control.Control._performAction" title="ctlbase.control.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a> deems another action more
 appropriate, it must return it as <strong>actual action</strong>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.performAction.params.argument"></span><strong>argument</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.argument">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><em>object</em></a><em> | </em><em>list  tuple</em>) – The argument(s) required to perform the action. It may
-be a single object or an ordered sequence of several objects. It is
-up to the custom implementation of <a class="reference internal" href="#ctlbase.control.Control._performAction" title="ctlbase.control.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a>
-to evaluate the arguments properly – unless a default implementation 
-is used (see below).</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.performAction.params.isOkNodo"></span><strong>isOkNodo</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.isOkNodo">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, a warning is suppressed if the action’s
+<li><p><span class="target" id="ctlbase.control.Control.performAction.params.actionArg"></span><strong>actionArg</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.actionArg">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><em>object</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><em>dict</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a>) – The argument(s) required to perform the action. It may
+be a single <cite>object</cite>, a <cite>dict</cite> or an ordered sequence of several 
+objects. It is up to the implementations of 
+<a class="reference internal" href="#ctlbase.control.Control._preprocessArgument" title="ctlbase.control.Control._preprocessArgument"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_preprocessArgument()</span></code></a> and
+<a class="reference internal" href="#ctlbase.control.Control._performAction" title="ctlbase.control.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a> to process the arguments properly
+– unless a default implementation is used (see below).</p></li>
+<li><p><span class="target" id="ctlbase.control.Control.performAction.params.isOkNodo"></span><strong>isOkNodo</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.isOkNodo">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, a warning is suppressed if the action’s
 target state is already reached.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.performAction.params.isForced"></span><strong>isForced</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.isForced">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the action is forced even if the target
+<li><p><span class="target" id="ctlbase.control.Control.performAction.params.isForced"></span><strong>isForced</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.isForced">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the action is forced even if the target
 state is already reached.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.performAction.params.mayPrompt"></span><strong>mayPrompt</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.mayPrompt">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If <cite>True</cite>, the user may be prompted for any input,
+<li><p><span class="target" id="ctlbase.control.Control.performAction.params.mayPrompt"></span><strong>mayPrompt</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.mayPrompt">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – If <cite>True</cite>, the user may be prompted for any input,
 e.g. confirmations or passwords. <cite>False</cite> for 
 non-interactive operation.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.performAction.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – An ID for grouping messages in the message buffer.
+<li><p><span class="target" id="ctlbase.control.Control.performAction.params.correlationId"></span><strong>correlationId</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.performAction.params.correlationId">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – An ID for grouping messages in the message buffer.
 For instance, if some calls to <a class="reference internal" href="#ctlbase.control.Control.performAction" title="ctlbase.control.Control.performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">performAction()</span></code></a> use
 the correlation ID <code class="docutils literal notranslate"><span class="pre">request29476</span></code>, and other calls use the ID 
 <code class="docutils literal notranslate"><span class="pre">request39549</span></code>, the message buffer can specifically retrieve the
@@ -746,21 +1113,21 @@ implementation works as follows:</p>
 active mode is set. Expects a sequence of
 <a class="reference internal" href="#ctlbase.control.Control.setPendingMode.params.mode" title="ctlbase.control.Control.setPendingMode"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">mode</span></code></a> and 
 <a class="reference internal" href="#ctlbase.control.Control.setPendingMode.params.timeout_s" title="ctlbase.control.Control.setPendingMode"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">timeout_s</span></code></a> in
-<a class="reference internal" href="#ctlbase.control.Control.performAction.params.argument" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>.</p></li>
+<a class="reference internal" href="#ctlbase.control.Control.performAction.params.actionArg" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionArg</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="#ctlbase.control.StandardAction.MODE_UNSET" title="ctlbase.control.StandardAction.MODE_UNSET"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_UNSET</span></code></a>: Unsets the pending mode by
 calling <a class="reference internal" href="#ctlbase.control.Control.unsetPendingMode" title="ctlbase.control.Control.unsetPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetPendingMode()</span></code></a> unless
 <a class="reference internal" href="#ctlbase.control.Control.params.isSkipPendingMode" title="ctlbase.control.Control"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">isSkipPendingMode</span></code></a> is <cite>True</cite>. In that case the
 active mode is unset. Expects <cite>None</cite> in
-<a class="reference internal" href="#ctlbase.control.Control.performAction.params.argument" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>.</p></li>
+<a class="reference internal" href="#ctlbase.control.Control.performAction.params.actionArg" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionArg</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="#ctlbase.control.StandardAction.MODE_ACTIVATE" title="ctlbase.control.StandardAction.MODE_ACTIVATE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MODE_ACTIVATE</span></code></a>: Activates the pending mode by
 calling <a class="reference internal" href="#ctlbase.control.Control.activatePendingMode" title="ctlbase.control.Control.activatePendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">activatePendingMode()</span></code></a>. Expects <cite>None</cite> in
-<a class="reference internal" href="#ctlbase.control.Control.performAction.params.argument" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">argument</span></code></a>.</p></li>
+<a class="reference internal" href="#ctlbase.control.Control.performAction.params.actionArg" title="ctlbase.control.Control.performAction"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">actionArg</span></code></a>.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the action is not listed in the action <cite>Enum</cite>.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If one of the parameters <cite>isForced</cite>, <cite>mayPrompt</cite> or
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If the action is not listed in the action <cite>Enum</cite>.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If one of the parameters <cite>isForced</cite>, <cite>mayPrompt</cite> or
 <cite>correlationId</cite> is given, but <a class="reference internal" href="#ctlbase.control.Control._performAction" title="ctlbase.control.Control._performAction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_performAction()</span></code></a> does
 not declare it explicitly in its signature.</p></li>
 </ul>
@@ -775,11 +1142,11 @@ not declare it explicitly in its signature.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control.setActiveMode.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setActiveMode.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The mode to set. Either a mode <cite>Enum</cite> value (<cite>str</cite>) or the
+<li><p><span class="target" id="ctlbase.control.Control.setActiveMode.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setActiveMode.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The mode to set. Either a mode <cite>Enum</cite> value (<cite>str</cite>) or the
 mode <cite>Enum</cite> member itself.
 Passing the <cite>NONE</cite> mode <cite>Enum</cite> member is equivalent to calling
 <a class="reference internal" href="#ctlbase.control.Control.unsetActiveMode" title="ctlbase.control.Control.unsetActiveMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetActiveMode()</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.setActiveMode.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setActiveMode.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The group ownership to be set on the mode directory. 
+<li><p><span class="target" id="ctlbase.control.Control.setActiveMode.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setActiveMode.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – The group ownership to be set on the mode directory. 
 Accepts a group name or numeric group ID (gid).
 If <cite>None</cite>, the <a class="reference internal" href="#ctlbase.control.MODE_GROUP_ENVKEY" title="ctlbase.control.MODE_GROUP_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a> environment value is
 used if it exists. If not, the group ownership is left unmodified.</p></li>
@@ -787,9 +1154,9 @@ used if it exists. If not, the group ownership is left unmodified.</p></li>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the mode <cite>Enum</cite> does not have a member
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If the mode <cite>Enum</cite> does not have a member
 corresponding to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">mode</span></code>.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p></li>
 </ul>
 </dd>
@@ -805,7 +1172,7 @@ of the <cite>MODE_UNSET</cite> action.</p></li>
 </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -817,11 +1184,11 @@ of the <cite>MODE_UNSET</cite> action.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="ctlbase.control.Control.setPendingMode.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setPendingMode.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The mode to set. Either a mode <cite>Enum</cite> value (<cite>str</cite>) or the
+<li><p><span class="target" id="ctlbase.control.Control.setPendingMode.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setPendingMode.params.mode">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The mode to set. Either a mode <cite>Enum</cite> value (<cite>str</cite>) or the
 mode <cite>Enum</cite> member itself.
 Passing the <cite>NONE</cite> mode <cite>Enum</cite> member is equivalent to calling
 <a class="reference internal" href="#ctlbase.control.Control.unsetPendingMode" title="ctlbase.control.Control.unsetPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetPendingMode()</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.setPendingMode.params.timeout_s"></span><strong>timeout_s</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setPendingMode.params.timeout_s">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>) – The pending mode timeout in seconds. If
+<li><p><span class="target" id="ctlbase.control.Control.setPendingMode.params.timeout_s"></span><strong>timeout_s</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setPendingMode.params.timeout_s">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a><em> | </em><em>None</em>) – The pending mode timeout in seconds. If
 <a class="reference internal" href="#ctlbase.control.Control.activatePendingMode" title="ctlbase.control.Control.activatePendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">activatePendingMode()</span></code></a> is not called within that
 time span, the pending mode will be unset automatically.
 If <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the <a class="reference internal" href="#ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY" title="ctlbase.control.MODE_TIMEOUT_DEFAULT_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_TIMEOUT_DEFAULT_ENVKEY</span></code></a> environment 
@@ -829,7 +1196,7 @@ value is used if it exists. If not, the value of
 <a class="reference internal" href="mode.html#ctlbase.mode.TIMEOUT_DEFAULT_S" title="ctlbase.mode.TIMEOUT_DEFAULT_S"><code class="xref py py-data docutils literal notranslate"><span class="pre">TIMEOUT_DEFAULT_S</span></code></a> is used.
 Passing <code class="docutils literal notranslate"><span class="pre">0</span></code> is equivalent to calling 
 <a class="reference internal" href="#ctlbase.control.Control.unsetPendingMode" title="ctlbase.control.Control.unsetPendingMode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unsetPendingMode()</span></code></a>.</p></li>
-<li><p><span class="target" id="ctlbase.control.Control.setPendingMode.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setPendingMode.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>) – The group ownership to be set on the mode directory. 
+<li><p><span class="target" id="ctlbase.control.Control.setPendingMode.params.group"></span><strong>group</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.Control.setPendingMode.params.group">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – The group ownership to be set on the mode directory. 
 Accepts a group name or numeric group ID (gid).
 If <cite>None</cite>, the <a class="reference internal" href="#ctlbase.control.MODE_GROUP_ENVKEY" title="ctlbase.control.MODE_GROUP_ENVKEY"><code class="xref py py-data docutils literal notranslate"><span class="pre">MODE_GROUP_ENVKEY</span></code></a> environment value is
 used if it exists. If not, the group ownership is left unmodified.</p></li>
@@ -837,9 +1204,9 @@ used if it exists. If not, the group ownership is left unmodified.</p></li>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the mode <cite>Enum</cite> does not have a member
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If the mode <cite>Enum</cite> does not have a member
 corresponding to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">mode</span></code>.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p></li>
 </ul>
 </dd>
@@ -857,7 +1224,7 @@ action.</p></li>
 </p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -874,7 +1241,7 @@ action.</p></li>
 <dd class="field-even"><p>Enum | None</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p>
 </dd>
 </dl>
@@ -892,7 +1259,7 @@ modes.</p>
 <dd class="field-even"><p>Enum | None</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.14)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#RuntimeError" title="(in Python v3.15)"><strong>RuntimeError</strong></a> – If the control has not been set up for handling 
 modes.</p>
 </dd>
 </dl>
@@ -913,7 +1280,7 @@ this class, as the methods of this class are added dynamically at runtime.</p>
 value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.control.ControlEnum.__eq__.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.ControlEnum.__eq__.params.other">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The <cite>str</cite> value of an <cite>Enum</cite> member or an <cite>Enum</cite> member
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.ControlEnum.__eq__.params.other"></span><strong>other</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.ControlEnum.__eq__.params.other">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The <cite>str</cite> value of an <cite>Enum</cite> member or an <cite>Enum</cite> member
 itself.</p>
 </dd>
 </dl>
@@ -925,7 +1292,7 @@ itself.</p>
 <dd><p>Looks for an <cite>Enum</cite> member corresponding to a given object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="target" id="ctlbase.control.ControlEnum.fromAny.params.object"></span><strong>object</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.ControlEnum.fromAny.params.object">¶</a> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Enum</em>) – The <cite>str</cite> value of an <cite>Enum</cite> member or an <cite>Enum</cite> member
+<dd class="field-odd"><p><span class="target" id="ctlbase.control.ControlEnum.fromAny.params.object"></span><strong>object</strong><a class="paramlink headerlink reference internal" href="#ctlbase.control.ControlEnum.fromAny.params.object">¶</a> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>Enum</em>) – The <cite>str</cite> value of an <cite>Enum</cite> member or an <cite>Enum</cite> member
 itself.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -935,7 +1302,7 @@ itself.</p>
 <dd class="field-odd"><p>Enum</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If the <cite>Enum</cite> does not have a corresponding member.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If the <cite>Enum</cite> does not have a corresponding member.</p>
 </dd>
 </dl>
 </dd></dl>

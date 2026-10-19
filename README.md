@@ -84,7 +84,7 @@ sudo apt update && sudo apt install -y python3-aiofiles python3-keyring
 For installing the *ctlbase* package you have at least two choices:
 
 * Install the latest release from PyPI via `pip`.
-* Install directly from a local clone of the GitHub repo.
+* Install a local clone of the GitHub repo.
 
 In both cases, it is recommended to use a virtual Python environment to encapsulate all the required dependencies. See [https://docs.python.org/3/library/venv.html](https://docs.python.org/3/library/venv.html) for details on how to create one.
 
@@ -94,7 +94,7 @@ For installing from PyPI, use the `pip` command of your target environment as fo
 pip install ctlbase
 ```
 
-For installing from a local clone of the GitHub repo, use the `pip` command of your target environment as follows:
+For installing a local clone of the GitHub repo, use the `pip` command of your target environment as follows:
 
 ```
 pip install $CTLBASE_PATH

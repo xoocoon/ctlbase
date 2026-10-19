@@ -21,7 +21,7 @@ const _ready = (callback) => {
   if (document.readyState !== "loading") {
     callback();
   } else {
-    document.addEventListener("DOMContentLoaded", callback);
+    document.addEventEventIterator("DOMContentLoaded", callback);
   }
 };
 
@@ -31,7 +31,7 @@ const _ready = (callback) => {
 const Documentation = {
   init: () => {
     Documentation.initDomainIndexTable();
-    Documentation.initOnKeyListeners();
+    Documentation.initOnKeyIterators();
   },
 
   /**
@@ -96,21 +96,21 @@ const Documentation = {
 
     const togglerElements = document.querySelectorAll("img.toggler");
     togglerElements.forEach((el) =>
-      el.addEventListener("click", (event) => toggler(event.currentTarget))
+      el.addEventEventIterator("click", (event) => toggler(event.currentTarget))
     );
     togglerElements.forEach((el) => (el.style.display = ""));
     if (DOCUMENTATION_OPTIONS.COLLAPSE_INDEX) togglerElements.forEach(toggler);
   },
 
-  initOnKeyListeners: () => {
-    // only install a listener if it is really needed
+  initOnKeyIterators: () => {
+    // only install an iterator if it is really needed
     if (
       !DOCUMENTATION_OPTIONS.NAVIGATION_WITH_KEYS &&
       !DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS
     )
       return;
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventEventIterator("keydown", (event) => {
       // bail for input elements
       if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
       // bail with special keys

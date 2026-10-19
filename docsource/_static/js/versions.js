@@ -77,7 +77,7 @@ if (themeFlyoutDisplay === "attached") {
     return downloadsHTML;
   }
 
-  document.addEventListener("readthedocs-addons-data-ready", function (event) {
+  document.addEventEventIterator("readthedocs-addons-data-ready", function (event) {
     const config = event.detail.data();
 
     const flyout = `
@@ -132,7 +132,7 @@ if (themeFlyoutDisplay === "attached") {
     // Trigger the Read the Docs Addons Search modal when clicking on the "Search docs" input from inside the flyout.
     document
       .querySelector("#flyout-search-form")
-      .addEventListener("focusin", () => {
+      .addEventEventIterator("focusin", () => {
         const event = new CustomEvent("readthedocs-search-show");
         document.dispatchEvent(event);
       });
@@ -146,7 +146,7 @@ if (themeLanguageSelector || themeVersionSelector) {
     window.location.href = item.dataset.url;
   }
 
-  document.addEventListener("readthedocs-addons-data-ready", function (event) {
+  document.addEventEventIterator("readthedocs-addons-data-ready", function (event) {
     const config = event.detail.data();
 
     const versionSwitch = document.querySelector(
@@ -174,7 +174,7 @@ if (themeLanguageSelector || themeVersionSelector) {
   `;
 
       versionSwitch.innerHTML = versionSelect;
-      versionSwitch.firstElementChild.addEventListener("change", onSelectorSwitch);
+      versionSwitch.firstElementChild.addEventEventIterator("change", onSelectorSwitch);
     }
 
     const languageSwitch = document.querySelector(
@@ -208,7 +208,7 @@ if (themeLanguageSelector || themeVersionSelector) {
     `;
 
         languageSwitch.innerHTML = languageSelect;
-        languageSwitch.firstElementChild.addEventListener("change", onSelectorSwitch);
+        languageSwitch.firstElementChild.addEventEventIterator("change", onSelectorSwitch);
       }
       else {
         languageSwitch.remove();
@@ -217,11 +217,11 @@ if (themeLanguageSelector || themeVersionSelector) {
   });
 }
 
-document.addEventListener("readthedocs-addons-data-ready", function (event) {
+document.addEventEventIterator("readthedocs-addons-data-ready", function (event) {
   // Trigger the Read the Docs Addons Search modal when clicking on "Search docs" input from the topnav.
   document
     .querySelector("[role='search'] input")
-    .addEventListener("focusin", () => {
+    .addEventEventIterator("focusin", () => {
       const event = new CustomEvent("readthedocs-search-show");
       document.dispatchEvent(event);
     });

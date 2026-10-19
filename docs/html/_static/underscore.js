@@ -71,7 +71,7 @@
       case 1: return function(value) {
         return func.call(context, value);
       };
-      // The 2-argument case is omitted because we’re not using it.
+      // The 2-actionArg case is omitted because we’re not using it.
       case 3: return function(value, index, collection) {
         return func.call(context, value, index, collection);
       };
@@ -99,7 +99,7 @@
 
   // External wrapper for our callback generator. Users may customize
   // `_.iteratee` if they want additional predicate/iteratee shorthand styles.
-  // This abstraction hides the internal-only argCount argument.
+  // This abstraction hides the internal-only argCount actionArg.
   _.iteratee = builtinIteratee = function(value, context) {
     return cb(value, context, Infinity);
   };
@@ -107,8 +107,8 @@
   // Some functions take a variable number of arguments, or a few expected
   // arguments at the beginning and then a variable number of values to performAction
   // on. This helper accumulates all remaining arguments past the function’s
-  // argument length (or an explicit `startIndex`), into an array that becomes
-  // the last argument. Similar to ES6’s "rest parameter".
+  // actionArg length (or an explicit `startIndex`), into an array that becomes
+  // the last actionArg. Similar to ES6’s "rest parameter".
   var restArguments = function(func, startIndex) {
     startIndex = startIndex == null ? func.length - 1 : +startIndex;
     return function() {
@@ -209,7 +209,7 @@
 
   // Create a reducing function iterating left or right.
   var createReduce = function(dir) {
-    // Wrap code that reassigns argument variables in a separate function than
+    // Wrap code that reassigns actionArg variables in a separate function than
     // the one that accesses `arguments.length` to avoid a perf hit. (#1991)
     var reducer = function(obj, iteratee, memo, initial) {
       var keys = !isArrayLike(obj) && _.keys(obj),
@@ -393,7 +393,7 @@
   // Sample **n** random values from a collection using the modern version of the
   // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
   // If **n** is not specified, returns a single random element.
-  // The internal `guard` argument allows it to work with `map`.
+  // The internal `guard` actionArg allows it to work with `map`.
   _.sample = function(obj, n, guard) {
     if (n == null || guard) {
       if (!isArrayLike(obj)) obj = _.values(obj);
@@ -780,7 +780,7 @@
   // Partially apply a function by creating a version that has had some of its
   // arguments pre-filled, without changing its dynamic `this` context. _ acts
   // as a placeholder by default, allowing any combination of arguments to be
-  // pre-filled. Set `_.partial.placeholder` for a custom placeholder argument.
+  // pre-filled. Set `_.partial.placeholder` for a custom placeholder actionArg.
   _.partial = restArguments(function(func, boundArgs) {
     var placeholder = _.partial.placeholder;
     var bound = function() {
@@ -913,7 +913,7 @@
     return debounced;
   };
 
-  // Returns the first function passed as an argument to the second,
+  // Returns the first function passed as an actionArg to the second,
   // allowing you to adjust arguments, run code before and after, and
   // conditionally execute the original function.
   _.wrap = function(func, wrapper) {
@@ -1592,16 +1592,16 @@
     });
     source += "';\n";
 
-    var argument = settings.variable;
-    if (argument) {
+    var actionArg = settings.variable;
+    if (actionArg) {
       // Insure against third-party code injection.
-      if (!bareIdentifier.test(argument)) throw new Error(
-        'variable is not a bare identifier: ' + argument
+      if (!bareIdentifier.test(actionArg)) throw new Error(
+        'variable is not a bare identifier: ' + actionArg
       );
     } else {
       // If a variable is not specified, place data values in local scope.
       source = 'with(obj||{}){\n' + source + '}\n';
-      argument = 'obj';
+      actionArg = 'obj';
     }
 
     source = "var __t,__p='',__j=Array.prototype.join," +
@@ -1610,7 +1610,7 @@
 
     var render;
     try {
-      render = new Function(argument, '_', source);
+      render = new Function(actionArg, '_', source);
     } catch (e) {
       e.source = source;
       throw e;
@@ -1621,7 +1621,7 @@
     };
 
     // Provide the compiled source as a convenience for precompilation.
-    template.source = 'function(' + argument + '){\n' + source + '}';
+    template.source = 'function(' + actionArg + '){\n' + source + '}';
 
     return template;
   };

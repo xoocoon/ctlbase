@@ -6,9 +6,16 @@ For core concepts, see the :mod:`~.control` module.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    
-   modules
+   config
+   translation
+   message
+   process
+   mode
+   interaction
+   credentials
+   control
+   shell
 
 Indices and tables
 ==================
