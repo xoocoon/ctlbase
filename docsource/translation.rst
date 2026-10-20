@@ -9,8 +9,8 @@ translation module
    :local:
    :depth: 1
 
-Classes
--------
+Main classes
+------------
  
 .. autoclass:: TranslationManager
    :members:

@@ -144,8 +144,8 @@ are:
 * ``succeeded``, if the action has been performed successfully, which is the
   default if `None` is given.
 
-Classes
--------
+Main classes
+------------
 
 .. autoclass:: Control
    :members:

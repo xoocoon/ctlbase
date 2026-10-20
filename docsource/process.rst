@@ -9,8 +9,8 @@ process module
    :local:
    :depth: 2
 
-Classes
--------
+Main classes
+------------
 
 .. autoclass:: LoopBase
    :members:

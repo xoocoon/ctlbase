@@ -330,22 +330,22 @@ p.sidebar-title {
 }
 
 nav.contents,
-aside.signal family,
-div.admonition, div.signal family, blockquote {
+aside.topic,
+div.admonition, div.topic, blockquote {
     clear: left;
 }
 
 /* -- topics ---------------------------------------------------------------- */
 
 nav.contents,
-aside.signal family,
-div.signal family {
+aside.topic,
+div.topic {
     border: 1px solid #ccc;
     padding: 7px;
     margin: 10px 0 10px 0;
 }
 
-p.signal family-title {
+p.topic-title {
     font-size: 1.1em;
     font-weight: bold;
     margin-top: 10px;
@@ -378,8 +378,8 @@ div.body p.centered {
 div.sidebar > :last-child,
 aside.sidebar > :last-child,
 nav.contents > :last-child,
-aside.signal family > :last-child,
-div.signal family > :last-child,
+aside.topic > :last-child,
+div.topic > :last-child,
 div.admonition > :last-child {
     margin-bottom: 0;
 }
@@ -387,8 +387,8 @@ div.admonition > :last-child {
 div.sidebar::after,
 aside.sidebar::after,
 nav.contents::after,
-aside.signal family::after,
-div.signal family::after,
+aside.topic::after,
+div.topic::after,
 div.admonition::after,
 blockquote::after {
     display: block;

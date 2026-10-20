@@ -21,7 +21,7 @@ const _ready = (callback) => {
   if (document.readyState !== "loading") {
     callback();
   } else {
-    document.addEventEventIterator("DOMContentLoaded", callback);
+    document.addEventListener("DOMContentLoaded", callback);
   }
 };
 
@@ -31,7 +31,7 @@ const _ready = (callback) => {
 const Documentation = {
   init: () => {
     Documentation.initDomainIndexTable();
-    Documentation.initOnKeyIterators();
+    Documentation.initOnKeyListeners();
   },
 
   /**
@@ -62,7 +62,7 @@ const Documentation = {
     return n === 1 ? singular : plural;
   },
 
-  addTranslationss: (catalog) => {
+  addTranslations: (catalog) => {
     Object.assign(Documentation.TRANSLATIONS, catalog.messages);
     Documentation.PLURAL_EXPR = new Function(
       "n",
@@ -96,21 +96,21 @@ const Documentation = {
 
     const togglerElements = document.querySelectorAll("img.toggler");
     togglerElements.forEach((el) =>
-      el.addEventEventIterator("click", (event) => toggler(event.currentTarget))
+      el.addEventListener("click", (event) => toggler(event.currentTarget))
     );
     togglerElements.forEach((el) => (el.style.display = ""));
     if (DOCUMENTATION_OPTIONS.COLLAPSE_INDEX) togglerElements.forEach(toggler);
   },
 
-  initOnKeyIterators: () => {
-    // only install an iterator if it is really needed
+  initOnKeyListeners: () => {
+    // only install a listener if it is really needed
     if (
       !DOCUMENTATION_OPTIONS.NAVIGATION_WITH_KEYS &&
       !DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS
     )
       return;
 
-    document.addEventEventIterator("keydown", (event) => {
+    document.addEventListener("keydown", (event) => {
       // bail for input elements
       if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
       // bail with special keys

@@ -9,8 +9,8 @@ shell module
    :local:
    :depth: 2
 
-Classes
--------
+Main classes
+------------
 
 .. autoclass:: ControlShell
    :members:

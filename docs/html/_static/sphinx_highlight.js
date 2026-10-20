@@ -128,11 +128,11 @@ const SphinxHighlight = {
     localStorage.removeItem("sphinx_highlight_terms")
   },
 
-  initEscapeEventIterator: () => {
-    // only install an iterator if it is really needed
+  initEscapeListener: () => {
+    // only install a listener if it is really needed
     if (!DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS) return;
 
-    document.addEventEventIterator("keydown", (event) => {
+    document.addEventListener("keydown", (event) => {
       // bail for input elements
       if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
       // bail with special keys
@@ -150,5 +150,5 @@ _ready(() => {
    * It will highlight words from the *previous* search query.
    */
   if (typeof Search === "undefined") SphinxHighlight.highlightSearchWords();
-  SphinxHighlight.initEscapeEventIterator();
+  SphinxHighlight.initEscapeListener();
 });

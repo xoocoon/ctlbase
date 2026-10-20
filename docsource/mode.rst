@@ -9,8 +9,8 @@ mode module
    :local:
    :depth: 2
 
-Classes
--------
+Main classes
+------------
 
 .. autoclass:: ModeDirHelper
    :members:
