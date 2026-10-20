@@ -570,15 +570,15 @@ representation. In this case, <a class="reference internal" href="#ctlbase.messa
 <a class="reference internal" href="#ctlbase.message.Message.fromDict" title="ctlbase.message.Message.fromDict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fromDict()</span></code></a> must be overridden, too.</p>
 <p>The following is an example for the default JSON representation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;NAMESPACE&quot;</span><span class="p">:</span> <span class="s2">&quot;SCREEN&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KEY&quot;</span><span class="p">:</span> <span class="s2">&quot;SET_MODE_SUCCEEDED&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ARGUMENTS&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;PREVENT_DOWN&quot;</span><span class="p">,</span>
+    <span class="s2">"NAMESPACE"</span><span class="p">:</span> <span class="s2">"SCREEN"</span><span class="p">,</span>
+    <span class="s2">"KEY"</span><span class="p">:</span> <span class="s2">"SET_MODE_SUCCEEDED"</span><span class="p">,</span>
+    <span class="s2">"ARGUMENTS"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"PREVENT_DOWN"</span><span class="p">,</span>
         <span class="mi">30</span>
     <span class="p">],</span>
-    <span class="s2">&quot;SEVERITY&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TEXT_EN&quot;</span><span class="p">:</span> <span class="s2">&quot;Set mode prevent-down for 30 seconds.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TEXT_DE&quot;</span><span class="p">:</span> <span class="s2">&quot;Modus prevent-down für 30 Sekunden gesetzt.&quot;</span>
+    <span class="s2">"SEVERITY"</span><span class="p">:</span> <span class="s2">"SUCCESS"</span><span class="p">,</span>
+    <span class="s2">"TEXT_EN"</span><span class="p">:</span> <span class="s2">"Set mode prevent-down for 30 seconds."</span><span class="p">,</span>
+    <span class="s2">"TEXT_DE"</span><span class="p">:</span> <span class="s2">"Modus prevent-down für 30 Sekunden gesetzt."</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -814,7 +814,7 @@ The message may be given in one of two forms:</p>
 <ol class="arabic">
 <li><p>As an instance of <a class="reference internal" href="#ctlbase.message.Message" title="ctlbase.message.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> or <a class="reference internal" href="#ctlbase.message.ErrorMessage" title="ctlbase.message.ErrorMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">ErrorMessage</span></code></a>,
 provided in <a class="reference internal" href="#ctlbase.message.MessageBuffer.append.params.msg" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">msg</span></code></a>. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span><span class="s2">&quot;Configuration file not found&quot;</span><span class="p">,</span> <span class="s1">&#39;CONFIG_NOT_FOUND&#39;</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span><span class="s2">"Configuration file not found"</span><span class="p">,</span> <span class="s1">'CONFIG_NOT_FOUND'</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
 <span class="n">msgBuffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -824,7 +824,7 @@ provided in <a class="reference internal" href="#ctlbase.message.MessageBuffer.a
 What is more, <a class="reference internal" href="#ctlbase.message.MessageBuffer.append.params.key" title="ctlbase.message.MessageBuffer.append"><code class="xref py py-paramref docutils literal notranslate"><span class="pre">key</span></code></a> must be 
 provided. All other attributes are optional and assume default values
 if not provided. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msgBuffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Configuration file not found&quot;</span><span class="p">,</span> <span class="s1">&#39;CONFIG_NOT_FOUND&#39;</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msgBuffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Configuration file not found"</span><span class="p">,</span> <span class="s1">'CONFIG_NOT_FOUND'</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="n">Severity</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>

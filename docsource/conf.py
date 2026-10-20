@@ -32,8 +32,8 @@ release = '1.0a3'
 # ones.
 extensions = [
   'sphinx.ext.autodoc',
-  'sphinx_paramlinks',
-  'sphinx.ext.intersphinx'
+  'sphinx.ext.intersphinx',
+  'sphinx_paramlinks'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

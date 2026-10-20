@@ -458,14 +458,14 @@
 <p>For each target language, a JSON-formatted translation file must exist. The
 following is an example for <code class="docutils literal notranslate"><span class="pre">de</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;defaultVariables&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Signalquelle&quot;</span>
+    <span class="s2">"defaultVariables"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"source"</span><span class="p">:</span> <span class="s2">"Signalquelle"</span>
     <span class="p">},</span>
-    <span class="s2">&quot;SOURCE_SET_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;{{source}} gewählt.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;THREED_ON_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;3D-Modus eingeschaltet.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;THREED_OFF_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;3D-Modus ausgeschaltet.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MODE_SET_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;Modus {{mode}} für {{timeout}} Sekunden gesetzt.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MODE_UNSET_SUCCEEDED&quot;</span><span class="p">:</span> <span class="s2">&quot;Modus {{mode}} zurückgenommen.&quot;</span>
+    <span class="s2">"SOURCE_SET_SUCCEEDED"</span><span class="p">:</span> <span class="s2">"{{source}} gewählt."</span><span class="p">,</span>
+    <span class="s2">"THREED_ON_SUCCEEDED"</span><span class="p">:</span> <span class="s2">"3D-Modus eingeschaltet."</span><span class="p">,</span>
+    <span class="s2">"THREED_OFF_SUCCEEDED"</span><span class="p">:</span> <span class="s2">"3D-Modus ausgeschaltet."</span><span class="p">,</span>
+    <span class="s2">"MODE_SET_SUCCEEDED"</span><span class="p">:</span> <span class="s2">"Modus {{mode}} für {{timeout}} Sekunden gesetzt."</span><span class="p">,</span>
+    <span class="s2">"MODE_UNSET_SUCCEEDED"</span><span class="p">:</span> <span class="s2">"Modus {{mode}} zurückgenommen."</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -473,9 +473,9 @@ following is an example for <code class="docutils literal notranslate"><span cla
 identified by an individual key. What is more, each translation may contain
 one or more variable names enclosed in double curly braces.</p>
 <p>A variable name in turn can either be a numeric index or a semantic key:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Modus {{0}} für {{1}} Sekunden gesetzt.&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">"Modus {{0}} für {{1}} Sekunden gesetzt."</span>
 <span class="c1"># or</span>
-<span class="s2">&quot;Modus {{mode}} für {{timeout}} Sekunden gesetzt.&quot;</span>
+<span class="s2">"Modus {{mode}} für {{timeout}} Sekunden gesetzt."</span>
 </pre></div>
 </div>
 <p>At runtime, variables are replaced by their actual values. If, during the

@@ -11,7 +11,7 @@ egg_base = "."
 [project]
 name = "ctlbase"
 description = "An asyncio-based package for creating CLI utilities and service daemons."
-version = "1.0a2"
+version = "1.0a3"
 dependencies = ["aiofiles>=0.6"]
 authors = [
   {name = "xoocoon", email = "54350963+xoocoon@users.noreply.github.com"}
@@ -25,9 +25,9 @@ classifiers = [
   "Operating System :: POSIX :: Linux",
   "Framework :: AsyncIO",
   "Programming Language :: Python :: 3.9",
-  "Topic :: Software Development :: Libraries :: Python Modules",
-  "Topic :: System :: Shells",
-  "Topic :: Utilities"
+  "SignalFamily :: Software Development :: Libraries :: Python Modules",
+  "SignalFamily :: System :: Shells",
+  "SignalFamily :: Utilities"
 ]
 
 [project.optional-dependencies]
